@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5e8731ac-8190-46e8-ac17-3ab52bb809bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/craco.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/craco.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/Authorized.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/aws-exports.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Authentication/authentication.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Authentication/controls.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Authentication/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Authentication/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Charts/Main/BTC/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Charts/Main/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Charts/Main/util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Dialogs/Blockchain/BlockchainAnimation/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Dialogs/Blockchain/BlockchainAnimation/index.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Dialogs/Blockchain/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Dialogs/Error/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Dialogs/Success/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Footer/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Footer/index.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/GlobalHeader/RightContent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/GlobalHeader/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/GlobalHeader/index.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/GlobalSidebar/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/GlobalSidebar/index.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/HeaderDropdown/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/HeaderDropdown/index.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Loading/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Loading/index.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Price/Table/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Price/Table/index.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Price/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Price/index.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Price/util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Tokens/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/customTheme.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/layouts/BasicLayout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/layouts/BasicLayout.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/layouts/LoginLayout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/layouts/LoginLayout.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/locales/en-US.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/locales/en-US/analysis.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/locales/en-US/brands.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/locales/en-US/types.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/locales/zh-CN.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/locales/zh-CN/analysis.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/models/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/models/trade.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/pages/Dashboard/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/pages/Dashboard/index.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/assessment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/balance.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/finance.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/flowdata.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/insurance.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/meter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/nominatedVolume.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/oilasset.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/oilinspection.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/participant.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/pipeline.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/region.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/tank.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/tankReservations.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/tankStats.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/terminal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/utils/request.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectId" id="1fXilWkb5iHw1u0kyqx0ODuwjvR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e8731ac-8190-46e8-ac17-3ab52bb809bd" name="Default Changelist" comment="" />
+      <created>1596370989520</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596370989520</updated>
+      <workItem from="1596370990837" duration="792000" />
+      <workItem from="1596372770616" duration="285000" />
+      <workItem from="1596374027413" duration="666000" />
+      <workItem from="1596386843028" duration="299000" />
+      <workItem from="1601892280990" duration="364000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="348" y="45" width="1075" height="719" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1596374197203">
+      <screen x="0" y="23" width="1680" height="977" />
+    </state>
+    <state x="348" y="45" width="1075" height="719" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.977@0.23.1680.977" timestamp="1596374197203" />
+    <state x="742" y="261" width="598" height="490" key="find.popup" timestamp="1596387037762">
+      <screen x="0" y="23" width="1680" height="977" />
+    </state>
+    <state x="742" y="261" width="598" height="490" key="find.popup/0.23.1680.977@0.23.1680.977" timestamp="1596387037762" />
+  </component>
+</project>
