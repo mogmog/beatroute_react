@@ -4927,11 +4927,6 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cesium-react@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/cesium-react/-/cesium-react-0.2.2.tgz#b1be61a5dd41f9faa9f8385b40909b723f0e9573"
-  integrity sha512-xgreKomYMhZIKDNmtEJLu5W/8YdzLP9wFQ9ov1FxAMFy72wWsXqlDwEwuVAS7ql7N+4hGZYikt4BMlKrevXrWg==
-
 cesium@^1.71.0:
   version "1.74.0"
   resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.74.0.tgz#79038abd40eb3e3a3223162d0984daf6d09496fb"
@@ -14043,6 +14038,23 @@ text-table@0.2.0, text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
+
+three.js@^0.77.1:
+  version "0.77.1"
+  resolved "https://registry.yarnpkg.com/three.js/-/three.js-0.77.1.tgz#07858a8749e4b627a31083252a2d987776cca32a"
+  integrity sha1-B4WKh0nktiejEIMlKi2Yd3bMoyo=
+  dependencies:
+    three "0.77.0"
+
+three@0.77.0:
+  version "0.77.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.77.0.tgz#8b0b1b00047689ceaa020d480a562ca60d87ff37"
+  integrity sha1-iwsbAAR2ic6qAg1IClYspg2H/zc=
+
+three@^0.121.1:
+  version "0.121.1"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.121.1.tgz#fda39cf4701d02be9c3be5c27ccea24b7a1ea59b"
+  integrity sha512-+rYhNpW5W1aBdLkPQDld/GA4Sj/uOKJJKVpCAZUbpk/HZEiYRUlPt8+s+9nmxRglWmRHdBa3ERvUwqg4nmoA5w==
 
 throat@^4.0.0:
   version "4.1.0"

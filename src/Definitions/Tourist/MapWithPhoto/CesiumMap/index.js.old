@@ -1,0 +1,135 @@
+import React, {useState, useEffect} from 'react';
+import { Scene, Globe, Viewer, WallGraphics, ImageryLayer, PostProcessStage, Fog, Entity, CameraFlyTo, BlackAndWhiteStage } from 'resium';
+import {ArcGisMapServerImageryProvider, IonImageryProvider, Color, SceneTransitioner, Cartesian3} from "cesium";
+import { useCesium } from "resium";
+
+import {BitmapLayer} from "@deck.gl/layers";
+import {SimpleMeshLayer} from '@deck.gl/mesh-layers';
+import {PlaneGeometry} from '@luma.gl/engine';
+import {TileLayer} from '@deck.gl/geo-layers';
+import GL from '@luma.gl/constants';
+
+import MapMaker from "./../../../../../MapMaker";
+
+import CanvasMap from "../canvasmap";
+
+export default  ({card})=> {
+
+    const viewer = useCesium();
+
+    console.log(viewer);
+    //     const mapbox = new TileLayer({
+    //         data: 'https://api.mapbox.com/styles/v1/mogmog/ck8boevcn13a31ip5x5zgv5pb/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibW9nbW9nIiwiYSI6ImNpZmI2eTZuZTAwNjJ0Y2x4a2g4cDIzZTcifQ.qlITXIamvfVj-NCTtAGylw',
+    //
+    //         minZoom: 0,
+    //         maxZoom: 19,
+    //
+    //     renderSubLayers: props => {
+    //         const {
+    //             bbox: {west, south, east, north}
+    //         } = props.tile;
+    //
+    //         //console.log(this);
+    //         return new BitmapLayer(props, {
+    //             data: null,
+    //             image: props.data,
+    //             bounds: [west, south, east, north]
+    //         });
+    //     }
+    // });
+
+    // const photo = new BitmapLayer({
+    //     id: 'bitmap-layerlogo',
+    //     xbounds: [-122.4450, 37.7885, -122.4390, 37.795],
+    //     image: '/photo.jpeg',
+    //     opacity : 1,
+    //     bounds:   [
+    //         [ -122.44211196899414, 37.7983569888599, 10],
+    //         [-122.44382858276366,
+    //             37.80856335276034, 10],
+    //         [  -122.41670608520508,
+    //             37.812903173094604,10],
+    //         [  -122.40949630737303,
+    //             37.792829365900836,10]
+    //     ]
+    // });
+
+
+    // const photo_angled = new SimpleMeshLayer ({
+    //     id: 'props.id',
+    //
+    //     data : [{position: [-122.44211196899414, 37.7983569888599]}],
+    //     mesh: new PlaneGeometry({
+    //         type: 'x,y',
+    //         xlen: 180,
+    //         ylen: 200,
+    //         nx: 5,
+    //         nz: 5,
+    //         offset: 100
+    //     }),
+    //     texture: '/photo.jpeg',
+    //     getColor : (d)=> [255,0,0,125],
+    //     sizeScale: 40,
+    //     getOrientation : [0,5, -180],
+    //     getTranslation : [0, 0, 40 + (40 * 200)/2],
+    //
+    // });
+
+    const paper = new BitmapLayer({
+        id: 'bitmap-layer2',
+        bounds: [-122.5190, 37.7045, -122.355, 37.829],
+        image: '/paper4.jpg',
+
+
+    });
+
+    const cesium = new CanvasMap( {test : 1, context : viewer });
+
+    const map = new BitmapLayer({
+        id: 'bitmap-layer1',
+        bounds: [-122.5190, 37.7045, -122.355, 37.829],
+        image: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/sf-districts.png',
+        opacity : 0.5,
+        //modelMatrix: new Matrix4().rotateY(1),
+        parameters: {
+            depthTest: true,
+            depthMask: true,
+
+            blend: true,
+            blendEquation: GL.FUNC_ADD,
+            blendFunc: [GL.ONE, GL.ONE_MINUS_SRC_COLOR]
+        }
+    });
+
+        return (
+
+            <div>
+
+                <Viewer full >
+
+                    <Scene backgroundColor={Color.ALICEBLUE}
+                    >
+                        <Globe
+                            baseColor={Color.ALICEBLUE}
+                            enableLighting={false}
+                        >
+
+                        </Globe>
+
+                    </Scene>
+
+                    <MapMaker
+                        effects={[]}
+                        layers={[ paper, map, cesium]}
+                        data={[]}
+                        card={card}
+
+                        // style={{width : '800px', height : '800px'}}
+                        //updateCard={(cam) => { updateCard && updateCard({variables : {card_id : card.id, camera : cam}})}}
+                    />
+                </Viewer>
+
+            </div>
+        );
+
+}

@@ -20,76 +20,89 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e8731ac-8190-46e8-ac17-3ab52bb809bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/craco.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/example.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/main_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/requirements-test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/write.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handwriting/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handwriting/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handwriting/stylesheet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handwriting/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handwriting/world_merc.dbf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handwriting/world_merc.shp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handwriting/world_merc.shx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/d.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/textures/cork.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/textures/wood.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/CardManager/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/Rect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Front/Handwriting/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Front/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Deck/CustomGeometry.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Deck/OrbitController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Deck/VideoLayer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Deck/VideoLayer2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Deck/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Effects/Blurrer/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Holders/Overlay/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Holders/Overlay/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/Chapter/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/Chapter/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/FrontCover/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/FrontCover/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/MapWithPhoto/Canvas/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/MapWithPhoto/CesiumMap/NewBitmap/bitmap-layer/bitmap-layer-fragment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/MapWithPhoto/CesiumMap/NewBitmap/bitmap-layer/bitmap-layer-fragment.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/MapWithPhoto/CesiumMap/NewBitmap/bitmap-layer/bitmap-layer-vertex.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/MapWithPhoto/CesiumMap/NewBitmap/bitmap-layer/bitmap-layer-vertex.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/MapWithPhoto/CesiumMap/NewBitmap/bitmap-layer/bitmap-layer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/MapWithPhoto/CesiumMap/NewBitmap/bitmap-layer/bitmap-layer.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/MapWithPhoto/CesiumMap/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/MapWithPhoto/CesiumMap/index.js.old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/MapWithPhoto/CesiumMap/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/MapWithPhoto/canvasmap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/MapWithPhoto/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/PhotoCard/VintageMap/CombinedFrame.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/PhotoCard/VintageMap/NewBitmap/bitmap-layer/bitmap-layer-fragment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/PhotoCard/VintageMap/NewBitmap/bitmap-layer/bitmap-layer-fragment.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/PhotoCard/VintageMap/NewBitmap/bitmap-layer/bitmap-layer-vertex.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/PhotoCard/VintageMap/NewBitmap/bitmap-layer/bitmap-layer-vertex.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/PhotoCard/VintageMap/NewBitmap/bitmap-layer/bitmap-layer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/PhotoCard/VintageMap/NewBitmap/bitmap-layer/bitmap-layer.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/PhotoCard/VintageMap/NewBitmap/bitmap-layer/orig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/PhotoCard/VintageMap/Photo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/PhotoCard/VintageMap/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/PhotoCard/VintageMap/index.js.old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/PhotoCard/VintageMap/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/PhotoCard/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Definitions/Tourist/PhotoCard/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Layout/ScrollTrigger/card-group-scroll/CardGroupScroll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Layout/ScrollTrigger/card-group-scroll/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Layout/ScrollTrigger/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Layout/ScrollTrigger/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Layout/ScrollTrigger/underlay-background/UnderlayBackground.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Layout/ScrollTrigger/underlay-background/style.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handwriting/.gcloudignore" beforeDir="false" afterPath="$PROJECT_DIR$/handwriting/.gcloudignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handwriting/app.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/handwriting/example.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/handwriting/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/handwriting/main_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/handwriting/requirements-test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/handwriting/requirements.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/craco.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/Authorized.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/aws-exports.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Authentication/authentication.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Authentication/controls.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Authentication/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Authentication/login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Charts/Main/BTC/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Charts/Main/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Charts/Main/util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Dialogs/Blockchain/BlockchainAnimation/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Dialogs/Blockchain/BlockchainAnimation/index.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Dialogs/Blockchain/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Dialogs/Error/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Dialogs/Success/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Footer/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Footer/index.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/GlobalHeader/RightContent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/GlobalHeader/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/GlobalHeader/index.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/GlobalSidebar/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/GlobalSidebar/index.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/HeaderDropdown/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/HeaderDropdown/index.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Loading/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Loading/index.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Price/Table/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Price/Table/index.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Price/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Price/index.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Price/util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/components/Tokens/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/customTheme.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/layouts/BasicLayout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/layouts/BasicLayout.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/layouts/LoginLayout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/layouts/LoginLayout.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/locales/en-US.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/locales/en-US/analysis.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/locales/en-US/brands.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/locales/en-US/types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/locales/zh-CN.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/locales/zh-CN/analysis.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/models/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/models/trade.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/pages/Dashboard/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/pages/Dashboard/index.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/assessment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/balance.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/finance.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/flowdata.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/insurance.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/meter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/nominatedVolume.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/oilasset.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/oilinspection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/participant.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/pipeline.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/region.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/tank.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/tankReservations.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/tankStats.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/services/terminal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../oil-escrow-exchange/src/utils/request.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,21 +122,31 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/handwriting" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Components/Cards/PhotosOnMap" />
+      <recent name="$PROJECT_DIR$/src/Components/Cards/Front" />
+      <recent name="$PROJECT_DIR$/api" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/handwriting" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/Components/Deck" />
+      <recent name="$PROJECT_DIR$/public/textures" />
+      <recent name="$PROJECT_DIR$/src/Components" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -140,7 +163,11 @@
       <workItem from="1596372770616" duration="285000" />
       <workItem from="1596374027413" duration="666000" />
       <workItem from="1596386843028" duration="299000" />
-      <workItem from="1601892280990" duration="364000" />
+      <workItem from="1601892280990" duration="27199000" />
+      <workItem from="1602021292644" duration="2041000" />
+      <workItem from="1602258156542" duration="4039000" />
+      <workItem from="1602337144013" duration="38814000" />
+      <workItem from="1602590738264" duration="1781000" />
     </task>
     <servers />
   </component>
@@ -160,13 +187,30 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="348" y="45" width="1075" height="719" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1596374197203">
-      <screen x="0" y="23" width="1680" height="977" />
+    <state x="435" y="315" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602506291844">
+      <screen x="0" y="23" width="1680" height="967" />
     </state>
+    <state x="435" y="315" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.967@0.23.1680.967" timestamp="1602506291844" />
+    <state x="435" y="316" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.970@0.23.1680.970" timestamp="1601894192454" />
+    <state x="348" y="45" width="1075" height="716" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1602526208191">
+      <screen x="0" y="23" width="1680" height="972" />
+    </state>
+    <state x="348" y="45" width="1075" height="714" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.970@0.23.1680.970" timestamp="1602022407259" />
+    <state x="348" y="45" width="1075" height="716" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.972@0.23.1680.972" timestamp="1602526208191" />
     <state x="348" y="45" width="1075" height="719" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.977@0.23.1680.977" timestamp="1596374197203" />
-    <state x="742" y="261" width="598" height="490" key="find.popup" timestamp="1596387037762">
-      <screen x="0" y="23" width="1680" height="977" />
+    <state x="805" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602531394656">
+      <screen x="0" y="23" width="1680" height="972" />
     </state>
+    <state x="805" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.972@0.23.1680.972" timestamp="1602531394656" />
+    <state x="742" y="258" width="598" height="490" key="find.popup" timestamp="1602502762629">
+      <screen x="0" y="23" width="1680" height="967" />
+    </state>
+    <state x="742" y="258" width="598" height="490" key="find.popup/0.23.1680.967@0.23.1680.967" timestamp="1602502762629" />
+    <state x="742" y="259" width="598" height="490" key="find.popup/0.23.1680.970@0.23.1680.970" timestamp="1601911263009" />
     <state x="742" y="261" width="598" height="490" key="find.popup/0.23.1680.977@0.23.1680.977" timestamp="1596387037762" />
+    <state x="766" y="248" width="670" height="676" key="search.everywhere.popup" timestamp="1602424219723">
+      <screen x="0" y="23" width="1680" height="970" />
+    </state>
+    <state x="766" y="248" width="670" height="676" key="search.everywhere.popup/0.23.1680.970@0.23.1680.970" timestamp="1602424219723" />
   </component>
 </project>

@@ -1,0 +1,187 @@
+/* eslint-disable max-statements */
+import React, {useState} from 'react';
+import {render} from 'react-dom';
+import DeckGL from '@deck.gl/react';
+
+import {WebMercatorViewport} from '@deck.gl/core';
+
+import {AmbientLight, PointLight, DirectionalLight, LightingEffect} from '@deck.gl/core';
+
+import Combined from './CombinedFrame'
+import {Matrix4} from 'math.gl';
+//import Photo from './Photo'
+
+import {TerrainLayer} from '@deck.gl/geo-layers';
+
+import {TextLayer} from '@deck.gl/layers';
+
+import BitmapLayer from './NewBitmap/bitmap-layer/bitmap-layer'
+
+import {TileLayer} from '@deck.gl/geo-layers';
+
+import {PostProcessEffect} from '@deck.gl/core';
+
+import {SimpleMeshLayer} from '@deck.gl/mesh-layers';
+import {PlaneGeometry, CubeGeometry} from '@luma.gl/engine';
+
+import * as d3 from 'd3';
+
+import {brightnessContrast, dotScreen, vignette, tiltShift, ink, vibrance, hexagonalPixelate, noise, hueSaturation} from '@luma.gl/shadertools';
+
+// create ambient light source
+const ambientLight = new AmbientLight({
+    color: [255, 255, 255],
+    intensity: 3.0
+});
+
+// create point light source
+const pointLight = new PointLight({
+    color: [255, 255, 255],
+    intensity: 2.0,
+    // use coordinate system as the same as view state
+    position: [ -122.5233 , 37.6493, 5000]
+});
+
+const INITIAL_VIEW_STATE = {
+
+    zoom: 9.118817401028235,
+
+
+    longitude: -122.19447943356916,
+    latitude: 37.69231180529589,
+
+    bearing: 0,
+    pitch: 0,
+    maxZoom : 14,
+    minZoom : 2
+};
+
+const TERRAIN_IMAGE = `https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png`;
+const COLOUR_IMAGE = `https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}@2x.png?access_token=pk.eyJ1IjoibW9nbW9nIiwiYSI6ImNpZmI2eTZuZTAwNjJ0Y2x4a2g4cDIzZTcifQ.qlITXIamvfVj-NCTtAGylw`;
+
+const ELEVATION_DECODER = {
+    rScaler: 256,
+    gScaler: 1,
+    bScaler: 1/256,
+    offset: -32768
+};
+
+
+
+export default function TerrainMap({
+    canvas,
+                                       noiseAmount,
+                                       saturationAmount,
+                                       contrastAmount,
+                                       vibranceAmount,
+                                       meshAmount,
+                                       dotAmount,
+                                       inkAmount,
+                                       vignetteAmount,
+                                       wireframe = false,
+                                       initialViewState = INITIAL_VIEW_STATE,
+                                       timeAmount,
+                                       out
+                                   }) {
+
+    const [v, setV] = useState(new WebMercatorViewport(initialViewState));
+
+
+    // const canvas = new Gel();
+    // canvas.animate();
+
+    //console.log(canvas);
+
+    const zoomScale = d3.scaleLinear().domain([9, 11]).range([1, 0]).clamp(true);
+    const terrainScale = d3.scaleLinear().domain([9, 11]).range([0, 1]).clamp(true);
+
+    const opacity = (v.zoom) < 8 ? 1 : zoomScale(v.zoom);
+    const terrainopacity = (v.zoom) < 8 ? 0 : terrainScale(v.zoom);
+
+    const maplayer = new TileLayer({
+        data: 'https://api.mapbox.com/styles/v1/mogmog/ck8ab16k20dw61imtg6hlx44k/draft/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibW9nbW9nIiwiYSI6ImNpZmI2eTZuZTAwNjJ0Y2x4a2g4cDIzZTcifQ.qlITXIamvfVj-NCTtAGylw',
+
+        renderSubLayers: props => {
+            const {
+                bbox: {west, south, east, north}
+            } = props.tile;
+
+            //console.log(west);
+
+
+            return new BitmapLayer(props, {
+
+                data: null,
+                image: props.data,
+
+                //updateTriggers : { opacity : [v.zoom] },
+
+                opacity: 1,
+
+                bounds: [west, south, east, north]
+            });
+        }
+    });
+
+
+    const combined = new Combined({
+        title: 'Week 1 - California',
+        image: 'https://api.mapbox.com/styles/v1/mapbox/light-v10/static/-122.4809,37.7736,12.97,0/1280x1280@2x?access_token=pk.eyJ1IjoibW9nbW9nIiwiYSI6ImNpZmI2eTZuZTAwNjJ0Y2x4a2g4cDIzZTcifQ.qlITXIamvfVj-NCTtAGylw',
+        out: true,
+        center: [-122.5390, 37.6045]
+    });
+
+    //const photo = new Photo({ out : out, center : [-122.5390, 37.6045]});
+
+    const noiseEffect = new PostProcessEffect(noise, {amount: 0.1});
+    const dofEffect = new PostProcessEffect(tiltShift);
+
+
+    const photo = new SimpleMeshLayer({
+        id: 'dfdsfsdf',
+        data: [{position: [-122.5390, 37.6045]}],
+        mesh: new PlaneGeometry({
+            type: 'x,y',
+            xlen: 180,
+            ylen: 200,
+            nx: 5,
+            nz: 5,
+            offset: 1
+        }),
+        texture: '/photo.jpeg',
+        //getColor : (d)=> [255,0,0,125],
+        sizeScale: 30,
+        getOrientation: [0, 0, 180],
+        modelMatrix: new Matrix4().makeTranslation(0, 0, out * 30),
+        parameters: {
+            blend: true,
+            depthTest: false
+        }
+
+    });
+
+
+    const layer = new SimpleMeshLayer({
+        id: 'mesh-layer',
+        data: [{position: [-122.5390, 37.6045]}],
+        texture: 'https://placekitten.com/200/300',
+        sizeScale: 0,
+        opacity: 0,
+        mesh: new CubeGeometry(),
+        parameters: {
+            blend: true,
+            depthTest: false
+        }
+    });
+
+    return <DeckGL
+        initialViewState={v}
+        viewState={v}
+        onViewStateChange={(v) => setV(new WebMercatorViewport(v.viewState))}
+        controller={true}
+        _animate={true}
+        layers={[layer, combined, photo]}/>
+
+
+}
+

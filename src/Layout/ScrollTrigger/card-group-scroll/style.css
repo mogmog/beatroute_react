@@ -1,0 +1,16 @@
+.card-group {
+    margin: auto;
+    background-color: unset;
+}
+.card-group .card-group-item {
+    height: 100vh;
+    padding: 24px;
+    background-color: #fff;
+}
+
+.card-group-header {
+    background-color: #FC466B;
+    padding: 32px;
+    color: #ffffff;
+}
+
