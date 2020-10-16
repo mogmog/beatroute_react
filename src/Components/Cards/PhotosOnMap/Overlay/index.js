@@ -9,11 +9,13 @@ class MapOverlay extends Component {
       return (
         <div className={'MapOverlay'}>
 
-            <div className={'map'} >
-
+            { this.props.map && <div className={'map'} >
                     {this.props.map}
+            </div> }
 
-            </div>
+            {this.props.preview && <div className={'preview'} >
+                {this.props.preview}
+            </div> }
 
         </div>
       );

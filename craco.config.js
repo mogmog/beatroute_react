@@ -1,6 +1,6 @@
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const WebpackBar = require("webpackbar");
-const { styles } = require("@ckeditor/ckeditor5-dev-utils");
+//const { styles } = require("@ckeditor/ckeditor5-dev-utils");
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const CracoAntDesignPlugin = require("craco-antd");
@@ -29,16 +29,8 @@ const enableCKEWebpackConfigPlugin = (webpackConfig, { env, paths }) => {
           options: {
             injectType: "singletonStyleTag"
           }
-        },
-        {
-          loader: "postcss-loader",
-          options: styles.getPostCssConfig({
-            themeImporter: {
-              themePath: require.resolve("@ckeditor/ckeditor5-theme-lark")
-            },
-            minify: true
-          })
         }
+
       ]
     }
   ];

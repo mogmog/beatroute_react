@@ -8,6 +8,7 @@ import { Query } from "react-apollo";
 
 import gql from "graphql-tag";
 
+import CardSaver from './Components/Saver'
 import Front        from "./Components/Cards/Front";
 import PhotosOnMap  from "./Components/Cards/PhotosOnMap";
 
@@ -59,11 +60,14 @@ export default class WebMapView extends React.Component {
 
                         return <div>
 
-                            {cards.map((card, i) => {
-                            if (card.type === 'Front')          return <Front       key={card.id} card={card}/>
-                            if (card.type === 'PhotosOnMap')    return <PhotosOnMap key={card.id} card={card}/>
-                            return null;
-                        })}
+                                    {cards.map((card, i) => {
+                                        if (card.type === 'Front') return <Front key={card.id} card={card}/>
+                                        if (card.type === 'PhotosOnMap') return <PhotosOnMap
+                                                                                             key={card.id}
+                                                                                             card={card}/>
+                                        return null;
+                                    })}
+
                         </div>
 
                     }}

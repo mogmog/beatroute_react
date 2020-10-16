@@ -17,8 +17,8 @@ export function CustomGeometry ({ size, holed }) {
 
     shape.moveTo(0, 0);
     shape.lineTo(size, 0);
-    shape.lineTo(size, size *  4.5);
-    shape.lineTo(0, size *  4.5);
+    shape.lineTo(size, size );
+    shape.lineTo(0, size );
     shape.lineTo(0, 0);
 
 
