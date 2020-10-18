@@ -23,25 +23,14 @@ export default ({width=480, height=100, text, children}) => {
 
         if (svg) {
 
-           // document.getElementById("myPath").getBBox();
-
             const d3svg = d3.select(d3Container.current);
 
             var highlightElement = d3svg.select('#highlight');
 
             var bboxGroup = d3svg.select('#words').node().getBBox()
 
-            const svg = d3svg;
             const rc = rough.svg(svg);
 
-            // highlightElement.append("rect")
-            //     .attr("width", bboxGroup.width)
-            //     .attr("height", bboxGroup.height)
-            //     .attr("x", bboxGroup.x)
-            //     .attr("y", bboxGroup.y)
-
-            // highlightElement.attr('transform' , `translate(0, ${ bboxGroup.height })`)
-            // //line and rectangle
             const line = highlightElement.node().appendChild(rc.line(bboxGroup.x - 30, 0, bboxGroup.x +  bboxGroup.width + 20, 0, {
                 stroke: 'black',
                 roughness: 0.3,

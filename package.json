@@ -21,7 +21,7 @@
     "d3": "^5.15.0",
     "deck.gl": "^8.2.8",
     "graphql": "^14.2.1",
-    "graphql-tag": "^2.10.3",
+    "graphql-tag": "^2.11.0",
     "gsap": "^3.4.0",
     "lodash": "^4.17.19",
     "path": "^0.12.7",
@@ -40,6 +40,7 @@
     "webpack-bundle-analyzer": "^3.1.0",
     "webpack-manifest-plugin": "2.0.4",
     "webpackbar": "^3.1.5",
+    "wired-elements": "^2.1.2",
     "yarn": "^1.22.10"
   },
   "scripts": {

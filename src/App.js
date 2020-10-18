@@ -8,9 +8,11 @@ import { Query } from "react-apollo";
 
 import gql from "graphql-tag";
 
+
 import CardSaver from './Components/Saver'
 import Front        from "./Components/Cards/Front";
 import PhotosOnMap  from "./Components/Cards/PhotosOnMap";
+import Map  from "./Components/Cards/PhotosOnMap/Map";
 
 const GETCARD = gql`
                 {
@@ -45,7 +47,7 @@ export default class WebMapView extends React.Component {
 
         const data = {"page":[{"user_id":123,"layout":"WoodFrame","timestamp":"2020-04-01T00:00:00+00:00","cards":[{"card":{"id":100,"html":"Northumbria 2021","type":"FrontCover","camera":{"x":2553700.249376615,"y":-1.115334886935115e-9,"z":9000673.36695155},"__typename":"cards"},"__typename":"card_positions"},{"card":{"id":97,"html":"Week 1","type":"Chapter","camera":{"x":4553700.249376615,"y":-1.115334886935115e-9,"z":9000673.36695155},"__typename":"cards"},"__typename":"card_positions"},{"card":{"id":101,"html":"","type":"PhotoCard","camera":null,"__typename":"cards"},"__typename":"card_positions"}],"__typename":"page"}]}
 
-        //return <Script/>
+        //return <Map/>
 
         if (true) return <Fragment>
 
@@ -61,9 +63,10 @@ export default class WebMapView extends React.Component {
                         return <div>
 
                                     {cards.map((card, i) => {
-                                        if (card.type === 'Front') return <Front key={card.id} card={card}/>
+                                        if (card.type === 'Front') return <Front key={card.id} card={card} index={i}/>
                                         if (card.type === 'PhotosOnMap') return <PhotosOnMap
                                                                                              key={card.id}
+                                                                                             index={i}
                                                                                              card={card}/>
                                         return null;
                                     })}
