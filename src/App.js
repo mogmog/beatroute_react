@@ -8,11 +8,8 @@ import { Query } from "react-apollo";
 
 import gql from "graphql-tag";
 
-
-import CardSaver from './Components/Saver'
 import Front        from "./Components/Cards/Front";
 import PhotosOnMap  from "./Components/Cards/PhotosOnMap";
-import Map  from "./Components/Cards/PhotosOnMap/Map";
 
 const GETCARD = gql`
                 {
@@ -27,6 +24,7 @@ const GETCARD = gql`
                         html
                         type
                         camera
+                        content
                       }
                     }
                   }
@@ -60,18 +58,24 @@ export default class WebMapView extends React.Component {
 
                         const cards = data.page[0].cards.map(d => d.card);
 
-                        return <div>
+                        return <Fragment>
 
-                                    {cards.map((card, i) => {
-                                        if (card.type === 'Front') return <Front key={card.id} card={card} index={i}/>
+                                    <div>
+                                    {true && cards.map((card, i) => {
+                                        if (card.type === 'Front') return <Front key={i + '' + card.id} card={card} index={i}/>
                                         if (card.type === 'PhotosOnMap') return <PhotosOnMap
-                                                                                             key={card.id}
+                                                                                             key={i + '' + card.id}
                                                                                              index={i}
                                                                                              card={card}/>
                                         return null;
                                     })}
+                                    </div>
 
-                        </div>
+                                    {/*<div style={{height  : '2600px', width : '100%', background : 'red'}}>*/}
+                                    {/*    end*/}
+                                    {/*</div>*/}
+
+                        </Fragment>
 
                     }}
 

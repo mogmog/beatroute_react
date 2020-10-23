@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react'
 import * as d3 from 'd3';
 import  rough from 'roughjs/bundled/rough.esm';
 
-export default ({width=480, height=100, text, children}) => {
+export default ({width=350, height=100, text, children}) => {
 
     const [svg, setSVG] = useState(null);
     const d3Container = useRef(null);
@@ -54,7 +54,7 @@ export default ({width=480, height=100, text, children}) => {
                 <filter x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox" id="roughPaper">
                     <feTurbulence type="fractalNoise" baseFrequency="128" numOctaves="1" result="noise">
                     </feTurbulence>
-                    <feDiffuseLighting in="noise" lighting-color="white" surfaceScale="1" result="diffLight">
+                    <feDiffuseLighting in="noise" lightingColor="white" surfaceScale="1" result="diffLight">
                         <feDistantLight azimuth="45" elevation="55">
                         </feDistantLight>
                     </feDiffuseLighting>
