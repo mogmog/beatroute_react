@@ -20,7 +20,7 @@ export default ({children}) => {
     return <div>
 
         <Mutation
-            onError={() => notification.warning({message: 'Could not save camera'})}
+            onError={() => alert('Could not save camera')}
             mutation={SAVE_CARD}
              >
 

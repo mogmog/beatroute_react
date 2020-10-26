@@ -1,4 +1,9 @@
-import React, {Fragment, useState} from 'react';
+import React, { Fragment, useRef, useEffect, useState } from 'react';
+import { gsap } from "gsap";
+import './App.less';
+
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 
 import { ApolloClient, InMemoryCache, HttpLink } from 'apollo-boost';
 
@@ -10,6 +15,9 @@ import gql from "graphql-tag";
 
 import Front        from "./Components/Cards/Front";
 import PhotosOnMap  from "./Components/Cards/PhotosOnMap";
+
+import SVGScroll from './Components/svg-scroll/SVGScroll';
+import CardScroll from './Components/card-scroll/CardScroll';
 
 const GETCARD = gql`
                 {
@@ -31,59 +39,148 @@ const GETCARD = gql`
                 }
 `
 
-export default class WebMapView extends React.Component {
+gsap.registerPlugin(ScrollTrigger);
 
-    state = { selectedCardSet : null };
+const httpLink = new HttpLink({ uri: 'https://beatroute2019.herokuapp.com/v1/graphql' });
 
-    httpLink = new HttpLink({ uri: 'https://beatroute2019.herokuapp.com/v1/graphql' });
+const client = new ApolloClient({ link: (httpLink), cache: new InMemoryCache() });
 
-    client = new ApolloClient({ link: (this.httpLink), cache: new InMemoryCache() });
 
-    render () {
+const sections = [
+  {
+    title: 'Architecto aliquam',
+    subtitle: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, ea.'
+  },
+  {
+    title: 'Ceritatis placeat',
+    subtitle: 'Dignissimos placeat cupiditate perferendis eaque praesentium similique officia dolore?'
+  }
+];
 
-        //return <Editor/>
+const App = () => {
 
-        const data = {"page":[{"user_id":123,"layout":"WoodFrame","timestamp":"2020-04-01T00:00:00+00:00","cards":[{"card":{"id":100,"html":"Northumbria 2021","type":"FrontCover","camera":{"x":2553700.249376615,"y":-1.115334886935115e-9,"z":9000673.36695155},"__typename":"cards"},"__typename":"card_positions"},{"card":{"id":97,"html":"Week 1","type":"Chapter","camera":{"x":4553700.249376615,"y":-1.115334886935115e-9,"z":9000673.36695155},"__typename":"cards"},"__typename":"card_positions"},{"card":{"id":101,"html":"","type":"PhotoCard","camera":null,"__typename":"cards"},"__typename":"card_positions"}],"__typename":"page"}]}
+  const [background, setBackground] = useState('#262626');
+  const headerRef = useRef(null);
 
-        //return <Map/>
+  const revealRefs = useRef([]);
+  revealRefs.current = [];
 
-        if (true) return <Fragment>
+  const toggleBackground = () => {
+    const color = background !== '#262626' ? '#262626' : '#1b4943';
+    setBackground(color);
+  }
 
-            <ApolloProvider client={this.client}>
-                {/*<ScrollTrigger cards={ [{id : '1' , type : 'FrontCover'}, {id : '2' , type : 'FrontCover'}] } />*/}
-                <Query query={GETCARD}  >
-                    {({ loading, error, data, refetch  }) => {
+  useEffect(() => {
 
-                        if (loading || !data) return null
+    gsap.to(headerRef.current, { backgroundColor: background, duration: 1,  ease: 'none' });
 
-                        const cards = data.page[0].cards.map(d => d.card);
+  }, [background]);
 
-                        return <Fragment>
+  useEffect(() => {
 
-                                    <div>
-                                    {true && cards.map((card, i) => {
-                                        if (card.type === 'Front') return <Front key={i + '' + card.id} card={card} index={i}/>
-                                        if (card.type === 'PhotosOnMap') return <PhotosOnMap
-                                                                                             key={i + '' + card.id}
-                                                                                             index={i}
-                                                                                             card={card}/>
-                                        return null;
-                                    })}
-                                    </div>
+    gsap.from(headerRef.current, {
+      autoAlpha: 0,
+      ease: 'none',
+      delay: 1
+    });
 
-                                    {/*<div style={{height  : '2600px', width : '100%', background : 'red'}}>*/}
-                                    {/*    end*/}
-                                    {/*</div>*/}
+    revealRefs.current.forEach((el, index) => {
 
-                        </Fragment>
+      gsap.fromTo(el, {
+       // autoAlpha: 0
+      }, {
+        duration: 1,
+        //autoAlpha: 1,
+        ease: 'none',
+        scrollTrigger: {
+          id: `section-${index+1}`,
+          trigger: el,
+          start: 'top center+=100',
+          toggleActions: 'play none none reverse'
+        }
+      });
 
-                    }}
+    });
 
-                </Query>
+  }, []);
 
-            </ApolloProvider>
-
-        </Fragment>
-
+  const addToRefs = el => {
+    if (el && !revealRefs.current.includes(el)) {
+        revealRefs.current.push(el);
     }
+  };
+
+  return (
+    <div className="App">
+
+      <ApolloProvider client={client}>
+        {/*<ScrollTrigger cards={ [{id : '1' , type : 'FrontCover'}, {id : '2' , type : 'FrontCover'}] } />*/}
+        <Query query={GETCARD}  >
+          {({ loading, error, data, refetch  }) => {
+
+            if (loading || !data) return null
+
+            const cards = data.page[0].cards.map(d => d.card);
+
+            return <Fragment>
+
+              <main className="App-main">
+                {true && cards.map((card, i) => {
+
+                  if (card.type === 'Front') {
+                    return <div className="App-section" key={i} ref={addToRefs}>
+                             <Front key={i + '' + card.id} card={card} index={i}/>
+                           </div>
+
+                  }
+                  if (card.type === 'PhotosOnMap') {
+
+                    return  <div className="App-section" key={i} ref={addToRefs}>
+                              <PhotosOnMap key={i + '' + card.id} index={i} card={card}/>
+                            </div>
+                  }
+
+                  if (true && card.type === 'Scroll') {
+
+                    return <SVGScroll />
+                    // return <PhotosOnMap
+                    //     key={i + '' + card.id}
+                    //     index={i}
+                    //     card={card}/>
+                  }
+
+                  return null;
+                })}
+
+
+              </main>
+
+              {/*<div style={{height  : '2600px', width : '100%', background : 'red'}}>*/}
+              {/*    end*/}
+              {/*</div>*/}
+
+            </Fragment>
+
+          }}
+
+        </Query>
+
+      </ApolloProvider>
+
+      {/*<main className="App-main">*/}
+      {/*  {*/}
+      {/*    sections.map(({title, subtitle}) => (*/}
+      {/*      <div className="App-section" key={title} ref={addToRefs}>*/}
+      {/*        <h2>{title}</h2>*/}
+      {/*        <p>{subtitle}</p>*/}
+      {/*      </div>*/}
+      {/*    ))*/}
+      {/*  }*/}
+      {/*  <SVGScroll />*/}
+      {/*  /!*<CardScroll />*!/*/}
+      {/*</main>*/}
+    </div>
+  );
 }
+
+export default App;

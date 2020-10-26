@@ -24,21 +24,19 @@ export default class Component extends React.PureComponent {
 
             <div>
 
-                <code>{this.state.cesiumActive && 'cesium active'}</code>
+                <Cesium moveMap={this.props.moveMap} yOffset={this.state.yOffset}  setHideCesium={() => this.setState({hideCesium : !this.state.hideCesium})} hideCesium={this.state.hideCesium} deck={this.state.deck} setGlobeScreenshot={(ss) => this.setState({globeScreenshot : ss})} />
 
-                <code>{this.state.deckActive && 'deck active'}</code>
-
-                <Cesium cesiumActive={this.state.cesiumActive} deckActive={this.state.deckActive} yOffset={this.state.yOffset}                                                            setHideCesium={() => this.setState({hideCesium : !this.state.hideCesium})} hideCesium={this.state.hideCesium} deck={this.state.deck} setGlobeScreenshot={(ss) => this.setState({globeScreenshot : ss})} />
-
-                <Deck   cesiumActive={this.state.cesiumActive}
-                        deckActive={this.state.deckActive}
-                        setDeckActive={(v)   => this.setState({deckActive : v})}
-                        setCesiumActive={(v) => this.setState({cesiumActive : v})}
+                <Deck
+                        moveMap={this.props.moveMap}
+                        moveTable={this.props.moveTable}
                         yOffset={this.state.yOffset}
                         setYOffset={(y) => this.setState({yOffset : y})}
                         globeDrawn={this.state.globeDrawn}
                         setDeckRef={deck => this.setState({deck : deck})}
-                        updateCard={this.props.updateCard} card={this.props.card} globeScreenshot={this.state.globeScreenshot} viewer={this.state.viewer} />
+                        updateCard={this.props.updateCard}
+                        card={this.props.card}
+                        globeScreenshot={this.state.globeScreenshot}
+                        viewer={this.state.viewer} />
 
 
             </div>

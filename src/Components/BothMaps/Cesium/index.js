@@ -22,7 +22,7 @@ export default class ExampleComponent extends Component {
     render() {
         return (
             <Viewer
-                style={{ pointerEvents : (this.props.cesiumActive ? 'all' : 'none'), zIndex : 0, opacity : 0, position : 'absolute', top : (this.props.yOffset + 'px'), left : '0px',  width : '100vw', height : '100vw'}}
+                style={{ pointerEvents : (this.props.moveMap ? 'all' : 'none'), zIndex : 0, opacity : 0, position : 'absolute', top : (this.props.yOffset + 'px'), left : '0px',  width : '100vw', height : '100vw'}}
                 ref={e => {
                     this.viewer = e ? e.cesiumElement : undefined;
                 }}

@@ -1,0 +1,21 @@
+#svg-scroll {
+    max-width: 600px;
+    overflow: visible;
+}
+  
+#svg-scroll .ball {
+    fill: #000000;
+    visibility: hidden;
+}
+  
+#svg-scroll .line {
+    fill: none;
+    stroke: #000000;
+    stroke-width: 2px;
+}
+#svg-scroll text {
+    fill: #000000;
+    font-size: 16px;
+    visibility: hidden;
+}
+  
