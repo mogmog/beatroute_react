@@ -31,6 +31,7 @@ const GETCARD = gql`
                         id
                         html
                         type
+                        map
                         camera
                         content
                       }
@@ -125,14 +126,15 @@ const App = () => {
             return <Fragment>
 
               <main className="App-main">
+
                 {true && cards.map((card, i) => {
 
                   if (card.type === 'Front') {
                     return <div className="App-section" key={i} ref={addToRefs}>
                              <Front key={i + '' + card.id} card={card} index={i}/>
                            </div>
-
                   }
+
                   if (card.type === 'PhotosOnMap') {
 
                     return  <div className="App-section" key={i} ref={addToRefs}>

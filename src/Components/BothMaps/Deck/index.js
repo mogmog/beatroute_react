@@ -1,14 +1,14 @@
 import React, {Fragment, useState} from 'react';
 import DeckGL from '@deck.gl/react';
 import {WebMercatorViewport} from '@deck.gl/core';
-
-import { Viewport, LinearInterpolator, FlyToInterpolator, TransitionInterpolator} from '@deck.gl/core';
-import {MapController} from '@deck.gl/core';
+import {MapController, LinearInterpolator, FlyToInterpolator} from '@deck.gl/core';
 import MixedLayer from './MixedLayer'
 import {Component} from 'react';
 import * as turf from "@turf/turf";
+import * as d3 from "d3";
 import _ from "lodash";
-import "wired-elements";
+
+import './index.less'
 
 const INIT_CAMERA = {
     minPitch : 0,
@@ -17,6 +17,8 @@ const INIT_CAMERA = {
 
     longitude :   0,
     latitude :  0,
+    // maxZoom : 9,
+    // minZoom : 6,
     zoom : 6.5};
 
 export default class extends Component {
@@ -31,9 +33,8 @@ export default class extends Component {
             editMap     : false,
             editingMap : false,
             useController : false,
-            viewState   :
-                 INIT_CAMERA}
-
+            viewState   :  props.card.camera || INIT_CAMERA
+        }
         let that = this;
 
         class Controller extends MapController {
@@ -56,128 +57,106 @@ export default class extends Component {
 
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    fit = (bbox) => {
 
-        if (!prevProps.moveMap && this.props.moveMap) {
+        const _viewport = new WebMercatorViewport(  this.state.viewState );
 
-            const round = num => Math.round(num * 100000) / 100000;
-
-            const _viewport = new WebMercatorViewport(this.state.viewState);
-
-            const bbox = turf.bbox(this.props.card.content.features[0]);
-
-            const {longitude, latitude, zoom } = _viewport.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]]);
-
-            const viewState = {
-                ...this.state.viewState,
-                longitude: round(longitude),
-                latitude: round(latitude),
-                zoom : zoom,
-                bearing : 0,
-                transitionDuration : 'auto',
-                transitionInterpolator: new FlyToInterpolator(),
-                onTransitionEnd : ()=> {
-                    alert('on')
-                   // cb && cb(this.state.viewState)
-                }
-            };
-
-            this.setState({ viewState });
-        }
-    }
-
-
-    rotateCamera = () => {
-        const round = num => Math.round(num * 100000) / 100000;
-
-        const _viewport = new WebMercatorViewport(this.state.viewState);
-
-        const bbox = turf.bbox(this.props.card.content.features[0]);
-
+        //fit map to window
         const {longitude, latitude, zoom } = _viewport.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]]);
 
+        //update the viewstate
         const viewState = {
             ...this.state.viewState,
-            longitude: round(longitude),
-            latitude: round(latitude),
+            longitude: (longitude),
+            latitude: (latitude),
             zoom : zoom,
+            pitch : 0,
             bearing : 0,
-            transitionDuration : 'auto',
-            transitionInterpolator: new FlyToInterpolator(),
+            transitionDuration : 400,
+            transitionInterpolator : new LinearInterpolator(),
+            transitionEasing : d3.easeBack,
             onTransitionEnd : ()=> {
-                //alert('on')
-                // cb && cb(this.state.viewState)
+                this.props.setCesiumActive(true);
+                this.props.setDeckActive(false);
+
+                //this.moveCesium(viewState);
             }
 
         };
 
         this.setState({ viewState });
+
     }
 
-    // rotateTable = () => {
-    //
-    //     const _viewport = new WebMercatorViewport(this.state.viewState);
-    //
-    //     const bbox = turf.bbox(this.props.card.content.features[0]);
-    //
-    //     const {longitude, latitude, zoom } = _viewport.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]]);
-    //
-    //     //const yOffset = _viewport.project([bbox[0], bbox[1]])[1];
-    //
-    //     this.performFlyTo({longitude, latitude, zoom : zoom}, this.matchCesiumAndDeck);
-    //
-    // }
+    revert = () => {
 
-    // matchCesiumAndDeck = (viewState) => {
-    //
-    //     //now the map is in  view, work out where to move the cesium map to.
-    //     const _viewport = new WebMercatorViewport(viewState);
-    //
-    //     //get the bounds of the map holder
-    //     const bbox = turf.bbox(this.props.card.content.features[0]);
-    //
-    //     const yOffset = _viewport.project([bbox[2], bbox[3]])[1];
-    //
-    //    // alert(yOffset);
-    //     this.props.setYOffset(yOffset);
-    //
-    //     //this.props.setCesiumActive(false);
-    //     //this.props.setDeckActive(false);
-    //     //this.props.setCesiumActive(true);
-    //
-    // }
+        //update the viewstate
+        const viewState = {
+            ...this.state.viewState,
+            longitude   : this.props.card.camera.longitude,
+            latitude    : this.props.card.camera.latitude,
+            zoom        : this.props.card.camera.zoom,
+            pitch        : this.props.card.camera.pitch,
+            bearing     : this.props.card.camera.bearing,
 
-    // performFlyTo = (flyTo, cb) => {
-    //     const round = num => Math.round(num * 100000) / 100000;
-    //
-    //     /* dereference what is passed in via props, using existing values if not passed in. */
-    //     const {
-    //         transitionDuration = 2000,
-    //         longitude = this.state.viewState.longitude,
-    //         latitude = this.state.viewState.latitude,
-    //         bearing = 0,
-    //         zoom = this.state.viewState.zoom,
-    //         pitch = 0,
-    //     } = flyTo;
-    //
-    //    // alert(cb);
-    //
-    //     const viewState = {
-    //         ...this.state.viewState,
-    //         longitude: round(longitude),
-    //         latitude: round(latitude),
-    //         zoom, pitch, bearing,
-    //         transitionDuration : 2000,
-    //         onTransitionEnd : ()=> {
-    //             alert('on')
-    //             cb && cb(this.state.viewState)
-    //         }
-    //
-    //     };
-    //
-    //     this.setState({ viewState });
-    //
-    // }
+            transitionDuration : 500,
+            transitionInterpolator : new FlyToInterpolator(),
+            transitionEasing : d3.easeBack,
+            // onTransitionEnd : ()=> {
+            //     //this.props.setCesiumActive(true);
+            //     //this.props.setDeckActive(false);
+            //
+            //     //this.moveCesium(viewState);
+            // }
+
+        };
+
+        this.setState({ viewState });
+
+    }
+
+    moveCesium = (viewState) => {
+
+        //now the map is in  view, work out where to move the cesium map to.
+        const _viewport = new WebMercatorViewport(viewState);
+
+        const bbox = turf.bbox(this.props.card.content.features[0]);
+
+        const yOffset = _viewport.project([bbox[2], bbox[3]])[1];
+
+        //alert(yOffset);
+
+        this.props.setYOffset(yOffset);
+    }
+
+    performFlyTo = (flyTo, cb) => {
+        const round = num => Math.round(num * 100000) / 100000;
+
+        /* dereference what is passed in via props, using existing values if not passed in. */
+        const {
+            transitionDuration = 500,
+            longitude = this.state.viewState.longitude,
+            latitude = this.state.viewState.latitude,
+            bearing = 0,
+            zoom = this.state.viewState.zoom,
+            pitch = 0,
+        } = flyTo;
+
+        const viewState = {
+            ...this.state.viewState,
+            longitude: round(longitude),
+            latitude: round(latitude),
+            zoom, pitch, bearing,
+            transitionDuration,
+            //transitionInterpolator : new LinearInterpolator(),
+            transitionEasing : d3.easeBack,
+            onTransitionEnd : ()=> cb && cb(viewState)
+
+        };
+
+        this.setState({ viewState });
+
+    }
 
     render() {
 
@@ -190,36 +169,63 @@ export default class extends Component {
         return (
             <div>
 
-                <a onClick={() => this.rotateCamera()}>click me</a>
-                <div style={{ pointerEvents : (this.props.moveTable ? 'all' : 'none'), position: 'relative',width  :  '100%', height: '100vh' }}>
+                {!this.props.cesiumActive && <wired-button elevation="2" disabled={this.props.deckActive}  onClick={()=> {
+                    this.props.setCesiumActive(true);
+                    this.fit(turf.bbox(this.props.card.content.features[0]));
+                }}>
+                   Change map
+                </wired-button> }
 
-                    {(this.state.firstLoad) && <DeckGL
-                     controller={ this.props.moveTable ? this.controller : false }
-                     viewState={ this.state.viewState }
-                     _animate={true}
-                     height="100vw"
-                     width="100%"
-                     ref={deck => {
-                         this.deckGL = deck;
-                         this.props.setDeckRef(deck)
-                     }}
-                     xonAfterRender={ () => {
+                {this.props.cesiumActive && <wired-button elevation="2" disabled={this.props.deckActive} onClick={()=> {
+                    this.props.setCesiumActive(false);
+                    this.revert();
+                }}>
+                   Save
+                </wired-button> }
 
-                         //if (false || this.state.editingMap) return;
-                       //  console.log('running after render');
-                         if (this.deckGL && this.deckGL.deck && ( this.state.firstLoad)) {
-                            let allLayersLoaded = this.deckGL.deck.props.layers.every(layer => layer.isLoaded);
 
-                            if (true && allLayersLoaded) {
-                                const ss = this.deckGL.deck.canvas.toDataURL();
-                                this.setState({ firstLoad : false, screenshot  : ss});
+
+                {!this.props.deckActive &&  <wired-button elevation="2" disabled={this.props.cesiumActive} onClick={()=> {
+                    this.props.setCesiumActive(false);
+                    this.props.setDeckActive(true);
+                }}>
+                    Move table
+                </wired-button> }
+
+                {this.props.deckActive && <wired-button elevation="2" disabled={this.props.cesiumActive} onClick={()=> {
+                    this.props.setDeckActive(false);
+                }}>
+                    save table
+                </wired-button> }
+
+                <div className="Deck" style={{pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
+
+                    {(this.state.editMap || this.state.firstLoad) && <DeckGL
+                        controller={ this.controller }
+                        viewState={ this.state.viewState }
+                        _animate={true}
+                        height="100%"
+                        width="100%"
+
+                        ref={deck => {
+                            this.deckGL = deck;
+                            this.props.setDeckRef(deck)
+                        }}
+                        xonAfterRender={ () => {
+
+                            if (this.deckGL && this.deckGL.deck && ( this.state.firstLoad)) {
+                                let allLayersLoaded = this.deckGL.deck.props.layers.every(layer => layer.isLoaded);
+
+                                if (true && allLayersLoaded && this.props.globeScreenshot) {
+                                    const ss = this.deckGL.deck.canvas.toDataURL();
+                                    this.setState({ firstLoad : false, screenshot  : ss});
+                                }
                             }
-                         }
 
-                     }}
-                     effects={[]}
-                     onViewStateChange={({viewState}) => this.setState({viewState: viewState})}
-                     layers={layers}/> }
+                        }}
+                        effects={[]}
+                        onViewStateChange={({viewState}) => this.setState({viewState: viewState})}
+                        layers={layers}/> }
 
                     {false && !this.state.editMap && <img onClick={() => {
 
@@ -229,7 +235,7 @@ export default class extends Component {
 
                     }
 
-                    } style={{width : '100%', height : '100vh'}} src={this.state.screenshot}/> }
+                    } src={this.state.screenshot}/> }
                 </div>
 
             </div>

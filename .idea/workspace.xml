@@ -20,27 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e8731ac-8190-46e8-ac17-3ab52bb809bd" name="Default Changelist" comment="safety checkin">
-      <change afterPath="$PROJECT_DIR$/gsap-bonus.tgz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AppOld.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Front/index.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/card-scroll/CardScroll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/card-scroll/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/svg-scroll/SVGScroll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/svg-scroll/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/customTheme.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/BothMaps/Cesium2/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/BothMaps/Deck/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/craco.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/craco.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverless/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/serverless/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverless/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/serverless/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/BothMaps/Cesium/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BothMaps/Cesium/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/BothMaps/Deck/MixedLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BothMaps/Deck/MixedLayer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/BothMaps/Deck/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BothMaps/Deck/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/BothMaps/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BothMaps/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/Handwriting/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/Handwriting/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/PhotosOnMap/Overlay/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/PhotosOnMap/Overlay/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Saver/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Saver/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/svg-scroll/SVGScroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/svg-scroll/SVGScroll.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +63,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -75,18 +71,18 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Components" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/public/textures" />
-      <recent name="$PROJECT_DIR$/src/Components/Newdeck/MapMaker/Sml" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Components/Cards/PhotosOnMap" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Front" />
       <recent name="$PROJECT_DIR$/api" />
       <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/Components/BothMaps" />
+      <recent name="$PROJECT_DIR$/src/Components" />
+      <recent name="$PROJECT_DIR$/public/textures" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -120,6 +116,12 @@
       <workItem from="1603451974196" duration="2619000" />
       <workItem from="1603468824252" duration="9208000" />
       <workItem from="1603639553108" duration="11974000" />
+      <workItem from="1603702207572" duration="9285000" />
+      <workItem from="1603796439579" duration="4091000" />
+      <workItem from="1603983792664" duration="2423000" />
+      <workItem from="1604052728988" duration="10000" />
+      <workItem from="1604068522923" duration="12783000" />
+      <workItem from="1604231475801" duration="7839000" />
     </task>
     <task id="LOCAL-00001" summary="wip">
       <created>1602593335196</created>
@@ -149,11 +151,28 @@
       <option name="project" value="LOCAL" />
       <updated>1603477518298</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="wip">
+      <created>1603702328771</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603702328771</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -168,9 +187,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="wip" />
     <MESSAGE value="safety checkin" />
-    <option name="LAST_COMMIT_MESSAGE" value="safety checkin" />
+    <MESSAGE value="wip" />
+    <option name="LAST_COMMIT_MESSAGE" value="wip" />
   </component>
   <component name="WindowStateProjectService">
     <state x="435" y="315" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602506291844">
@@ -178,24 +197,29 @@
     </state>
     <state x="435" y="315" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.967@0.23.1680.967" timestamp="1602506291844" />
     <state x="435" y="316" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.970@0.23.1680.970" timestamp="1601894192454" />
-    <state x="209" y="140" width="899" height="695" key="DiffContextDialog" timestamp="1603394160946">
-      <screen x="0" y="23" width="1680" height="973" />
+    <state x="209" y="139" width="1192" height="691" key="DiffContextDialog" timestamp="1603798953114">
+      <screen x="0" y="23" width="1680" height="967" />
     </state>
+    <state x="209" y="139" width="1192" height="691" key="DiffContextDialog/0.23.1680.967@0.23.1680.967" timestamp="1603798953114" />
     <state x="209" y="140" width="899" height="695" key="DiffContextDialog/0.23.1680.973@0.23.1680.973" timestamp="1603394160946" />
     <state x="589" y="295" key="Vcs.Push.Dialog.v2" timestamp="1602593336870">
       <screen x="0" y="23" width="1680" height="979" />
     </state>
     <state x="589" y="295" key="Vcs.Push.Dialog.v2/0.23.1680.979@0.23.1680.979" timestamp="1602593336870" />
-    <state x="348" y="45" width="1075" height="712" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603653291372">
-      <screen x="0" y="23" width="1680" height="967" />
+    <state x="348" y="45" width="1075" height="717" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604252427721">
+      <screen x="0" y="23" width="1680" height="973" />
     </state>
     <state x="348" y="45" width="1075" height="712" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.967@0.23.1680.967" timestamp="1603653291372" />
-    <state x="348" y="45" width="1075" height="714" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.970@0.23.1680.970" timestamp="1602022407259" />
+    <state x="348" y="45" width="1075" height="714" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.970@0.23.1680.970" timestamp="1603702335621" />
     <state x="348" y="45" width="1075" height="716" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.972@0.23.1680.972" timestamp="1602526208191" />
-    <state x="348" y="45" width="1075" height="717" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.973@0.23.1680.973" timestamp="1603448222971" />
+    <state x="348" y="45" width="1075" height="717" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.973@0.23.1680.973" timestamp="1604252427721" />
     <state x="348" y="45" width="1075" height="717" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.974@0.23.1680.974" timestamp="1603450987260" />
     <state x="348" y="45" width="1075" height="719" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.975@0.23.1680.975" timestamp="1602614446495" />
     <state x="348" y="45" width="1075" height="719" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.977@0.23.1680.977" timestamp="1602678653287" />
+    <state x="602" y="239" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1603702291811">
+      <screen x="0" y="23" width="1680" height="970" />
+    </state>
+    <state x="602" y="239" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.23.1680.970@0.23.1680.970" timestamp="1603702291811" />
     <state x="805" y="477" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603183099907">
       <screen x="0" y="23" width="1680" height="975" />
     </state>
@@ -215,13 +239,13 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="807" y="252" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1603020830930" />
-    <state x="766" y="247" width="670" height="676" key="search.everywhere.popup" timestamp="1603657051808">
-      <screen x="0" y="23" width="1680" height="967" />
+    <state x="766" y="248" width="670" height="679" key="search.everywhere.popup" timestamp="1604236535867">
+      <screen x="0" y="23" width="1680" height="973" />
     </state>
     <state x="766" y="247" width="670" height="676" key="search.everywhere.popup/0.23.1680.967@0.23.1680.967" timestamp="1603657051808" />
     <state x="766" y="248" width="670" height="676" key="search.everywhere.popup/0.23.1680.970@0.23.1680.970" timestamp="1602424219723" />
     <state x="766" y="248" width="670" height="679" key="search.everywhere.popup/0.23.1680.972@0.23.1680.972" timestamp="1603474408320" />
-    <state x="766" y="248" width="670" height="679" key="search.everywhere.popup/0.23.1680.973@0.23.1680.973" timestamp="1603471129698" />
+    <state x="766" y="248" width="670" height="679" key="search.everywhere.popup/0.23.1680.973@0.23.1680.973" timestamp="1604236535867" />
     <state x="766" y="249" width="670" height="680" key="search.everywhere.popup/0.23.1680.974@0.23.1680.974" timestamp="1602960493765" />
     <state x="766" y="249" width="670" height="681" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1603129804151" />
     <state x="766" y="249" width="670" height="681" key="search.everywhere.popup/0.23.1680.976@0.23.1680.976" timestamp="1603367636654" />

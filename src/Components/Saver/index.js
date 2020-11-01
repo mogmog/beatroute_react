@@ -3,10 +3,22 @@ import {message, notification} from "antd";
 import {Mutation} from "react-apollo";
 import gql from "graphql-tag";
 
-const SAVE_CARD = gql`
+const SAVE_TABLE = gql`
 
 mutation( $card_id : Int,  $camera : jsonb){
                 update_cards(where: {id: {_eq: $card_id}}, _set: {camera: $camera}) {
+                    returning {
+                                camera
+                                id
+                              }
+                    }
+                }
+`;
+
+const SAVE_MAP = gql`
+
+mutation( $card_id : Int,  $map : jsonb){
+                update_cards(where: {id: {_eq: $card_id}}, _set: {map: $map}) {
                     returning {
                                 camera
                                 id
@@ -20,19 +32,28 @@ export default ({children}) => {
     return <div>
 
         <Mutation
-            onError={() => alert('Could not save camera')}
-            mutation={SAVE_CARD}
-             >
+            onError={() => alert('Could not save map')}
+            mutation={SAVE_MAP}
+        >
 
-            {(update, {loading, error}) => {
+            {(updateMap, {loading, error}) => {
 
-                return <Fragment>
-                                        {children(update, loading, error)}
-                       </Fragment>
+                return  <Mutation
+                    onError={() => alert('Could not save camera')}
+                    mutation={SAVE_TABLE}
+                >
 
-                //return <div>loading</div>
+                    {(updateCamera, {loading, error}) => {
+
+                        return <Fragment>
+                            {children(updateCamera, updateMap, loading, error)}
+                        </Fragment>
+                    }}
+                </Mutation>
+
             }}
         </Mutation>
+
 
     </div>
 }
