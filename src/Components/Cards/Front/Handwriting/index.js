@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react'
 import * as d3 from 'd3';
 import  rough from 'roughjs/bundled/rough.esm';
 
-export default ({width=350, height=100, text, children}) => {
+export default ({width=450, height=100, text, children}) => {
 
     const [svg, setSVG] = useState(null);
     const d3Container = useRef(null);
@@ -136,7 +136,7 @@ export default ({width=350, height=100, text, children}) => {
             <g id="highlight" opacity="0.65" transform={'translate(0, -300)'}/>
 
             <g id="words" xfilter="url(#pencilTexture5)" opacity="0.65" transform={'translate(0, -300)'}>
-                {svg && svg.svg.map(p => <path d={p}></path>)}
+                {svg && svg.svg.map((p, i) => <path key={i} d={p}></path>)}
             </g>
 
 

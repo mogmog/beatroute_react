@@ -20,24 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e8731ac-8190-46e8-ac17-3ab52bb809bd" name="Default Changelist" comment="safety checkin">
-      <change afterPath="$PROJECT_DIR$/src/Components/BothMaps/Cesium2/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/BothMaps/Deck/index.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/BothMaps/Deck/Buttons/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverless/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/serverless/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverless/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/serverless/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/BothMaps/Cesium/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BothMaps/Cesium/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/BothMaps/Deck/MixedLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BothMaps/Deck/MixedLayer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/BothMaps/Deck/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BothMaps/Deck/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/BothMaps/Deck/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BothMaps/Deck/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/BothMaps/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BothMaps/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/PhotosOnMap/Overlay/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/PhotosOnMap/Overlay/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Saver/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Saver/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/svg-scroll/SVGScroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/svg-scroll/SVGScroll.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/Handwriting/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/Handwriting/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +111,7 @@
       <workItem from="1603983792664" duration="2423000" />
       <workItem from="1604052728988" duration="10000" />
       <workItem from="1604068522923" duration="12783000" />
-      <workItem from="1604231475801" duration="7839000" />
+      <workItem from="1604231475801" duration="15978000" />
     </task>
     <task id="LOCAL-00001" summary="wip">
       <created>1602593335196</created>
@@ -158,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603702328771</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="working">
+      <created>1604255036902</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1604255036902</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +186,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="safety checkin" />
     <MESSAGE value="wip" />
-    <option name="LAST_COMMIT_MESSAGE" value="wip" />
+    <MESSAGE value="working" />
+    <option name="LAST_COMMIT_MESSAGE" value="working" />
   </component>
   <component name="WindowStateProjectService">
     <state x="435" y="315" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602506291844">
@@ -220,10 +218,10 @@
       <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state x="602" y="239" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.23.1680.970@0.23.1680.970" timestamp="1603702291811" />
-    <state x="805" y="477" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603183099907">
-      <screen x="0" y="23" width="1680" height="975" />
+    <state x="805" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604259244685">
+      <screen x="0" y="23" width="1680" height="972" />
     </state>
-    <state x="805" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.972@0.23.1680.972" timestamp="1602531394656" />
+    <state x="805" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.972@0.23.1680.972" timestamp="1604259244685" />
     <state x="805" y="477" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.975@0.23.1680.975" timestamp="1603183099907" />
     <state x="742" y="260" width="598" height="490" key="find.popup" timestamp="1603639826145">
       <screen x="0" y="23" width="1680" height="972" />
@@ -239,13 +237,13 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="807" y="252" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1603020830930" />
-    <state x="766" y="248" width="670" height="679" key="search.everywhere.popup" timestamp="1604236535867">
+    <state x="766" y="248" width="670" height="679" key="search.everywhere.popup" timestamp="1604314665360">
       <screen x="0" y="23" width="1680" height="973" />
     </state>
     <state x="766" y="247" width="670" height="676" key="search.everywhere.popup/0.23.1680.967@0.23.1680.967" timestamp="1603657051808" />
     <state x="766" y="248" width="670" height="676" key="search.everywhere.popup/0.23.1680.970@0.23.1680.970" timestamp="1602424219723" />
-    <state x="766" y="248" width="670" height="679" key="search.everywhere.popup/0.23.1680.972@0.23.1680.972" timestamp="1603474408320" />
-    <state x="766" y="248" width="670" height="679" key="search.everywhere.popup/0.23.1680.973@0.23.1680.973" timestamp="1604236535867" />
+    <state x="766" y="248" width="670" height="679" key="search.everywhere.popup/0.23.1680.972@0.23.1680.972" timestamp="1604263833059" />
+    <state x="766" y="248" width="670" height="679" key="search.everywhere.popup/0.23.1680.973@0.23.1680.973" timestamp="1604314665360" />
     <state x="766" y="249" width="670" height="680" key="search.everywhere.popup/0.23.1680.974@0.23.1680.974" timestamp="1602960493765" />
     <state x="766" y="249" width="670" height="681" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1603129804151" />
     <state x="766" y="249" width="670" height="681" key="search.everywhere.popup/0.23.1680.976@0.23.1680.976" timestamp="1603367636654" />

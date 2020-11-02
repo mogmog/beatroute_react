@@ -63,13 +63,10 @@ const App = () => {
   const [background, setBackground] = useState('#262626');
   const headerRef = useRef(null);
 
+  const [loadedCount, setLoadedCount] = useState(0);
+
   const revealRefs = useRef([]);
   revealRefs.current = [];
-
-  const toggleBackground = () => {
-    const color = background !== '#262626' ? '#262626' : '#1b4943';
-    setBackground(color);
-  }
 
   useEffect(() => {
 
@@ -111,6 +108,8 @@ const App = () => {
     }
   };
 
+  const admin = true;
+
   return (
     <div className="App">
 
@@ -122,12 +121,17 @@ const App = () => {
             if (loading || !data) return null
 
             const cards = data.page[0].cards.map(d => d.card);
+            const stillLoading = loadedCount < cards.length;
 
             return <Fragment>
 
               <main className="App-main">
 
-                {true && cards.map((card, i) => {
+                <div className="App-section" style={{height : '100%'}}>
+                  {stillLoading && <code>loading  please wait</code> }
+                </div>
+
+                {cards.map((card, i) => {
 
                   if (card.type === 'Front') {
                     return <div className="App-section" key={i} ref={addToRefs}>
@@ -138,7 +142,7 @@ const App = () => {
                   if (card.type === 'PhotosOnMap') {
 
                     return  <div className="App-section" key={i} ref={addToRefs}>
-                              <PhotosOnMap key={i + '' + card.id} index={i} card={card}/>
+                              <PhotosOnMap admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
                             </div>
                   }
 

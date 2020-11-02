@@ -7,6 +7,7 @@ import {Component} from 'react';
 import * as turf from "@turf/turf";
 import * as d3 from "d3";
 import _ from "lodash";
+import Buttons from './Buttons'
 
 import './index.less'
 
@@ -64,6 +65,11 @@ export default class extends Component {
         //fit map to window
         const {longitude, latitude, zoom } = _viewport.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]]);
 
+        // const centerOfRed = _viewport.getMapCenterByLngLatPosition({
+        //     lngLat: center(geojson).geometry.coordinates,
+        //     pos: [50, 50]
+        // });
+
         //update the viewstate
         const viewState = {
             ...this.state.viewState,
@@ -85,6 +91,56 @@ export default class extends Component {
         };
 
         this.setState({ viewState });
+
+    }
+
+    fit2 = (bbox, center) => {
+
+        const _viewport = new WebMercatorViewport( { ...this.state.viewState  });
+
+        //find the zoom that fills the viewport
+        const { zoom } = _viewport.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]]);
+
+        //fit map to window
+       // const { zoom } = _viewport.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]]);
+
+        const centerOfRed = _viewport.getMapCenterByLngLatPosition({
+            lngLat: center.geometry.coordinates,
+            pos: [250, 250]
+        });
+
+        //alert(centerOfRed);
+
+        //update the viewstate
+        const viewState = {
+            ...this.state.viewState,
+            longitude: centerOfRed[0],
+            latitude: centerOfRed[1],
+            zoom : zoom,
+            pitch : 0,
+            bearing : 0,
+            transitionDuration : 400,
+            transitionInterpolator : new LinearInterpolator(),
+            transitionEasing : d3.easeBack,
+            onTransitionEnd : ()=> {
+                this.props.setCesiumActive(true);
+                this.props.setDeckActive(false);
+
+                //this.moveCesium(viewState);
+            }
+
+        };
+
+        //const _viewport2 = new WebMercatorViewport( {...viewState} );
+
+       // const { zoom } = _viewport2.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]]);
+
+        const viewStateWZ = {
+           ...viewState,
+           // zoom
+        }
+
+        this.setState( {viewState : viewStateWZ });
 
     }
 
@@ -169,38 +225,11 @@ export default class extends Component {
         return (
             <div>
 
-                {!this.props.cesiumActive && <wired-button elevation="2" disabled={this.props.deckActive}  onClick={()=> {
-                    this.props.setCesiumActive(true);
-                    this.fit(turf.bbox(this.props.card.content.features[0]));
-                }}>
-                   Change map
-                </wired-button> }
+                {this.props.admin && <Buttons deckActive={this.props.deckActive} cesiumActive={this.props.cesiumActive} revert={this.revert} fit={this.fit2} setDeckActive={this.props.setDeckActive} setCesiumActive={this.props.setCesiumActive} card={this.props.card} setFirstLoad={() => this.setState({firstLoad : true})} fit={this.fit2}/> }
 
-                {this.props.cesiumActive && <wired-button elevation="2" disabled={this.props.deckActive} onClick={()=> {
-                    this.props.setCesiumActive(false);
-                    this.revert();
-                }}>
-                   Save
-                </wired-button> }
+                <div className="Deck" style={{width : '500px', height : '500px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
 
-
-
-                {!this.props.deckActive &&  <wired-button elevation="2" disabled={this.props.cesiumActive} onClick={()=> {
-                    this.props.setCesiumActive(false);
-                    this.props.setDeckActive(true);
-                }}>
-                    Move table
-                </wired-button> }
-
-                {this.props.deckActive && <wired-button elevation="2" disabled={this.props.cesiumActive} onClick={()=> {
-                    this.props.setDeckActive(false);
-                }}>
-                    save table
-                </wired-button> }
-
-                <div className="Deck" style={{pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
-
-                    {(this.state.editMap || this.state.firstLoad) && <DeckGL
+                    {(this.state.firstLoad) && <DeckGL
                         controller={ this.controller }
                         viewState={ this.state.viewState }
                         _animate={true}
@@ -213,11 +242,12 @@ export default class extends Component {
                         }}
                         xonAfterRender={ () => {
 
-                            if (this.deckGL && this.deckGL.deck && ( this.state.firstLoad)) {
+                            if (this.deckGL && this.deckGL.deck && ( this.state.firstLoad )) {
                                 let allLayersLoaded = this.deckGL.deck.props.layers.every(layer => layer.isLoaded);
 
                                 if (true && allLayersLoaded && this.props.globeScreenshot) {
                                     const ss = this.deckGL.deck.canvas.toDataURL();
+                                    this.props.incrementLoadedCount();
                                     this.setState({ firstLoad : false, screenshot  : ss});
                                 }
                             }
@@ -227,7 +257,7 @@ export default class extends Component {
                         onViewStateChange={({viewState}) => this.setState({viewState: viewState})}
                         layers={layers}/> }
 
-                    {false && !this.state.editMap && <img onClick={() => {
+                    {false && !this.state.firstLoad  && !this.state.deckActive && <div>cache<img onClick={() => {
 
                         this.setState({editMap : true, editingMap : true}, ()=> {
                             this.setState({ screenshot : null})
@@ -235,7 +265,7 @@ export default class extends Component {
 
                     }
 
-                    } src={this.state.screenshot}/> }
+                    } src={this.state.screenshot}/></div> }
                 </div>
 
             </div>
