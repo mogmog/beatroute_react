@@ -14,30 +14,25 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 import Front        from "./Components/Cards/Front";
+import Title        from "./Components/Cards/Title";
 import PhotosOnMap  from "./Components/Cards/PhotosOnMap";
-
+import Sketch  from "./Components/Cards/Sketch";
 import SVGScroll from './Components/svg-scroll/SVGScroll';
-import CardScroll from './Components/card-scroll/CardScroll';
+
+import CardAdder from './Components/Adder';
 
 const GETCARD = gql`
                 {
-                  page {
-                    user_id
-                    layout
-                    timestamp
-                    layout
-                    cards(order_by: {position: asc}) {
-                      card {
-                        id
-                        html
-                        type
-                        map
-                        camera
-                        content
-                      }
-                    }
-                  }
-                }
+   cards(where: {trip_id: {_eq: 3}}, order_by: {id: asc}) {
+    id
+    html
+    type
+    map
+    camera
+    content
+  }
+}
+
 `
 
 gsap.registerPlugin(ScrollTrigger);
@@ -45,18 +40,6 @@ gsap.registerPlugin(ScrollTrigger);
 const httpLink = new HttpLink({ uri: 'https://beatroute2019.herokuapp.com/v1/graphql' });
 
 const client = new ApolloClient({ link: (httpLink), cache: new InMemoryCache() });
-
-
-const sections = [
-  {
-    title: 'Architecto aliquam',
-    subtitle: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, ea.'
-  },
-  {
-    title: 'Ceritatis placeat',
-    subtitle: 'Dignissimos placeat cupiditate perferendis eaque praesentium similique officia dolore?'
-  }
-];
 
 const App = () => {
 
@@ -120,16 +103,16 @@ const App = () => {
 
             if (loading || !data) return null
 
-            const cards = data.page[0].cards.map(d => d.card);
+            const cards = data.cards;
             const stillLoading = loadedCount < cards.length;
 
             return <Fragment>
 
               <main className="App-main">
 
-                <div className="App-section" style={{height : '100%'}}>
-                  {stillLoading && <code>loading  please wait</code> }
-                </div>
+                {/*<div className="App-section" style={{height : '100%'}}>*/}
+                {/*  {stillLoading && <code>loading  please wait</code> }*/}
+                {/*</div>*/}
 
                 {cards.map((card, i) => {
 
@@ -139,11 +122,24 @@ const App = () => {
                            </div>
                   }
 
+                  if (card.type === 'Title') {
+                    return <div className="App-section" key={i} ref={addToRefs}>
+                      <Title key={i + '' + card.id} card={card} index={i}/>
+                    </div>
+                  }
+
                   if (card.type === 'PhotosOnMap') {
 
                     return  <div className="App-section" key={i} ref={addToRefs}>
                               <PhotosOnMap admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
                             </div>
+                  }
+
+                  if (card.type === 'Sketch') {
+
+                    return  <div className="App-section" key={i} ref={addToRefs}>
+                      <Sketch admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
+                    </div>
                   }
 
                   if (true && card.type === 'Scroll') {
@@ -158,6 +154,9 @@ const App = () => {
                   return null;
                 })}
 
+                <div className="App-section" style={{height : '100%'}}>
+                  <CardAdder refetch={refetch}/>
+                </div>
 
               </main>
 

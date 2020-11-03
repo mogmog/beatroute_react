@@ -11,7 +11,7 @@ export default ({index, admin, card, incrementLoadedCount, stillLoading}) => {
 
         {
             (updateCard, updateMap, loading, error) => {
-                return <div className={'PhotosOnMap'}>
+                return <div className={'Sketch'}>
                             <BothMaps admin={admin} stillLoading={stillLoading} incrementLoadedCount={incrementLoadedCount} updateMap={updateMap} updateCard={updateCard} card={card}/>
                        </div>
             }

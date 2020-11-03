@@ -42,7 +42,8 @@
     "webpack-bundle-analyzer": "^3.1.0",
     "webpack-manifest-plugin": "2.0.4",
     "webpackbar": "^3.1.5",
-    "yarn": "^1.22.10"
+    "yarn": "^1.22.10",
+    "zdog": "^1.1.2"
   },
   "scripts": {
     "start": "craco start",
