@@ -110,20 +110,25 @@ const App = () => {
 
               <main className="App-main">
 
+
                 {/*<div className="App-section" style={{height : '100%'}}>*/}
                 {/*  {stillLoading && <code>loading  please wait</code> }*/}
                 {/*</div>*/}
 
                 {cards.map((card, i) => {
 
+
+
                   if (card.type === 'Front') {
                     return <div className="App-section" key={i} ref={addToRefs}>
+                      <code>{card.id}</code>
                              <Front key={i + '' + card.id} card={card} index={i}/>
                            </div>
                   }
 
                   if (card.type === 'Title') {
                     return <div className="App-section" key={i} ref={addToRefs}>
+                      <code>{card.id}</code>
                       <Title key={i + '' + card.id} card={card} index={i}/>
                     </div>
                   }

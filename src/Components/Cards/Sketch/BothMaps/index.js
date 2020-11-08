@@ -24,9 +24,9 @@ export default class Component extends React.PureComponent {
 
                 {/*<code>{this.state.deckActive && 'deck active'}</code>*/}
 
-                <div style={{ margin : 'auto', position: 'relative', top : '0px', width : '500px', height: '500px' }}>
+                <div style={{ margin : 'auto', position: 'relative', top : '0px', width : '500px', height: '300px' }}>
 
-                    {true && <Cesium cesiumActive={this.state.cesiumActive}
+                    {false && <Cesium cesiumActive={this.state.cesiumActive}
                             deckActive={this.state.deckActive}
                             yOffset={this.state.yOffset}
                             setHideCesium={() => this.setState({hideCesium : !this.state.hideCesium})}

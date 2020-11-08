@@ -4,6 +4,7 @@ import {WebMercatorViewport} from '@deck.gl/core';
 import {MapController, LinearInterpolator, FlyToInterpolator} from '@deck.gl/core';
 import MixedLayer from './MixedLayer'
 import VideoBitmapLayer from './Video'
+import MaskLayer from './MaskLayer'
 import Caanvas from './Video/Caanvas'
 import {Component} from 'react';
 import * as turf from "@turf/turf";
@@ -146,24 +147,15 @@ export default class extends Component {
 
     render() {
 
-
-
-        // const combined = new Combined({
-        //     title: 'Week 1 - California',
-        //     image: 'https://api.mapbox.com/styles/v1/mapbox/light-v10/static/-122.4809,37.7736,12.97,0/1280x1280@2x?access_token=pk.eyJ1IjoibW9nbW9nIiwiYSI6ImNpZmI2eTZuZTAwNjJ0Y2x4a2g4cDIzZTcifQ.qlITXIamvfVj-NCTtAGylw',
-        //     out: true,
-        //     center: [0,0]
-        // });
-
-
-       // console.log(canvas.canvas);
         const layers = [
 
-            new MixedLayer({
-                card     : this.props.card,
-                viewer   : this.props.viewer,
-                globeScreenshot : this.props.globeScreenshot
-            }),
+            new MaskLayer(),
+
+            // new MixedLayer({
+            //     card     : this.props.card,
+            //     viewer   : this.props.viewer,
+            //     globeScreenshot : this.props.globeScreenshot
+            // }),
 
             new VideoBitmapLayer({
                 image: canvas.canvas,
@@ -178,7 +170,7 @@ export default class extends Component {
 
                 {this.props.admin && <Buttons deckActive={this.props.deckActive} cesiumActive={this.props.cesiumActive} revert={this.revert} fit={this.fit2} setDeckActive={this.props.setDeckActive} setCesiumActive={this.props.setCesiumActive} card={this.props.card} setFirstLoad={() => this.setState({firstLoad : true})} fit={this.fit2}/> }
 
-                <div className="Deck" style={{width : '500px', height : '500px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
+                <div className="Deck" style={{width : '500px', height : '300px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
 
                     {(this.state.firstLoad) && <DeckGL
                         controller={ this.controller }
