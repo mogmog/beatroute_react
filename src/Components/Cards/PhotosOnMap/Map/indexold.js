@@ -70,7 +70,7 @@ class SketchDisplay {
         var stop = false;
         var frameCount = 0;
         var req, fps, fpsInterval, startTime, now, then, elapsed, runs=0;
-        var drawing = that.rough.generator().ellipse(250, 250, 250, 250, { curveFitting : 0.9, stroke: 'black', strokeWidth : 300, roughness: 1.8, seed : 1 });
+        var drawing = that.rough.generator().ellipse(250, 250, 250, 250, { curveFitting : 0.9, stroke: 'black', strokeWidth : 25, roughness: 1.8, seed : 1 });
 
         //let that = this;
         startAnimating(25);

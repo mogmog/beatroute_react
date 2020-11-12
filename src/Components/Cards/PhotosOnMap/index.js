@@ -5,14 +5,14 @@ import "wired-elements";
 import CardSaver from "../../Saver";
 import  './index.less'
 
-export default ({index, admin, card, incrementLoadedCount, stillLoading}) => {
+export default ({index, width, admin, card, incrementLoadedCount, stillLoading}) => {
 
     return <CardSaver >
 
         {
             (updateCard, updateMap, loading, error) => {
                 return <div className={'PhotosOnMap'}>
-                            <BothMaps admin={admin} stillLoading={stillLoading} incrementLoadedCount={incrementLoadedCount} updateMap={updateMap} updateCard={updateCard} card={card}/>
+                            <BothMaps width={width} admin={admin} stillLoading={stillLoading} incrementLoadedCount={incrementLoadedCount} updateMap={updateMap} updateCard={updateCard} card={card}/>
                        </div>
             }
         }

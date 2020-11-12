@@ -24,7 +24,7 @@ export default class Component extends React.PureComponent {
 
                 {/*<code>{this.state.deckActive && 'deck active'}</code>*/}
 
-                <div style={{ margin : 'auto', position: 'relative', top : '0px', width : '500px', height: '500px' }}>
+                <div style={{ margin : 'auto', position: 'relative', top : '0px', width : this.props.width + 'px', height: '500px' }}>
 
                     {true && <Cesium cesiumActive={this.state.cesiumActive}
                             deckActive={this.state.deckActive}
@@ -37,6 +37,7 @@ export default class Component extends React.PureComponent {
                             setGlobeScreenshot={(ss) => this.setState({globeScreenshot : ss})} /> }
 
                     <Deck
+                            width={this.props.width}
                             admin={this.props.admin}
                             cesiumActive={this.state.cesiumActive}
                             deckActive={this.state.deckActive}

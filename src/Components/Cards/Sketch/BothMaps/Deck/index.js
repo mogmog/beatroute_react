@@ -1,20 +1,26 @@
 import React, {Fragment, useState} from 'react';
 import DeckGL from '@deck.gl/react';
-import {WebMercatorViewport} from '@deck.gl/core';
 import {MapController, LinearInterpolator, FlyToInterpolator} from '@deck.gl/core';
-import MixedLayer from './MixedLayer'
-import VideoBitmapLayer from './Video'
-import MaskLayer from './MaskLayer'
-import Caanvas from './Video/Caanvas'
+import SketchLine from '../Layers/CanvasLayer/SketchLine'
+import MaskLayer from '../Layers/MaskLayer'
+import { EditableGeoJsonLayer, DrawPolygonMode , DrawCircleByDiameterMode} from 'nebula.gl';
+
 import {Component} from 'react';
-import * as turf from "@turf/turf";
-import * as d3 from "d3";
 import _ from "lodash";
 import Buttons from './Buttons'
 
 import './index.less'
 
-const canvas = new Caanvas();
+const canvas = new SketchLine();
+
+const myFeatureCollection = {
+    type: 'FeatureCollection',
+    features: [
+        /* insert features here */
+    ],
+};
+
+const selectedFeatureIndexes = [];
 
 const INIT_CAMERA = {
     minPitch : 0,
@@ -34,10 +40,12 @@ export default class extends Component {
 
         this.search = _.debounce(e => e(), 300);
         this.state = {
+            data: myFeatureCollection,
             firstLoad : true,
             screenshot : null,
             editMap     : false,
             editingMap : false,
+            addInk : false,
             useController : false,
             viewState   :  props.card.camera || INIT_CAMERA
         }
@@ -63,117 +71,31 @@ export default class extends Component {
 
     }
 
-    fit2 = (bbox, center) => {
-
-        const _viewport = new WebMercatorViewport( { ...this.state.viewState  });
-
-        //find the zoom that fills the viewport
-        const { zoom } = _viewport.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]]);
-
-        //fit map to window
-       // const { zoom } = _viewport.fitBounds([[bbox[0], bbox[1]], [bbox[2], bbox[3]]]);
-
-        const centerOfRed = _viewport.getMapCenterByLngLatPosition({
-            lngLat: center.geometry.coordinates,
-            pos: [250, 250]
-        });
-
-        //alert(centerOfRed);
-
-        //update the viewstate
-        const viewState = {
-            ...this.state.viewState,
-            longitude: centerOfRed[0],
-            latitude: centerOfRed[1],
-            zoom : zoom,
-            pitch : 0,
-            bearing : 0,
-            transitionDuration : 400,
-            transitionInterpolator : new LinearInterpolator(),
-            transitionEasing : d3.easeBack,
-            onTransitionEnd : ()=> {
-                this.props.setCesiumActive(true);
-                this.props.setDeckActive(false);
-
-                //this.moveCesium(viewState);
-            }
-
-        };
-
-        this.setState( {viewState : viewState });
-
-    }
-
-    revert = () => {
-
-        //update the viewstate
-        const viewState = {
-            ...this.state.viewState,
-            longitude   : this.props.card.camera.longitude,
-            latitude    : this.props.card.camera.latitude,
-            zoom        : this.props.card.camera.zoom,
-            pitch        : this.props.card.camera.pitch,
-            bearing     : this.props.card.camera.bearing,
-
-            transitionDuration : 500,
-            transitionInterpolator : new FlyToInterpolator(),
-            transitionEasing : d3.easeBack,
-            // onTransitionEnd : ()=> {
-            //     //this.props.setCesiumActive(true);
-            //     //this.props.setDeckActive(false);
-            //
-            //     //this.moveCesium(viewState);
-            // }
-
-        };
-
-        this.setState({ viewState });
-
-    }
-
-    moveCesium = (viewState) => {
-
-        //now the map is in  view, work out where to move the cesium map to.
-        const _viewport = new WebMercatorViewport(viewState);
-
-        const bbox = turf.bbox(this.props.card.content.features[0]);
-
-        const yOffset = _viewport.project([bbox[2], bbox[3]])[1];
-
-        //alert(yOffset);
-
-        this.props.setYOffset(yOffset);
-    }
-
     render() {
 
         const layers = [
 
-            new MaskLayer(),
+            new MaskLayer({
 
-            // new MixedLayer({
-            //     card     : this.props.card,
-            //     viewer   : this.props.viewer,
-            //     globeScreenshot : this.props.globeScreenshot
-            // }),
-
-            new VideoBitmapLayer({
-                image: canvas.canvas,
-                width: 1000,
-                bounds: [0,0,4,4]
-            })
-
+               set : ({updatedData}) => {
+                   this.setState({
+                       data: updatedData,
+                   })
+               },
+                data: this.state.data}),
         ];
 
         return (
             <div>
 
-                {this.props.admin && <Buttons deckActive={this.props.deckActive} cesiumActive={this.props.cesiumActive} revert={this.revert} fit={this.fit2} setDeckActive={this.props.setDeckActive} setCesiumActive={this.props.setCesiumActive} card={this.props.card} setFirstLoad={() => this.setState({firstLoad : true})} fit={this.fit2}/> }
+                <code> {this.props.width} </code>
 
-                <div className="Deck" style={{width : '500px', height : '300px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
+                {this.props.admin && <Buttons addInk={this.state.addInk} deckActive={this.props.deckActive} cesiumActive={this.props.cesiumActive} revert={this.revert} fit={this.fit2} setDeckActive={this.props.setDeckActive} setCesiumActive={this.props.setCesiumActive} card={this.props.card} setFirstLoad={() => this.setState({firstLoad : true})} setAddInk={() => this.setState({addInk : !this.state.addInk})} fit={this.fit2}/> }
+
+                <div className="Deck" style={{width : this.props.width + 'px', height : '300px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
 
                     {(this.state.firstLoad) && <DeckGL
-                        controller={ this.controller }
+                        controller={ true  && this.controller }
                         viewState={ this.state.viewState }
                         _animate={true}
                         height="100%"

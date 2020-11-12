@@ -153,7 +153,7 @@ export default class extends Component {
 
                 {this.props.admin && <Buttons deckActive={this.props.deckActive} cesiumActive={this.props.cesiumActive} revert={this.revert} fit={this.fit2} setDeckActive={this.props.setDeckActive} setCesiumActive={this.props.setCesiumActive} card={this.props.card} setFirstLoad={() => this.setState({firstLoad : true})} fit={this.fit2}/> }
 
-                <div className="Deck" style={{width : '500px', height : '500px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
+                <div className="Deck" style={{width : this.props.width + 'px', height : '500px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
 
                     {(this.state.firstLoad) && <DeckGL
                         controller={ this.controller }

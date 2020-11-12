@@ -1,18 +1,15 @@
 import React, {Fragment} from 'react'
 import * as turf from "@turf/turf";
 
-export default  ({ card, fit, revert, deckActive , cesiumActive, setFirstLoad, setCesiumActive, setDeckActive}) => {
+export default  ({ setAddInk, addInk, card, fit, revert, deckActive , cesiumActive, setFirstLoad, setCesiumActive, setDeckActive}) => {
     return (<Fragment>
-        {!cesiumActive && <wired-button elevation="2" disabled={deckActive}  onClick={()=> {
 
-        setFirstLoad();
-        setCesiumActive(true);
-        fit(
-            turf.bbox(card.content.features[0]),
-            turf.center(card.content.features[0]));
-    }}>
-        Change map
-    </wired-button> }
+        {!cesiumActive && <wired-button elevation="2" disabled={deckActive}  onClick={()=> {
+            setAddInk();
+        }}>
+            {!addInk  && <span>Add Ink</span> }
+            {addInk && <span>Save</span> }
+        </wired-button> }
 
     {cesiumActive && <wired-button elevation="2" disabled={deckActive} onClick={()=> {
         setCesiumActive(false);

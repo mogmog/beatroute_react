@@ -4,6 +4,7 @@ import './App.less';
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import Measure from 'react-measure'
 
 import { ApolloClient, InMemoryCache, HttpLink } from 'apollo-boost';
 
@@ -35,6 +36,33 @@ const GETCARD = gql`
 
 `
 
+const useContainerDimensions = myRef => {
+  const getDimensions = () => ({
+    width: myRef.current.offsetWidth,
+    height: myRef.current.offsetHeight
+  })
+
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+
+  useEffect(() => {
+    const handleResize = () => {
+      setDimensions(getDimensions())
+    }
+
+    if (myRef.current) {
+      setDimensions(getDimensions())
+    }
+
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [myRef])
+
+  return dimensions;
+};
+
 gsap.registerPlugin(ScrollTrigger);
 
 const httpLink = new HttpLink({ uri: 'https://beatroute2019.herokuapp.com/v1/graphql' });
@@ -43,19 +71,14 @@ const client = new ApolloClient({ link: (httpLink), cache: new InMemoryCache() }
 
 const App = () => {
 
-  const [background, setBackground] = useState('#262626');
-  const headerRef = useRef(null);
+  const componentRef = useRef()
+
+  const headerRef                   = useRef(null);
 
   const [loadedCount, setLoadedCount] = useState(0);
 
   const revealRefs = useRef([]);
   revealRefs.current = [];
-
-  useEffect(() => {
-
-    gsap.to(headerRef.current, { backgroundColor: background, duration: 1,  ease: 'none' });
-
-  }, [background]);
 
   useEffect(() => {
 
@@ -97,7 +120,7 @@ const App = () => {
     <div className="App">
 
       <ApolloProvider client={client}>
-        {/*<ScrollTrigger cards={ [{id : '1' , type : 'FrontCover'}, {id : '2' , type : 'FrontCover'}] } />*/}
+
         <Query query={GETCARD}  >
           {({ loading, error, data, refetch  }) => {
 
@@ -108,66 +131,65 @@ const App = () => {
 
             return <Fragment>
 
-              <main className="App-main">
+              <Measure bounds>
 
+                {({ measureRef, contentRect: { bounds: { width }} }) => (
 
-                {/*<div className="App-section" style={{height : '100%'}}>*/}
-                {/*  {stillLoading && <code>loading  please wait</code> }*/}
-                {/*</div>*/}
+                <main className="App-main">
 
-                {cards.map((card, i) => {
+                  {/*<div className="App-section" style={{height : '100%'}}>*/}
+                  {/*  {stillLoading && <code>loading  please wait</code> }*/}
+                  {/*</div>*/}
 
+                  {cards.map((card, i) => {
 
+                    if (card.type === 'Front') {
+                      return <div className="App-section" key={i} ref={addToRefs}>
+                              {admin && <code>{card.id}</code>}
+                               <Front key={i + '' + card.id} card={card} index={i}/>
+                             </div>
+                    }
 
-                  if (card.type === 'Front') {
-                    return <div className="App-section" key={i} ref={addToRefs}>
-                      <code>{card.id}</code>
-                             <Front key={i + '' + card.id} card={card} index={i}/>
-                           </div>
-                  }
+                    if (card.type === 'Title') {
+                      return <div className="App-section" key={i} ref={addToRefs}>
+                        {admin && <code>{card.id}</code>}
+                        <Title key={i + '' + card.id} card={card} i={i}/>
+                      </div>
+                    }
 
-                  if (card.type === 'Title') {
-                    return <div className="App-section" key={i} ref={addToRefs}>
-                      <code>{card.id}</code>
-                      <Title key={i + '' + card.id} card={card} index={i}/>
-                    </div>
-                  }
+                    if (card.type === 'PhotosOnMap') {
 
-                  if (card.type === 'PhotosOnMap') {
+                      return  <div className="App-section" key={i} ref={addToRefs}>
+                                {admin && <code>{card.id}</code>}
+                                <PhotosOnMap width={width} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
+                              </div>
+                    }
 
-                    return  <div className="App-section" key={i} ref={addToRefs}>
-                              <PhotosOnMap admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
-                            </div>
-                  }
+                    if (card.type === 'Sketch') {
 
-                  if (card.type === 'Sketch') {
+                      return  <div className="App-section" key={i} ref={addToRefs}>
+                        {admin && <code>{card.id}</code>}
+                        <Sketch width={width} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
+                      </div>
+                    }
 
-                    return  <div className="App-section" key={i} ref={addToRefs}>
-                      <Sketch admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
-                    </div>
-                  }
+                    if (true && card.type === 'Scroll') {
+                      return <SVGScroll />
+                    }
 
-                  if (true && card.type === 'Scroll') {
+                    return null;
+                  })}
 
-                    return <SVGScroll />
-                    // return <PhotosOnMap
-                    //     key={i + '' + card.id}
-                    //     index={i}
-                    //     card={card}/>
-                  }
+                  <div className="App-section" style={{height : '100%'}}>
+                    <CardAdder refetch={refetch}/>
+                  </div>
 
-                  return null;
-                })}
+                  <div ref={measureRef}>My width is {width}</div>
 
-                <div className="App-section" style={{height : '100%'}}>
-                  <CardAdder refetch={refetch}/>
-                </div>
+                </main>
 
-              </main>
-
-              {/*<div style={{height  : '2600px', width : '100%', background : 'red'}}>*/}
-              {/*    end*/}
-              {/*</div>*/}
+                  )}
+              </Measure>
 
             </Fragment>
 
@@ -177,18 +199,6 @@ const App = () => {
 
       </ApolloProvider>
 
-      {/*<main className="App-main">*/}
-      {/*  {*/}
-      {/*    sections.map(({title, subtitle}) => (*/}
-      {/*      <div className="App-section" key={title} ref={addToRefs}>*/}
-      {/*        <h2>{title}</h2>*/}
-      {/*        <p>{subtitle}</p>*/}
-      {/*      </div>*/}
-      {/*    ))*/}
-      {/*  }*/}
-      {/*  <SVGScroll />*/}
-      {/*  /!*<CardScroll />*!/*/}
-      {/*</main>*/}
     </div>
   );
 }
