@@ -27,6 +27,8 @@ export default class CanvasLayer extends BitmapLayer {
         super.loadTexture(image.canvas);
 
         image.startAnimating(25);
+        //image.startAnimating(25);
+        //image.startAnimating(25);
 
         // if (image instanceof HTMLVideoElement) {
             const {gl} = this.context;

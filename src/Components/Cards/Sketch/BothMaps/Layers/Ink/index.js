@@ -40,7 +40,7 @@ export default class InkLayer extends CompositeLayer {
             const canvas = new SketchLine();
             //canvas.startAnimating();
 
-            var ellipse = turf.ellipse(point.geometry.coordinates, 5, 4);
+            var ellipse = turf.ellipse(point.geometry.coordinates, 40, 28);
 
             return new CanvasLayer({
                 opacity : 1,

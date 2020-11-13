@@ -22,11 +22,11 @@ export default class SketchLineCanvas {
            // console.log("test");
             let that = this;
 
-            this.drawing = rough.generator().ellipse(500, 500, 500, 300, {  stroke: 'black', strokeWidth : 10000, roughness: 1.2 });
+            this.drawing = rough.generator().path("M 150 150 Q 200 100 350 100 Q 450 100 500 150 Q 550 250 500 350 C 450 400 400 450 300 450 C 150 450 150 400 100 350 A 50 50 0 1 1 500 250", { roughness: 0.9 });
 
-            that.ctx.globalCompositeOperation = 'source-over';
+            //that.ctx.globalCompositeOperation = 'source-over';
             //that.ctx.globalAlpha = 1;
-            that.ctx.lineWidth =5; // Draw it
+            that.ctx.lineWidth =6; // Draw it
 
             this.ctx.beginPath();
 
