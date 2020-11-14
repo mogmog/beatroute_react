@@ -185,6 +185,7 @@ const App = () => {
                   })}
 
                   <div className="App-section" style={{height : '100%'}}>
+                    test
                     <CardAdder refetch={refetch}/>
                   </div>
 

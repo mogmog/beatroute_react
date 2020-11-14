@@ -18,7 +18,7 @@ export default class Component extends React.PureComponent {
 
             <div>
 
-                <div style={{ margin : 'auto', position: 'relative', top : '0px', width : this.props.width + 'px', height: '300px' }}>
+                <div style={{ margin : 'auto', position: 'relative', top : '0px', width : this.props.width + 'px', height: '500px' }}>
 
                     <Deck
                             admin={this.props.admin}

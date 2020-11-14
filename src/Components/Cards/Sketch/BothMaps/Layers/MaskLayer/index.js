@@ -85,7 +85,8 @@ export default class MaskLayer extends CompositeLayer {
         })
 
         const layer = new PhotoLayer({
-            image : this.props.card.assets[0].data.info.secure_url,
+            id : 'photo_card' + this.props.card.id,
+            image : this.props.card.assets.length ? this.props.card.assets[0].data.info.secure_url : '/favicon.ico',
             bounds: [-122.5190, 37.7045, -122.355, 37.849],
         })
 

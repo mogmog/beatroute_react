@@ -24,16 +24,16 @@ export default class PhotoLayer extends CompositeLayer {
         //var point = turf.polygon(this.props.bounds);
         //var buffered = turf.buffer(point, 500, {units: 'miles'});
 
-        var line = turf.lineString([[this.props.bounds[0], this.props.bounds[1]], [this.props.bounds[2], this.props.bounds[3]]]);
-        var bbox = turf.bbox(line);
-        var bboxPolygon = turf.bboxPolygon(bbox);
+        let line = turf.lineString([[this.props.bounds[0], this.props.bounds[1]], [this.props.bounds[2], this.props.bounds[3]]]);
+        let bbox = turf.bbox(line);
+        let bboxPolygon = turf.bboxPolygon(bbox);
 
         const shrunk = turf.buffer(bboxPolygon, -3.056, {units: 'miles'})
-        var translatedPoly = turf.transformTranslate(shrunk, 0.36, 0);
+        let translatedPoly = turf.transformTranslate(shrunk, 0.36, 0);
         translatedPoly = turf.transformTranslate(translatedPoly, 0.08, 90);
 
         const layer2 = new BitmapLayer({
-            id: 'photo-layer2',
+            id: 'photocard' + this.props.id,
             bounds: turf.bbox(translatedPoly),
             image: this.props.image
         })
