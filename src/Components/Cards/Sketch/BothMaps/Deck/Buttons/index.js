@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import * as turf from "@turf/turf";
+import AddPhoto from './AddPhoto'
 
 export default  ({ setAddInk, addInk, card, fit, revert, deckActive , cesiumActive, setFirstLoad, setCesiumActive, setDeckActive}) => {
     return (<Fragment>
@@ -38,6 +38,8 @@ export default  ({ setAddInk, addInk, card, fit, revert, deckActive , cesiumActi
             }}>
               Remove Stack
             </wired-button>
+
+            <AddPhoto card={card}/>
 
     </Fragment>
     )

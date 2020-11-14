@@ -3,8 +3,12 @@ import {BitmapLayer} from '@deck.gl/layers';
 import {TileLayer} from '@deck.gl/geo-layers';
 import GL from '@luma.gl/constants';
 import InkLayer from "../Ink";
+import PhotoLayer from "../Photo";
 
 export default class MaskLayer extends CompositeLayer {
+
+
+
     initializeState() {
 
         let self = this;
@@ -18,8 +22,8 @@ export default class MaskLayer extends CompositeLayer {
     shouldUpdateState({ changeFlags }) {
 
         //lock the mask to the bounds of the 500x300 container
-        const tl = (this.context.deck.viewManager._viewports[0].unproject([0,300],      {topLeft : false}));
-        const tr = (this.context.deck.viewManager._viewports[0].unproject([500,300],    {topLeft : false}));
+        const tl = (this.context.deck.viewManager._viewports[0].unproject([0,600],      {topLeft : false}));
+        const tr = (this.context.deck.viewManager._viewports[0].unproject([500,600],    {topLeft : false}));
         const bl = (this.context.deck.viewManager._viewports[0].unproject([0,0],        {topLeft : false}));
         const br = (this.context.deck.viewManager._viewports[0].unproject([500,0],      {topLeft : false}));
 
@@ -77,10 +81,16 @@ export default class MaskLayer extends CompositeLayer {
 
         const ink = new InkLayer({
             data: this.props.data,
-            width: this.props.width,
             onEdit: this.props.set,
         })
 
-        return [ tilelayer ,ink, papermasklayer ];
+        const layer = new PhotoLayer({
+            image : this.props.card.assets[0].data.info.secure_url,
+            bounds: [-122.5190, 37.7045, -122.355, 37.849],
+        })
+
+        return [ tilelayer ,ink, papermasklayer, layer ];
     }
 }
+
+MaskLayer.componentName = 'MaskLayer';

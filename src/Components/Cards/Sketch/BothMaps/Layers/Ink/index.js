@@ -1,9 +1,7 @@
 import { CompositeLayer } from '@deck.gl/core';
-import {BitmapLayer} from "@deck.gl/layers";
-import CanvasLayer from "../CanvasLayer";
+import SketchLayer from "../SketchLayer";
 import {DrawPointMode, EditableGeoJsonLayer } from "nebula.gl";
 import * as turf from "@turf/turf";
-import SketchLine from "../CanvasLayer/SketchLine";
 
 let selectedFeatureIndexes = [];
 
@@ -16,10 +14,6 @@ export default class InkLayer extends CompositeLayer {
     shouldUpdateState({ changeFlags }) {
         return changeFlags.somethingChanged;
     }
-
-    // finalizeState() {
-    //     super.finalizeState();
-    // }
 
     renderLayers() {
         //const { altitude , cameraBearing} = this.state;
@@ -37,18 +31,11 @@ export default class InkLayer extends CompositeLayer {
 
         const inks = this.props.data.features.map((point, i) => {
 
-            const canvas = new SketchLine();
+            var ellipse = turf.ellipse(point.geometry.coordinates, 10, 10);
 
-           // console.log(canvas);
-            //canvas.startAnimating();
-
-            var ellipse = turf.ellipse(point.geometry.coordinates, 40, 28);
-
-            return new CanvasLayer({
+            return new SketchLayer({
                 opacity : 1,
                 id: 'ink-layer ' + i,
-                image : canvas,
-                width : 1000,
                 bounds: turf.bbox(ellipse)
             })
         });

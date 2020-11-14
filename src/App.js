@@ -31,6 +31,10 @@ const GETCARD = gql`
     map
     camera
     content
+    
+    assets {
+      data
+    }
   }
 }
 

@@ -1,5 +1,5 @@
-<svg width="500" height="500" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-	<rect width="10" height="10">
-		<animate attributeName="rx" values="0;5;0" dur="2s"   />
-	</rect>
+<svg width="500" height="500" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<path stroke-dasharray="3000" stroke-width="10" class="path" d="M 150 150 Q 200 100 350 100 Q 450 100 500 150 Q 550 250 500 350 C 450 400 400 450 300 450 C 150 450 150 400 100 350 A 50 50 0 1 1 500 250" stroke="#000">
+		<animate attributeName="stroke-dashoffset" from="3000" to="0" dur="1.5s" begin="0" keySplines="0.25 0.1 0.25 1" keyTimes="0;1" calcMode="spline" fill="freeze" />
+	</path>
 </svg>

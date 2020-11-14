@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react';
 import DeckGL from '@deck.gl/react';
 import {MapController, LinearInterpolator, FlyToInterpolator} from '@deck.gl/core';
-import SketchLine from '../Layers/CanvasLayer/SketchLine'
+//import SketchLine from '../Layers/CanvasLayer/SketchLine'
 import MaskLayer from '../Layers/MaskLayer'
 import { EditableGeoJsonLayer, DrawPolygonMode , DrawCircleByDiameterMode} from 'nebula.gl';
 
@@ -11,7 +11,7 @@ import Buttons from './Buttons'
 
 import './index.less'
 
-const canvas = new SketchLine();
+//const canvas = new SketchLine();
 
 const myFeatureCollection = {
     type: 'FeatureCollection',
@@ -76,7 +76,7 @@ export default class extends Component {
         const layers = [
 
             new MaskLayer({
-
+               card: this.props.card,
                set : ({updatedData}) => {
                    this.setState({
                        data: updatedData,
@@ -92,7 +92,7 @@ export default class extends Component {
 
                 {this.props.admin && <Buttons addInk={this.state.addInk} deckActive={this.props.deckActive} cesiumActive={this.props.cesiumActive} revert={this.revert} fit={this.fit2} setDeckActive={this.props.setDeckActive} setCesiumActive={this.props.setCesiumActive} card={this.props.card} setFirstLoad={() => this.setState({firstLoad : true})} setAddInk={() => this.setState({addInk : !this.state.addInk})} fit={this.fit2}/> }
 
-                <div className="Deck" style={{width : this.props.width + 'px', height : '300px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
+                <div className="Deck" style={{width : this.props.width + 'px', height : '600px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
 
                     {(this.state.firstLoad) && <DeckGL
                         controller={ true  && this.controller }
