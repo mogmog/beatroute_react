@@ -38,6 +38,8 @@ export default class InkLayer extends CompositeLayer {
         const inks = this.props.data.features.map((point, i) => {
 
             const canvas = new SketchLine();
+
+           // console.log(canvas);
             //canvas.startAnimating();
 
             var ellipse = turf.ellipse(point.geometry.coordinates, 40, 28);

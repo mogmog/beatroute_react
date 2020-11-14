@@ -15,8 +15,14 @@ export default class CanvasLayer extends BitmapLayer {
         //console.log(123);
         // Update video frame
        if (image) {
+
+           image.v.then(cc => {
+               cc.start()
+               //console.log(cc.screen.ctx.canvas);
+               bitmapTexture.setSubImageData({data: cc.screen.ctx.canvas});
+           });
            //bitmapTexture.resize({width: width, height: width});
-           bitmapTexture.setSubImageData({data: image.canvas});
+
         }
 
         super.draw(opts);
@@ -26,9 +32,8 @@ export default class CanvasLayer extends BitmapLayer {
 
         super.loadTexture(image.canvas);
 
-        image.startAnimating(25);
-        //image.startAnimating(25);
-        //image.startAnimating(25);
+        //console.log(image)
+
 
         // if (image instanceof HTMLVideoElement) {
             const {gl} = this.context;
@@ -36,8 +41,8 @@ export default class CanvasLayer extends BitmapLayer {
         //     // Initialize an empty texture while we wait for the video to load
             this.setState({
                 bitmapTexture: new Texture2D(gl, {
-                    width: 1000,
-                    height: 1000,
+                    width: 500,
+                    height: 500,
                     parameters: {
                         [gl.TEXTURE_MIN_FILTER]: gl.NEAREST,
                         [gl.TEXTURE_MAG_FILTER]: gl.NEAREST,
