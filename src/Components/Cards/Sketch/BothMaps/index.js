@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import Deck from './Deck';
+import {Controller,  MapView, OrthographicView} from '@deck.gl/core';
+
 export default class Component extends React.PureComponent {
 
     state = {
@@ -21,7 +23,10 @@ export default class Component extends React.PureComponent {
                 <div style={{ margin : 'auto', position: 'relative', top : '0px', width : this.props.width + 'px', height: '500px' }}>
 
                     <Deck
-                            admin={this.props.admin}
+
+
+
+                        admin={this.props.admin}
                             width={this.props.width}
                             cesiumActive={this.state.cesiumActive}
                             deckActive={this.state.deckActive}

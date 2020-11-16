@@ -12,15 +12,13 @@ import * as THREE from 'three';
  */
 export function CustomGeometry ({ size, holed }) {
 
-    // 2D boat shape
     const shape = new THREE.Shape();
 
     shape.moveTo(0, 0);
     shape.lineTo(size, 0);
-    shape.lineTo(size, size * 1.2 );
-    shape.lineTo(0, size * 1.2);
+    shape.lineTo(size, size * 1.03 );
+    shape.lineTo(0, size * 1.03);
     shape.lineTo(0, 0);
-
 
     if (holed) {
 

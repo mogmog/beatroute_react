@@ -1,15 +1,21 @@
 import React, {Fragment, useState} from 'react';
 import DeckGL from '@deck.gl/react';
+import {SimpleMeshLayer} from '@deck.gl/mesh-layers';
 import {MapController, LinearInterpolator, FlyToInterpolator} from '@deck.gl/core';
 //import SketchLine from '../Layers/CanvasLayer/SketchLine'
-import MaskLayer from '../Layers/MaskLayer'
-import { EditableGeoJsonLayer, DrawPolygonMode , DrawCircleByDiameterMode} from 'nebula.gl';
+import { LightingEffect, AmbientLight, _CameraLight} from '@deck.gl/core';
 
+import {Controller,  MapView, OrthographicView} from '@deck.gl/core';
+import MapMaskLayer from '../Layers/MaskLayer'
+import { EditableGeoJsonLayer, DrawPolygonMode , DrawCircleByDiameterMode} from 'nebula.gl';
+import {COORDINATE_SYSTEM} from '@deck.gl/core';
 import {Component} from 'react';
 import _ from "lodash";
 import Buttons from './Buttons'
 
 import './index.less'
+import PhotoLayer from "../Layers/Photo";
+import {CustomGeometry} from "../../Map/CustomGeometry";
 
 //const canvas = new SketchLine();
 
@@ -22,6 +28,16 @@ const myFeatureCollection = {
 
 const selectedFeatureIndexes = [];
 
+const ambientLight = new AmbientLight({
+    color: [255, 255, 255],
+    intensity: 1.4
+});
+
+const cameraLight = new _CameraLight({
+    color: [255, 255, 255],
+    intensity: 0.35
+});
+
 const INIT_CAMERA = {
     minPitch : 0,
     maxPitch : 0,
@@ -32,6 +48,14 @@ const INIT_CAMERA = {
     // maxZoom : 9,
     // minZoom : 6,
     zoom : 6.5};
+
+const plane = new CustomGeometry({size : 1, holed  : false});
+
+const materialLayoutData = [
+    {position: [0, -50, 0.0], angle : -10},
+    {position: [-20, -60, 0.0], angle : 15},
+    {position: [-15, 10, 0.0], angle : 5},
+];
 
 export default class extends Component {
 
@@ -47,7 +71,7 @@ export default class extends Component {
             editingMap : false,
             addInk : false,
             useController : false,
-            viewState   :  props.card.camera || INIT_CAMERA
+            viewState   :  {map : props.card.camera || INIT_CAMERA, orth : {"orbitAxis":"Z","rotationX":0,"rotationOrbit":0,"target":[0,0,0],"zoom":1.5998110489966852}}
         }
         let that = this;
 
@@ -73,9 +97,11 @@ export default class extends Component {
 
     render() {
 
+        const zoomFactor = (this.state.viewState.zoom) ;
+
         const layers = [
 
-            new MaskLayer({
+            new MapMaskLayer({
                card: this.props.card,
                set : ({updatedData}) => {
                    this.setState({
@@ -83,6 +109,23 @@ export default class extends Component {
                    })
                },
                 data: this.state.data}),
+
+            new SimpleMeshLayer({
+                id: 'photo',
+                getOrientation: d => [0, d.angle,0],
+                getScale: [100,100,1],
+                opacity: 1,
+                data : materialLayoutData,
+                mesh: plane,
+                getPosition: d => d.position,
+                texture : '/textures/blank_polaroid.png',
+                material : {
+                    ambient: 0.45,
+                    diffuse: 0.8,
+                    shininess: 0.2,
+                    specularColor: [255, 255, 255]
+                }
+            })
         ];
 
         return (
@@ -95,9 +138,31 @@ export default class extends Component {
                 <div className="Deck" style={{width : this.props.width + 'px', height : '600px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
 
                     {(this.state.firstLoad) && <DeckGL
-                        controller={ true  && this.controller }
-                        viewState={ this.state.viewState }
-                        _animate={true}
+
+                        viewState={this.state.viewState}
+
+                        views={
+
+                            [
+                                new MapView({               id: 'map',          controller : this.controller}),
+                                new OrthographicView({      id: 'orth',         controller : false})
+                            ]
+                        }
+                        layerFilter={ ({layer, viewport}) => {
+
+                            //console.log(viewport.id, layer.id);
+
+                        if (viewport.id === 'map' && layer.id.indexOf('mask') > -1) {
+                              return true;
+                            }
+
+                            if (viewport.id === 'orth' && layer.id.indexOf('photo') > -1) {
+                                return true;
+                            }
+
+                            return false;
+                          }}
+                        _animate={false}
                         height="100%"
                         width="100%"
 
@@ -118,8 +183,24 @@ export default class extends Component {
                             }
 
                         }}
-                        effects={[]}
-                        onViewStateChange={({viewState}) => this.setState({viewState: viewState})}
+                        effects={ [ new LightingEffect({ cameraLight, ambientLight }) ]}
+                        onViewStateChange={({viewId, viewState}) => {
+                           if (viewId === 'map') this.setState({viewState: {
+                               map : viewState,
+                               orth : this.state.viewState.orth
+
+                           }});
+
+                           if (viewId === 'orth') {
+                               this.setState({viewState: {
+                                   orth : viewState ,
+                                       map : this.state.viewState.map
+
+                               }});
+                           }
+                        }
+                        }
+
                         layers={layers}/> }
 
                     {false && !this.state.firstLoad  && !this.state.deckActive && <div>cache<img onClick={() => {
