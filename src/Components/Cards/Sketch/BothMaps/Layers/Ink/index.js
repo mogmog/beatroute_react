@@ -20,9 +20,9 @@ export default class InkLayer extends CompositeLayer {
         //const {  image, out, center, title } = this.props;
 
         const draw = new EditableGeoJsonLayer({
-            id: 'geojson-layer',
+            id: 'mask-geojson-layer',
             data: this.props.data,
-            opacity : 0,
+            opacity : 1,
             mode: DrawPointMode,
             selectedFeatureIndexes,
             onEdit: this.props.onEdit,
@@ -35,7 +35,7 @@ export default class InkLayer extends CompositeLayer {
 
             return new SketchLayer({
                 opacity : 1,
-                id: 'ink-layer ' + i,
+                id: 'mask-ink-layer ' + i,
                 bounds: turf.bbox(ellipse)
             })
         });

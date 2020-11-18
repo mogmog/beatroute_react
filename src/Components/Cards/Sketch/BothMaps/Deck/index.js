@@ -1,6 +1,8 @@
 import React, {Fragment, useState} from 'react';
 import DeckGL from '@deck.gl/react';
 import {SimpleMeshLayer} from '@deck.gl/mesh-layers';
+import {BitmapLayer} from '@deck.gl/layers';
+import GL from '@luma.gl/constants';
 import {MapController, LinearInterpolator, FlyToInterpolator} from '@deck.gl/core';
 //import SketchLine from '../Layers/CanvasLayer/SketchLine'
 import { LightingEffect, AmbientLight, _CameraLight} from '@deck.gl/core';
@@ -16,6 +18,7 @@ import Buttons from './Buttons'
 import './index.less'
 import PhotoLayer from "../Layers/Photo";
 import {CustomGeometry} from "../../Map/CustomGeometry";
+import {TapeGeometry} from "../../Map/TapeGeometry";
 
 //const canvas = new SketchLine();
 
@@ -49,12 +52,17 @@ const INIT_CAMERA = {
     // minZoom : 6,
     zoom : 6.5};
 
-const plane = new CustomGeometry({size : 1, holed  : false});
+const plane     = new CustomGeometry({size : 1, m : 1.03, holed  : false});
+const tapeplane = new CustomGeometry({size : 1, m : 1.03, holed  : false});
 
 const materialLayoutData = [
     {position: [0, -50, 0.0], angle : -10},
     {position: [-20, -60, 0.0], angle : 15},
     {position: [-15, 10, 0.0], angle : 5},
+];
+
+const tapeLayoutData = [
+    {position: [-70, -70, 0.0], angle : -10}
 ];
 
 export default class extends Component {
@@ -101,6 +109,8 @@ export default class extends Component {
 
         const layers = [
 
+
+
             new MapMaskLayer({
                card: this.props.card,
                set : ({updatedData}) => {
@@ -124,8 +134,35 @@ export default class extends Component {
                     diffuse: 0.8,
                     shininess: 0.2,
                     specularColor: [255, 255, 255]
+                },
+
+            }),
+
+            new SimpleMeshLayer({
+                id: 'photo-tape',
+                getOrientation: d => [0, -30, 0],
+                getScale: [50,50,1],
+                opacity: 1,
+                data : tapeLayoutData,
+                mesh: tapeplane,
+                getPosition: d => d.position,
+                texture : './textures/tape4.png',
+                xmaterial : {
+                    ambient: 0.45,
+                    diffuse: 0.4,
+                    shininess: 0.2,
+                    specularColor: [255, 255, 255]
+                },
+                xparameters: {
+                    depthTest: true,
+                    depthMask: true,
+                    blend: true,
+                    blendEquation: GL.FUNC_ADD,
+                    blendFunc: [GL.ONE ]
                 }
+
             })
+
         ];
 
         return (
@@ -152,7 +189,7 @@ export default class extends Component {
 
                             //console.log(viewport.id, layer.id);
 
-                        if (viewport.id === 'map' && layer.id.indexOf('mask') > -1) {
+                        if (viewport.id === 'map' && (layer.id.indexOf('mask') > -1 || layer.id.indexOf('tape') > -1)) {
                               return true;
                             }
 

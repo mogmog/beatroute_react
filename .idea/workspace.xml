@@ -20,11 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e8731ac-8190-46e8-ac17-3ab52bb809bd" name="Default Changelist" comment="safety checkin">
+      <change afterPath="$PROJECT_DIR$/public/textures/paper6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/textures/tape.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/textures/tape2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/textures/tape3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/textures/tape4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/Map/TapeGeometry.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Ink/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Ink/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Photo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Photo/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/Map/CustomGeometry.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/Map/CustomGeometry.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +57,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/textures" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -68,11 +74,11 @@
       <recent name="$PROJECT_DIR$/api" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/public/textures" />
+      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/Map" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Create" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/Combined" />
-      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -119,6 +125,8 @@
       <workItem from="1604925269098" duration="23611000" />
       <workItem from="1605180279721" duration="13987000" />
       <workItem from="1605269826146" duration="24867000" />
+      <workItem from="1605545222274" duration="7465000" />
+      <workItem from="1605634391665" duration="5312000" />
     </task>
     <task id="LOCAL-00001" summary="wip">
       <created>1602593335196</created>
@@ -218,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605381452102</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="working photos in orth view">
+      <created>1605545254126</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1605545254126</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +270,8 @@
     <MESSAGE value="working okish" />
     <MESSAGE value="working animated svg" />
     <MESSAGE value="workin photo on sketch" />
-    <option name="LAST_COMMIT_MESSAGE" value="workin photo on sketch" />
+    <MESSAGE value="working photos in orth view" />
+    <option name="LAST_COMMIT_MESSAGE" value="working photos in orth view" />
   </component>
   <component name="WindowStateProjectService">
     <state x="292" y="162" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605386613787">
@@ -283,10 +299,10 @@
     </state>
     <state x="232" y="74" key="SettingsEditor/0.23.1680.977@0.23.1680.977" timestamp="1604938376112" />
     <state x="232" y="74" key="SettingsEditor/0.23.1680.978@0.23.1680.978" timestamp="1605477621288" />
-    <state x="589" y="295" key="Vcs.Push.Dialog.v2" timestamp="1605381488225">
-      <screen x="0" y="23" width="1680" height="980" />
+    <state x="589" y="295" key="Vcs.Push.Dialog.v2" timestamp="1605545255943">
+      <screen x="0" y="23" width="1680" height="978" />
     </state>
-    <state x="589" y="295" key="Vcs.Push.Dialog.v2/0.23.1680.978@0.23.1680.978" timestamp="1605269227191" />
+    <state x="589" y="295" key="Vcs.Push.Dialog.v2/0.23.1680.978@0.23.1680.978" timestamp="1605545255943" />
     <state x="589" y="295" key="Vcs.Push.Dialog.v2/0.23.1680.979@0.23.1680.979" timestamp="1605357872185" />
     <state x="589" y="295" key="Vcs.Push.Dialog.v2/0.23.1680.980@0.23.1680.980" timestamp="1605381488225" />
     <state x="590" y="158" width="883" height="743" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1605202324765">
@@ -316,8 +332,8 @@
     </state>
     <state x="805" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.972@0.23.1680.972" timestamp="1604259244685" />
     <state x="805" y="477" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.975@0.23.1680.975" timestamp="1603183099907" />
-    <state x="742" y="262" width="666" height="499" key="find.popup" timestamp="1605526247715">
-      <screen x="0" y="23" width="1680" height="980" />
+    <state x="742" y="261" width="598" height="490" key="find.popup" timestamp="1605610981845">
+      <screen x="0" y="23" width="1680" height="977" />
     </state>
     <state x="742" y="258" width="598" height="490" key="find.popup/0.23.1680.967@0.23.1680.967" timestamp="1602502762629" />
     <state x="742" y="259" width="598" height="490" key="find.popup/0.23.1680.970@0.23.1680.970" timestamp="1601911263009" />
@@ -326,7 +342,7 @@
     <state x="742" y="260" width="598" height="492" key="find.popup/0.23.1680.974@0.23.1680.974" timestamp="1604411053359" />
     <state x="742" y="260" width="598" height="495" key="find.popup/0.23.1680.975@0.23.1680.975" timestamp="1603023714629" />
     <state x="742" y="261" width="666" height="496" key="find.popup/0.23.1680.976@0.23.1680.976" timestamp="1605003721847" />
-    <state x="742" y="261" width="598" height="490" key="find.popup/0.23.1680.977@0.23.1680.977" timestamp="1603123871214" />
+    <state x="742" y="261" width="598" height="490" key="find.popup/0.23.1680.977@0.23.1680.977" timestamp="1605610981845" />
     <state x="742" y="261" width="598" height="495" key="find.popup/0.23.1680.978@0.23.1680.978" timestamp="1604844649885" />
     <state x="742" y="262" width="666" height="498" key="find.popup/0.23.1680.979@0.23.1680.979" timestamp="1605379119677" />
     <state x="742" y="262" width="666" height="499" key="find.popup/0.23.1680.980@0.23.1680.980" timestamp="1605526247715" />
@@ -334,7 +350,7 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="807" y="252" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1603020830930" />
-    <state x="766" y="250" width="670" height="684" key="search.everywhere.popup" timestamp="1605483900104">
+    <state x="766" y="250" width="670" height="684" key="search.everywhere.popup" timestamp="1605645548958">
       <screen x="0" y="23" width="1680" height="979" />
     </state>
     <state x="766" y="247" width="670" height="676" key="search.everywhere.popup/0.23.1680.967@0.23.1680.967" timestamp="1603657051808" />
@@ -346,6 +362,6 @@
     <state x="766" y="249" width="670" height="681" key="search.everywhere.popup/0.23.1680.976@0.23.1680.976" timestamp="1603367636654" />
     <state x="766" y="249" width="670" height="683" key="search.everywhere.popup/0.23.1680.977@0.23.1680.977" timestamp="1603123083039" />
     <state x="766" y="250" width="670" height="683" key="search.everywhere.popup/0.23.1680.978@0.23.1680.978" timestamp="1605352130025" />
-    <state x="766" y="250" width="670" height="684" key="search.everywhere.popup/0.23.1680.979@0.23.1680.979" timestamp="1605483900104" />
+    <state x="766" y="250" width="670" height="684" key="search.everywhere.popup/0.23.1680.979@0.23.1680.979" timestamp="1605645548958" />
   </component>
 </project>

@@ -26,22 +26,8 @@ export default class MaskLayer extends CompositeLayer {
         const bl = (this.context.deck.viewManager._viewports[0].unproject([0,0],        {topLeft : false}));
         const br = (this.context.deck.viewManager._viewports[0].unproject([500,0],      {topLeft : false}));
 
-        // const photo_tl = (this.context.deck.viewManager._viewports[0].unproject([150,500],      {topLeft : false}));
-        // const photo_tr = (this.context.deck.viewManager._viewports[0].unproject([475,500],    {topLeft : false}));
-        // const photo_bl = (this.context.deck.viewManager._viewports[0].unproject([150,200],        {topLeft : false}));
-        // const photo_br = (this.context.deck.viewManager._viewports[0].unproject([475,200],      {topLeft : false}));
-
-        // var poly = turf.polygon([[photo_bl,photo_tl,photo_tr,photo_br, photo_bl]]);
-        // var options = {pivot: photo_tl};
-        // var rotatedPoly = turf.transformRotate(poly, 10);
-        //
-        // const bbox = (rotatedPoly.geometry.coordinates[0]);
-
         this.setState({
             bounds : [ bl, tl, tr, br ],
-            //photo_bounds : [bbox[0], bbox[1], bbox[2], bbox[3]]
-
-
         });
 
         return changeFlags.somethingChanged;
@@ -56,6 +42,25 @@ export default class MaskLayer extends CompositeLayer {
         const {  image, out, center, title } = this.props;
 
         if (!this.state.bounds) return [];
+
+        const tape = new BitmapLayer({
+            id: 'mask-tape-bitmap-layer',
+            bounds: this.state.bounds,
+            image: './textures/tape2.png',
+            xparameters: {
+                depthTest: true,
+                depthMask: true,
+                blend: true,
+                blendEquation: GL.FUNC_ADD,
+                blendFunc: [GL.ONE, GL.ONE]
+            }
+        });
+
+        const texture = new BitmapLayer({
+            id: 'mask-background-bitmap-layer',
+            bounds: this.state.bounds,
+            image: './textures/paper6.jpg',
+        });
 
         const papermasklayer = new BitmapLayer({
             id: 'mask-bitmap-layer',
@@ -88,6 +93,14 @@ export default class MaskLayer extends CompositeLayer {
                     data: null,
                     image: props.data,
                     bounds: [west, south, east, north],
+                    opacity: 0.7,
+                    parameters: {
+                        depthTest: true,
+                        depthMask: true,
+                        blend: true,
+                        blendEquation: GL.FUNC_ADD,
+                        blendFunc: [GL.ONE, GL.ONE_MINUS_SRC_COLOR]
+                    }
 
                 });
             }
@@ -104,7 +117,7 @@ export default class MaskLayer extends CompositeLayer {
         // //console.log(this.state.photo_bounds);
 
 
-        return [ tilelayer ,ink, papermasklayer ];
+        return [ texture, papermasklayer, tilelayer, ink ];
     }
 }
 
