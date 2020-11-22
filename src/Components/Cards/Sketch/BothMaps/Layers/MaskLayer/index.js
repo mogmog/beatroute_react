@@ -104,8 +104,8 @@ export default class MaskLayer extends CompositeLayer {
         // //console.log(this.state.photo_bounds);
 
 
-        return [ tilelayer ,ink, papermasklayer ];
+        return [ tilelayer, ink , papermasklayer];
     }
 }
 
-MaskLayer.componentName = 'MaskLayer';
+MaskLayer.componentName = 'maskMaskLayer';

@@ -7,7 +7,7 @@ import { LightingEffect, AmbientLight, _CameraLight} from '@deck.gl/core';
 
 import {Controller,  MapView, OrthographicView} from '@deck.gl/core';
 import MapMaskLayer from '../Layers/MaskLayer'
-import { EditableGeoJsonLayer, DrawPolygonMode , DrawCircleByDiameterMode} from 'nebula.gl';
+import {EditableGeoJsonLayer, DrawPolygonMode, DrawCircleByDiameterMode, DrawPointMode} from 'nebula.gl';
 import {COORDINATE_SYSTEM} from '@deck.gl/core';
 import {Component} from 'react';
 import _ from "lodash";
@@ -110,6 +110,20 @@ export default class extends Component {
                },
                 data: this.state.data}),
 
+       new EditableGeoJsonLayer({       //mystery layer required
+            id: 'mask-geojson-layer2',
+            data: this.state.data,
+            opacity : 0,
+            mode: DrawPointMode,
+            selectedFeatureIndexes,
+            //onEdit: this.props.onEdit,
+           onEdit : ({updatedData}) => {
+               this.setState({
+                   data: updatedData,
+               })
+           },
+        }),
+
             new SimpleMeshLayer({
                 id: 'photo',
                 getOrientation: d => [0, d.angle,0],
@@ -131,7 +145,7 @@ export default class extends Component {
         return (
             <div>
 
-                <code> {this.props.width} </code>
+                <code> {this.state.data.features.length} </code>
 
                 {this.props.admin && <Buttons addInk={this.state.addInk} deckActive={this.props.deckActive} cesiumActive={this.props.cesiumActive} revert={this.revert} fit={this.fit2} setDeckActive={this.props.setDeckActive} setCesiumActive={this.props.setCesiumActive} card={this.props.card} setFirstLoad={() => this.setState({firstLoad : true})} setAddInk={() => this.setState({addInk : !this.state.addInk})} fit={this.fit2}/> }
 
@@ -144,12 +158,12 @@ export default class extends Component {
                         views={
 
                             [
-                                new MapView({               id: 'map',          controller : this.controller}),
+                                new MapView({               id: 'map',          xcontroller : true, controller : {type: this.controller, scrollZoom: true, doubleClickZoom : false}}),
                                 new OrthographicView({      id: 'orth',         controller : false})
                             ]
                         }
                         layerFilter={ ({layer, viewport}) => {
-
+                         //return true
                             //console.log(viewport.id, layer.id);
 
                         if (viewport.id === 'map' && layer.id.indexOf('mask') > -1) {
@@ -159,7 +173,7 @@ export default class extends Component {
                             if (viewport.id === 'orth' && layer.id.indexOf('photo') > -1) {
                                 return true;
                             }
-
+                        //console.log(layer.id)
                             return false;
                           }}
                         _animate={false}

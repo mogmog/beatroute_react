@@ -19,8 +19,9 @@ export default class InkLayer extends CompositeLayer {
         //const { altitude , cameraBearing} = this.state;
         //const {  image, out, center, title } = this.props;
 
+        //this layer must be here for some reason
         const draw = new EditableGeoJsonLayer({
-            id: 'geojson-layer',
+            id: 'mask-geojson-layer',
             data: this.props.data,
             opacity : 0,
             mode: DrawPointMode,
@@ -35,7 +36,7 @@ export default class InkLayer extends CompositeLayer {
 
             return new SketchLayer({
                 opacity : 1,
-                id: 'ink-layer ' + i,
+                id: 'mask-ink-layer ' + i,
                 bounds: turf.bbox(ellipse)
             })
         });

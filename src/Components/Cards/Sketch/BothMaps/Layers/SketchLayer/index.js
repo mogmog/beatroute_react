@@ -34,10 +34,24 @@ export default class CanvasLayer extends BitmapLayer {
 
         canvas.add(path);
 
+        //let tt = super;
+
         path.animate('strokeDashOffset', 0, {
-            //onChange: canvas.renderAll.bind(canvas),
+            onComplete: function() {
+                //super.loadTexture(canvas.toCanvasElement());
+            },
+
+            onChange: (i) => {
+
+
+                //console.log(this);
+                this.setNeedsRedraw(true);
+                //console.log("progress");
+
+                //canvas.renderAll.bind(canvas)
+            },
             easing: fabric.util.ease.easeInExpo,
-            duration: 500
+            duration: 300
         });
 
        // console.log(123);

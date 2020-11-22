@@ -22,10 +22,9 @@
     <list default="true" id="5e8731ac-8190-46e8-ac17-3ab52bb809bd" name="Default Changelist" comment="safety checkin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Ink/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Ink/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Photo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Photo/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/Map/CustomGeometry.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/Map/CustomGeometry.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/SketchLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/SketchLayer/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +33,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -334,7 +334,7 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="807" y="252" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1603020830930" />
-    <state x="766" y="250" width="670" height="684" key="search.everywhere.popup" timestamp="1605483900104">
+    <state x="766" y="250" width="670" height="684" key="search.everywhere.popup" timestamp="1606067152958">
       <screen x="0" y="23" width="1680" height="979" />
     </state>
     <state x="766" y="247" width="670" height="676" key="search.everywhere.popup/0.23.1680.967@0.23.1680.967" timestamp="1603657051808" />
@@ -346,6 +346,6 @@
     <state x="766" y="249" width="670" height="681" key="search.everywhere.popup/0.23.1680.976@0.23.1680.976" timestamp="1603367636654" />
     <state x="766" y="249" width="670" height="683" key="search.everywhere.popup/0.23.1680.977@0.23.1680.977" timestamp="1603123083039" />
     <state x="766" y="250" width="670" height="683" key="search.everywhere.popup/0.23.1680.978@0.23.1680.978" timestamp="1605352130025" />
-    <state x="766" y="250" width="670" height="684" key="search.everywhere.popup/0.23.1680.979@0.23.1680.979" timestamp="1605483900104" />
+    <state x="766" y="250" width="670" height="684" key="search.everywhere.popup/0.23.1680.979@0.23.1680.979" timestamp="1606067152958" />
   </component>
 </project>
