@@ -20,29 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e8731ac-8190-46e8-ac17-3ab52bb809bd" name="Default Changelist" comment="safety checkin">
-      <change afterPath="$PROJECT_DIR$/public/textures/paper3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/textures/paper33.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/title.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/ArrowSketchLayer/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Editable/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/Map/NoteGeometry.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/craco.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/craco.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/textures/paper-inverted.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/textures/paper-inverted.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/Buttons/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/Buttons/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Ink/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Ink/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/ArrowSketchLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/ArrowSketchLayer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Title/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Title/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +124,7 @@
       <workItem from="1606220971769" duration="745000" />
       <workItem from="1606243365383" duration="4740000" />
       <workItem from="1606303464545" duration="8314000" />
-      <workItem from="1606320780315" duration="9338000" />
+      <workItem from="1606320780315" duration="14352000" />
     </task>
     <task id="LOCAL-00001" summary="wip">
       <created>1602593335196</created>
@@ -250,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606069735450</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="slightly more working layers">
+      <created>1606335274140</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1606335274140</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +276,8 @@
     <MESSAGE value="working animated svg" />
     <MESSAGE value="workin photo on sketch" />
     <MESSAGE value="working sketches" />
-    <option name="LAST_COMMIT_MESSAGE" value="working sketches" />
+    <MESSAGE value="slightly more working layers" />
+    <option name="LAST_COMMIT_MESSAGE" value="slightly more working layers" />
   </component>
   <component name="WindowStateProjectService">
     <state x="292" y="162" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605386613787">
@@ -322,10 +311,10 @@
       <screen x="0" y="23" width="1680" height="978" />
     </state>
     <state x="684" y="465" key="VCS.ChangelistChooser/0.23.1680.978@0.23.1680.978" timestamp="1606245315746" />
-    <state x="589" y="295" key="Vcs.Push.Dialog.v2" timestamp="1606069737155">
-      <screen x="0" y="23" width="1680" height="979" />
+    <state x="589" y="295" key="Vcs.Push.Dialog.v2" timestamp="1606335343009">
+      <screen x="0" y="23" width="1680" height="978" />
     </state>
-    <state x="589" y="295" key="Vcs.Push.Dialog.v2/0.23.1680.978@0.23.1680.978" timestamp="1605269227191" />
+    <state x="589" y="295" key="Vcs.Push.Dialog.v2/0.23.1680.978@0.23.1680.978" timestamp="1606335343009" />
     <state x="589" y="295" key="Vcs.Push.Dialog.v2/0.23.1680.979@0.23.1680.979" timestamp="1606069737155" />
     <state x="589" y="295" key="Vcs.Push.Dialog.v2/0.23.1680.980@0.23.1680.980" timestamp="1605381488225" />
     <state x="590" y="158" width="883" height="743" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1605202324765">
@@ -373,7 +362,7 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="807" y="252" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1603020830930" />
-    <state x="766" y="250" width="670" height="683" key="search.everywhere.popup" timestamp="1606321261354">
+    <state x="766" y="250" width="670" height="683" key="search.everywhere.popup" timestamp="1606338414308">
       <screen x="0" y="23" width="1680" height="978" />
     </state>
     <state x="766" y="247" width="670" height="676" key="search.everywhere.popup/0.23.1680.967@0.23.1680.967" timestamp="1603657051808" />
@@ -384,7 +373,7 @@
     <state x="766" y="249" width="670" height="681" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1603129804151" />
     <state x="766" y="249" width="670" height="681" key="search.everywhere.popup/0.23.1680.976@0.23.1680.976" timestamp="1603367636654" />
     <state x="766" y="249" width="670" height="683" key="search.everywhere.popup/0.23.1680.977@0.23.1680.977" timestamp="1603123083039" />
-    <state x="766" y="250" width="670" height="683" key="search.everywhere.popup/0.23.1680.978@0.23.1680.978" timestamp="1606321261354" />
+    <state x="766" y="250" width="670" height="683" key="search.everywhere.popup/0.23.1680.978@0.23.1680.978" timestamp="1606338414308" />
     <state x="766" y="250" width="670" height="684" key="search.everywhere.popup/0.23.1680.979@0.23.1680.979" timestamp="1606243837441" />
   </component>
 </project>

@@ -4,9 +4,9 @@ import { Model, Geometry, Texture2D } from '@luma.gl/core';
 import  rough from 'roughjs/bundled/rough.esm';
 
 const { fabric } = window;
-const width = 3000, height = 2000;
+const width = 1000;
 
-let generator = rough.generator({}, { width: width, height: height });
+
 
 export default class ArrowSketchLayer extends BitmapLayer {
 
@@ -23,7 +23,19 @@ export default class ArrowSketchLayer extends BitmapLayer {
 
     loadTexture() {
 
+        function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
+            var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+            return { width: Math.floor(srcWidth*ratio), height: Math.floor(srcHeight*ratio) };
+        }
+
+        const result = calculateAspectRatioFit(this.props.width, this.props.height, 1500,1500);
+
+        let {width, height} = result;    // Current image width
+
+        let generator = rough.generator({}, { width: width, height: height });
+
         let canvas = new fabric.StaticCanvas('c');
+
         canvas.setHeight(height);
         canvas.setWidth(width);
 
@@ -31,7 +43,7 @@ export default class ArrowSketchLayer extends BitmapLayer {
         let paths = generator.toPaths(rect);
 
         let path = new fabric.Path(paths[0].d);
-        path.set({ stroke: 'black', strokeWidth: 1 });
+        path.set({ stroke: 'red', strokeWidth: 1 });
 
         canvas.add(path);
 

@@ -78,6 +78,7 @@ export default class MaskLayer extends CompositeLayer {
 
                 return new BitmapLayer(props, {
                     data: null,
+                    desaturate : 1,
                     image: props.data,
                     bounds: [west, south, east, north],
 
