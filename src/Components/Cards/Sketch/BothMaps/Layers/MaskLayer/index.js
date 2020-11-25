@@ -3,8 +3,8 @@ import {BitmapLayer} from '@deck.gl/layers';
 import {TileLayer} from '@deck.gl/geo-layers';
 import GL from '@luma.gl/constants';
 import InkLayer from "../Ink";
-import PhotoLayer from "../Photo";
-import * as turf from '@turf/turf/index';
+import Arrow from "../Arrow";
+import EditableLayer from "../Editable";
 
 export default class MaskLayer extends CompositeLayer {
 
@@ -20,28 +20,14 @@ export default class MaskLayer extends CompositeLayer {
 
     shouldUpdateState({ changeFlags }) {
 
-        //lock the mask to the bounds of the 500x300 container
+        //lock the mask to the bounds of the 500x600 container
         const tl = (this.context.deck.viewManager._viewports[0].unproject([0,600],      {topLeft : false}));
         const tr = (this.context.deck.viewManager._viewports[0].unproject([500,600],    {topLeft : false}));
         const bl = (this.context.deck.viewManager._viewports[0].unproject([0,0],        {topLeft : false}));
         const br = (this.context.deck.viewManager._viewports[0].unproject([500,0],      {topLeft : false}));
 
-        // const photo_tl = (this.context.deck.viewManager._viewports[0].unproject([150,500],      {topLeft : false}));
-        // const photo_tr = (this.context.deck.viewManager._viewports[0].unproject([475,500],    {topLeft : false}));
-        // const photo_bl = (this.context.deck.viewManager._viewports[0].unproject([150,200],        {topLeft : false}));
-        // const photo_br = (this.context.deck.viewManager._viewports[0].unproject([475,200],      {topLeft : false}));
-
-        // var poly = turf.polygon([[photo_bl,photo_tl,photo_tr,photo_br, photo_bl]]);
-        // var options = {pivot: photo_tl};
-        // var rotatedPoly = turf.transformRotate(poly, 10);
-        //
-        // const bbox = (rotatedPoly.geometry.coordinates[0]);
-
         this.setState({
             bounds : [ bl, tl, tr, br ],
-            //photo_bounds : [bbox[0], bbox[1], bbox[2], bbox[3]]
-
-
         });
 
         return changeFlags.somethingChanged;
@@ -71,6 +57,12 @@ export default class MaskLayer extends CompositeLayer {
 
         });
 
+        const editable = new EditableLayer({
+            data: this.props.data,
+            onEdit : this.props.onEdit,
+            selectedFeatureIndexes : this.props.selectedFeatureIndexes
+        });
+
         const tilelayer= new TileLayer({
             id : 'mask-tile',
             data: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -96,16 +88,15 @@ export default class MaskLayer extends CompositeLayer {
         const ink = new InkLayer({
             id : 'mask-ink',
             data: this.props.data,
-            onEdit: this.props.set,
         })
 
-        //if (!this.state.photo_bounds) return [];
+        const inklines = new Arrow({
+            id : 'mask-inklines',
+            data: this.props.data,
+        })
 
-        // //console.log(this.state.photo_bounds);
-
-
-        return [ tilelayer, ink , papermasklayer];
+        return [ tilelayer , editable, ink, inklines, papermasklayer];
     }
 }
 
-MaskLayer.componentName = 'maskMaskLayer';
+MaskLayer.componentName = 'MaskLayer';

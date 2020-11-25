@@ -11,26 +11,21 @@ export default class InkLayer extends CompositeLayer {
         let self = this;
     }
 
-    shouldUpdateState({ changeFlags }) {
-        return changeFlags.somethingChanged;
-    }
-
     renderLayers() {
         //const { altitude , cameraBearing} = this.state;
         //const {  image, out, center, title } = this.props;
 
         //this layer must be here for some reason
-        const draw = new EditableGeoJsonLayer({
-            id: 'mask-geojson-layer',
-            data: this.props.data,
-            opacity : 0,
-            mode: DrawPointMode,
-            selectedFeatureIndexes,
-            onEdit: this.props.onEdit,
-        })
+        // const draw = new EditableGeoJsonLayer({
+        //     id: 'mask-geojson-layer',
+        //     data: this.props.data,
+        //     opacity : 1,
+        //     mode: DrawPointMode,
+        //     selectedFeatureIndexes,
+        //     onEdit: this.props.onEdit,
+        // })
 
-
-        const inks = this.props.data.features.map((point, i) => {
+        const inks = this.props.data.features.filter(f => f.geometry.type ==='Point').map((point, i) => {
 
             var ellipse = turf.ellipse(point.geometry.coordinates, 10, 10);
 
@@ -41,6 +36,6 @@ export default class InkLayer extends CompositeLayer {
             })
         });
 
-        return [ draw ].concat(inks);
+        return [  ].concat(inks);
     }
 }

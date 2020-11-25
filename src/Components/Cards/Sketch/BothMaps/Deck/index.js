@@ -7,19 +7,28 @@ import { LightingEffect, AmbientLight, _CameraLight} from '@deck.gl/core';
 
 import {Controller,  MapView, OrthographicView} from '@deck.gl/core';
 import MapMaskLayer from '../Layers/MaskLayer'
-import {EditableGeoJsonLayer, DrawPolygonMode, DrawCircleByDiameterMode, DrawPointMode} from 'nebula.gl';
+
+import EditableLayer from './../Layers/Editable'
+import {BitmapLayer} from '@deck.gl/layers';
+import {TileLayer} from '@deck.gl/geo-layers';
+
+import {EditableGeoJsonLayer, DrawPolygonMode, DrawCircleByDiameterMode,  DrawPointMode, DrawLineStringMode} from 'nebula.gl';
 import {COORDINATE_SYSTEM} from '@deck.gl/core';
 import {Component} from 'react';
 import _ from "lodash";
 import Buttons from './Buttons'
 
 import './index.less'
-import PhotoLayer from "../Layers/Photo";
 import {CustomGeometry} from "../../Map/CustomGeometry";
 
-//const canvas = new SketchLine();
-
 const myFeatureCollection = {
+    type: 'FeatureCollection',
+    features: [
+        /* insert features here */
+    ],
+};
+
+const arrowFeatureCollection = {
     type: 'FeatureCollection',
     features: [
         /* insert features here */
@@ -52,9 +61,9 @@ const INIT_CAMERA = {
 const plane = new CustomGeometry({size : 1, holed  : false});
 
 const materialLayoutData = [
-    {position: [0, -50, 0.0], angle : -10},
-    {position: [-20, -60, 0.0], angle : 15},
-    {position: [-15, 10, 0.0], angle : 5},
+    {position: [-10, -10, 0.0], angle : 10},
+   // {position: [-20, -40, 0.0], angle : 15},
+   // {position: [-15, 20, 0.0], angle : 5},
 ];
 
 export default class extends Component {
@@ -70,6 +79,7 @@ export default class extends Component {
             editMap     : false,
             editingMap : false,
             addInk : false,
+            drawMode : null,
             useController : false,
             viewState   :  {map : props.card.camera || INIT_CAMERA, orth : {"orbitAxis":"Z","rotationX":0,"rotationOrbit":0,"target":[0,0,0],"zoom":1.5998110489966852}}
         }
@@ -99,35 +109,22 @@ export default class extends Component {
 
         const zoomFactor = (this.state.viewState.zoom) ;
 
-        const layers = [
+        let layers = [
 
             new MapMaskLayer({
-               card: this.props.card,
-               set : ({updatedData}) => {
-                   this.setState({
-                       data: updatedData,
-                   })
-               },
-                data: this.state.data}),
-
-       new EditableGeoJsonLayer({       //mystery layer required
-            id: 'mask-geojson-layer2',
-            data: this.state.data,
-            opacity : 0,
-            mode: DrawPointMode,
-            selectedFeatureIndexes,
-            //onEdit: this.props.onEdit,
-           onEdit : ({updatedData}) => {
-               this.setState({
-                   data: updatedData,
-               })
-           },
-        }),
+                card: this.props.card,
+                data: this.state.data,
+                onEdit : ({updatedData}) => {
+                    this.setState({
+                        data: updatedData,
+                    })
+                },
+            }),
 
             new SimpleMeshLayer({
                 id: 'photo',
                 getOrientation: d => [0, d.angle,0],
-                getScale: [100,100,1],
+                getScale: [110,110,1],
                 opacity: 1,
                 data : materialLayoutData,
                 mesh: plane,
@@ -145,9 +142,7 @@ export default class extends Component {
         return (
             <div>
 
-                <code> {this.state.data.features.length} </code>
-
-                {this.props.admin && <Buttons addInk={this.state.addInk} deckActive={this.props.deckActive} cesiumActive={this.props.cesiumActive} revert={this.revert} fit={this.fit2} setDeckActive={this.props.setDeckActive} setCesiumActive={this.props.setCesiumActive} card={this.props.card} setFirstLoad={() => this.setState({firstLoad : true})} setAddInk={() => this.setState({addInk : !this.state.addInk})} fit={this.fit2}/> }
+                {this.props.admin && <Buttons drawMode={this.state.drawMode} setDrawMode={(dm) => this.setState({ drawMode : dm })} addInk={this.state.addInk} deckActive={this.props.deckActive} cesiumActive={this.props.cesiumActive} revert={this.revert} fit={this.fit2} setDeckActive={this.props.setDeckActive} setCesiumActive={this.props.setCesiumActive} card={this.props.card} setFirstLoad={() => this.setState({firstLoad : true})} setAddInk={() => this.setState({addInk : !this.state.addInk})} fit={this.fit2}/> }
 
                 <div className="Deck" style={{width : this.props.width + 'px', height : '600px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
 
@@ -158,22 +153,21 @@ export default class extends Component {
                         views={
 
                             [
-                                new MapView({               id: 'map',          xcontroller : true, controller : {type: this.controller, scrollZoom: true, doubleClickZoom : false}}),
-                                new OrthographicView({      id: 'orth',         controller : false})
+                                new MapView({               id: 'map',         controller : {type: this.controller, scrollZoom: true, doubleClickZoom : false}}),
+                                //new OrthographicView({      id: 'orth',         controller : false})
                             ]
                         }
-                        layerFilter={ ({layer, viewport}) => {
-                         //return true
-                            //console.log(viewport.id, layer.id);
 
-                        if (viewport.id === 'map' && layer.id.indexOf('mask') > -1) {
-                              return true;
+                        layerFilter={ ({layer, viewport}) => {
+
+                            if (viewport.id === 'map' && layer.id.indexOf('mask') > -1) {
+                                return true;
                             }
 
                             if (viewport.id === 'orth' && layer.id.indexOf('photo') > -1) {
                                 return true;
                             }
-                        //console.log(layer.id)
+
                             return false;
                           }}
                         _animate={false}

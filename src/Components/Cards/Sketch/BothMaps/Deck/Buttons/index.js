@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import AddPhoto from './AddPhoto'
 
-export default  ({ setAddInk, addInk, card, fit, revert, deckActive , cesiumActive, setFirstLoad, setCesiumActive, setDeckActive}) => {
+export default  ({ setDrawMode, drawMode, setAddInk, addInk, card, fit, revert, deckActive , cesiumActive, setFirstLoad, setCesiumActive, setDeckActive}) => {
     return (<Fragment>
 
         {!cesiumActive && <wired-button elevation="2" disabled={deckActive}  onClick={()=> {
@@ -32,14 +32,13 @@ export default  ({ setAddInk, addInk, card, fit, revert, deckActive , cesiumActi
         Save
     </wired-button> }
 
+    <wired-button elevation="2" disabled={cesiumActive} onClick={()=> {
+        setDrawMode('Arrow');
+    }}>
+     Add Arrow
+    </wired-button>
 
-            <wired-button elevation="2" disabled={cesiumActive} onClick={()=> {
-
-            }}>
-              Remove Stack
-            </wired-button>
-
-            <AddPhoto card={card}/>
+    <AddPhoto card={card}/>
 
     </Fragment>
     )

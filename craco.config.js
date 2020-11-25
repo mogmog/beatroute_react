@@ -25,10 +25,7 @@ module.exports = {
   ],
 
   webpack: {
-    alias: {},
-    plugins: [
-
-    ]
-
+    headers: {
+    }
   }
 };

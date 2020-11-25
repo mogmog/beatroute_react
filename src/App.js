@@ -173,7 +173,7 @@ const App = () => {
 
                       return  <div className="App-section" key={i} ref={addToRefs}>
                         {admin && <code>{card.id}</code>}
-                        <Sketch width={width} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
+                        <Sketch width={width < 500 ? width : 500} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
                       </div>
                     }
 
