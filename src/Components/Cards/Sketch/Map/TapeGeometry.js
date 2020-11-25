@@ -10,14 +10,14 @@ import * as THREE from 'three';
  * @see {@link https://threejs.org/docs/index.html#api/en/geometries/ExtrudeBufferGeometry|THREE.ExtrudeBufferGeometry}
  * @see {@link https://threejs.org/docs/index.html#api/en/extras/core/Shape|THREE.Shape}
  */
-export function CustomGeometry ({ size, m, holed }) {
+export function TapeGeometry ({ size, m, holed }) {
 
     const shape = new THREE.Shape();
 
     shape.moveTo(0, 0);
-    shape.lineTo(size, 0);
-    shape.lineTo(size, size * m );
-    shape.lineTo(0, size * m);
+    shape.lineTo(80, 0);
+    shape.lineTo(80,  20 );
+    shape.lineTo(0, 20);
     shape.lineTo(0, 0);
 
     if (holed) {
