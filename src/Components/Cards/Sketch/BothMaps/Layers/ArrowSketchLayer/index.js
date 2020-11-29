@@ -28,7 +28,7 @@ export default class ArrowSketchLayer extends BitmapLayer {
             return { width: Math.floor(srcWidth*ratio), height: Math.floor(srcHeight*ratio) };
         }
 
-        const result = calculateAspectRatioFit(this.props.width, this.props.height, 1500,1500);
+        const result = calculateAspectRatioFit(this.props.width, this.props.height, 2500,2500);
 
         let {width, height} = result;    // Current image width
 
@@ -39,11 +39,30 @@ export default class ArrowSketchLayer extends BitmapLayer {
         canvas.setHeight(height);
         canvas.setWidth(width);
 
-        let rect = generator.rectangle(0, 0, width, height, {fill: 'red'});
+        let pathh = ['M 0 0 '];
+        //assume just 1 line string for now
+        this.props.data.features[0].geometry.coordinates.forEach(c => {
+            let a = this.context.deck.viewManager._viewports[0].project(c);
+
+            let px = a[0] - this.props.tl;
+            let py = this.props.bl - a[1];
+
+            let adjustedPx = px/this.props.mapWidthOfBoundsInPixels * width;
+            let adjustedPy = py/this.props.height * height;
+
+            pathh.push(`L ${adjustedPx} ${adjustedPy}`)
+
+        });
+
+        console.log(pathh.join(' '));
+
+        let rect = generator.rectangle(0, 0, width, height, {fill: 'none'});
         let paths = generator.toPaths(rect);
 
-        let path = new fabric.Path(paths[0].d);
-        path.set({ stroke: 'red', strokeWidth: 1 });
+       // let path = new fabric.Path(paths[0].d);
+        let path = new fabric.Path(pathh.join(' '));
+
+        path.set({ stroke: 'red', fill: false, strokeWidth: 10 });
 
         canvas.add(path);
 

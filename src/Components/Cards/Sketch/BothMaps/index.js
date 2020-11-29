@@ -24,8 +24,6 @@ export default class Component extends React.PureComponent {
 
                     <Deck
 
-
-
                         admin={this.props.admin}
                             width={this.props.width}
                             cesiumActive={this.state.cesiumActive}
@@ -37,6 +35,7 @@ export default class Component extends React.PureComponent {
                             globeDrawn={this.state.globeDrawn}
                             setDeckRef={deck => this.setState({deck : deck})}
                             updateCard={this.props.updateCard}
+                            updateAnnotation={this.props.updateAnnotation}
                             card={this.props.card}
                             globeScreenshot={this.state.globeScreenshot}
                             incrementLoadedCount={this.props.incrementLoadedCount}

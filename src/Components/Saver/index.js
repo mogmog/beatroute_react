@@ -27,6 +27,18 @@ mutation( $card_id : Int,  $map : jsonb){
                 }
 `;
 
+const SAVE_ANNOTATION = gql`
+
+mutation( $card_id : Int,  $annotations : jsonb){
+                update_cards(where: {id: {_eq: $card_id}}, _set: {annotations: $annotations}) {
+                    returning {
+                                camera
+                                id
+                              }
+                    }
+                }
+`;
+
 export default ({children}) => {
 
     return <div>
@@ -46,7 +58,18 @@ export default ({children}) => {
                     {(updateCamera, {loading, error}) => {
 
                         return <Fragment>
-                            {children(updateCamera, updateMap, loading, error)}
+                                    <Mutation
+                                        onError={() => alert('Could not save camera')}
+                                        mutation={SAVE_ANNOTATION}
+                                    >
+
+                                        {(updateAnnotation, {loading, error}) => {
+
+                                            return <Fragment>
+                                                {children(updateCamera, updateMap, updateAnnotation, loading, error)}
+                                            </Fragment>
+                                        }}
+                                    </Mutation>
                         </Fragment>
                     }}
                 </Mutation>

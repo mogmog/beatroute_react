@@ -9,9 +9,9 @@ export default ({index, width, admin, card, incrementLoadedCount, stillLoading})
     return <CardSaver >
 
         {
-            (updateCard, updateMap, loading, error) => {
+            (updateCard, updateMap, updateAnnotation, loading, error) => {
                 return <div className={'Sketch'}>
-                            <BothMaps width={width} admin={admin} stillLoading={stillLoading} incrementLoadedCount={incrementLoadedCount} updateMap={updateMap} updateCard={updateCard} card={card}/>
+                            <BothMaps width={width} admin={admin} stillLoading={stillLoading} incrementLoadedCount={incrementLoadedCount} updateMap={updateMap} updateAnnotation={updateAnnotation} updateCard={updateCard} card={card}/>
                        </div>
             }
         }

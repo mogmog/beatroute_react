@@ -51,19 +51,16 @@ const INIT_CAMERA = {
     minPitch : 0,
     maxPitch : 0,
     pitch : 0,
-
     longitude :   0,
     latitude :  0,
-    // maxZoom : 9,
-    // minZoom : 6,
     zoom : 6.5};
 
-const plane = new CustomGeometry({size : 1, holed  : false});
+const plane = new CustomGeometry({size : 1, m : 1.03, holed  : false});
 
 const materialLayoutData = [
     {position: [-10, -10, 0.0], angle : 10},
-   // {position: [-20, -40, 0.0], angle : 15},
-   // {position: [-15, 20, 0.0], angle : 5},
+    {position: [-20, -40, 0.0], angle : 15},
+    {position: [-15, 20, 0.0], angle : 5},
 ];
 
 export default class extends Component {
@@ -73,7 +70,7 @@ export default class extends Component {
 
         this.search = _.debounce(e => e(), 300);
         this.state = {
-            data: myFeatureCollection,
+            data: props.card.annotations || myFeatureCollection,
             firstLoad : true,
             screenshot : null,
             editMap     : false,
@@ -107,17 +104,18 @@ export default class extends Component {
 
     render() {
 
-        const zoomFactor = (this.state.viewState.zoom) ;
-
         let layers = [
 
             new MapMaskLayer({
                 card: this.props.card,
                 data: this.state.data,
-                onEdit : ({updatedData}) => {
+                onEdit : ({updatedData, editType}) => {
+
                     this.setState({
                         data: updatedData,
-                    })
+                    });
+
+                    editType ==='addFeature' && this.props.updateAnnotation({variables : {card_id :  this.props.card.id, annotations : updatedData}});
                 },
             }),
 
@@ -153,8 +151,8 @@ export default class extends Component {
                         views={
 
                             [
-                                new MapView({               id: 'map',         controller : {type: this.controller, scrollZoom: true, doubleClickZoom : false}}),
-                                //new OrthographicView({      id: 'orth',         controller : false})
+                                new MapView({               id: 'map',          controller : {type: this.controller, scrollZoom: true, doubleClickZoom : false}}),
+                                //new OrthographicView({      id: 'orth',         controller : true})
                             ]
                         }
 
@@ -202,7 +200,7 @@ export default class extends Component {
                            if (viewId === 'orth') {
                                this.setState({viewState: {
                                    orth : viewState ,
-                                       map : this.state.viewState.map
+                                   map : this.state.viewState.map
 
                                }});
                            }

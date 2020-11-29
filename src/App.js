@@ -31,6 +31,7 @@ const GETCARD = gql`
     map
     camera
     content
+    annotations
     
     assets {
       data

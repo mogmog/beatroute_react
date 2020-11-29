@@ -1273,7 +1273,7 @@
     mjolnir.js "^2.3.0"
     probe.gl "^3.2.1"
 
-"@deck.gl/extensions@8.3.9", "@deck.gl/extensions@^8.3.9":
+"@deck.gl/extensions@8.3.9", "@deck.gl/extensions@^8.2.8":
   version "8.3.9"
   resolved "https://registry.yarnpkg.com/@deck.gl/extensions/-/extensions-8.3.9.tgz#2a9510cd0fa8ff63c0c593b0092d5f4b04aebc78"
   integrity sha512-UfuBLH+i5ZHMJ17oKy1o9Lo64umtUmWVnnvWAk+UA4ST2Q3vqgjssTwJCHvFvZCL0E8oJ9fBDqhPqFMDLAsi3A==
@@ -6148,7 +6148,7 @@ decamelize@^2.0.0:
   dependencies:
     xregexp "4.0.0"
 
-deck.gl@^8.3.9:
+deck.gl@^8.2.8:
   version "8.3.9"
   resolved "https://registry.yarnpkg.com/deck.gl/-/deck.gl-8.3.9.tgz#b53a49eda1f72b801774d2828dcf3bb0cba48860"
   integrity sha512-nIrHJsTpvUl5WgfeFFzMJdonpya8EdPI91faPDfKS3wyrDi1s2SKVkuiwVWa4FBNW0K+KztC29Z29DEAl0ozqw==

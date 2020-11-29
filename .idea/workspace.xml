@@ -19,11 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e8731ac-8190-46e8-ac17-3ab52bb809bd" name="Default Changelist" comment="safety checkin">
+    <list default="true" id="5df05bf9-b1a4-4469-8dd2-ef0b64caba2e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/ArrowSketchLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/ArrowSketchLayer/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Editable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Editable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Saver/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Saver/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,13 +67,6 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers" />
-      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Old" />
-      <recent name="$PROJECT_DIR$/src/Components/Cards/PhotosOnMap" />
-      <recent name="$PROJECT_DIR$/src/Components/Cards/Front" />
-      <recent name="$PROJECT_DIR$/api" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers" />
@@ -73,13 +74,20 @@
       <recent name="$PROJECT_DIR$/public/textures" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers" />
+      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Old" />
+      <recent name="$PROJECT_DIR$/src/Components/Cards/PhotosOnMap" />
+      <recent name="$PROJECT_DIR$/src/Components/Cards/Front" />
+      <recent name="$PROJECT_DIR$/api" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5e8731ac-8190-46e8-ac17-3ab52bb809bd" name="Default Changelist" comment="" />
+      <changelist id="5df05bf9-b1a4-4469-8dd2-ef0b64caba2e" name="Default Changelist" comment="" />
       <created>1596370989520</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -125,6 +133,7 @@
       <workItem from="1606243365383" duration="4740000" />
       <workItem from="1606303464545" duration="8314000" />
       <workItem from="1606320780315" duration="14352000" />
+      <workItem from="1606553171442" duration="5927000" />
     </task>
     <task id="LOCAL-00001" summary="wip">
       <created>1602593335196</created>
@@ -322,8 +331,8 @@
     </state>
     <state x="590" y="157" width="883" height="739" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.1680.975@0.23.1680.975" timestamp="1604592637393" />
     <state x="590" y="158" width="883" height="743" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.1680.979@0.23.1680.979" timestamp="1605202324765" />
-    <state x="282" y="159" width="1075" height="723" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605194230205">
-      <screen x="0" y="23" width="1680" height="979" />
+    <state x="348" y="45" width="1075" height="719" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606391476739">
+      <screen x="0" y="23" width="1680" height="977" />
     </state>
     <state x="348" y="45" width="1075" height="712" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.967@0.23.1680.967" timestamp="1603653291372" />
     <state x="348" y="45" width="1075" height="714" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.970@0.23.1680.970" timestamp="1603702335621" />
@@ -332,7 +341,7 @@
     <state x="348" y="45" width="1075" height="717" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.974@0.23.1680.974" timestamp="1603450987260" />
     <state x="348" y="45" width="1075" height="719" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.975@0.23.1680.975" timestamp="1602614446495" />
     <state x="64" y="151" width="1075" height="720" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.976@0.23.1680.976" timestamp="1605003969469" />
-    <state x="348" y="45" width="1075" height="719" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.977@0.23.1680.977" timestamp="1602678653287" />
+    <state x="348" y="45" width="1075" height="719" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.977@0.23.1680.977" timestamp="1606391476739" />
     <state x="282" y="159" width="1075" height="723" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.979@0.23.1680.979" timestamp="1605194230204" />
     <state x="602" y="240" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1604316307859">
       <screen x="0" y="23" width="1680" height="973" />

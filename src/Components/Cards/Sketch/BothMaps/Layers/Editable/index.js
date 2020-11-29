@@ -6,7 +6,7 @@ import InkLayer from "../Ink";
 import Arrow from "../Arrow";
 import PhotoLayer from "../Photo";
 import * as turf from '@turf/turf/index';
-import {DrawPointMode, DrawLineStringMode, EditableGeoJsonLayer} from "nebula.gl";
+import {DrawPointMode, DrawPolygonByDraggingMode, DrawLineStringMode, EditableGeoJsonLayer} from "nebula.gl";
 
 export default class EditableLayer extends CompositeLayer {
 
@@ -28,7 +28,7 @@ export default class EditableLayer extends CompositeLayer {
             id: 'mask-geojson-layer-point2',
             data: this.props.data,
             opacity : 1,
-            mode: DrawLineStringMode,
+            mode: DrawPointMode,
             onEdit : this.props.onEdit
 
         })

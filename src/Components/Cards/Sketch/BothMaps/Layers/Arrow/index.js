@@ -17,18 +17,26 @@ export default class ArrowLayer extends CompositeLayer {
 
         const bbox = turf.bbox(this.props.data);
 
-        const width = this.context.deck.viewManager._viewports[0].project([bbox[2], bbox[3]])[0] - this.context.deck.viewManager._viewports[0].project([bbox[0], bbox[1]])[0];
+        const tr = this.context.deck.viewManager._viewports[0].project([bbox[2], bbox[3]])[0];
+        const tl = this.context.deck.viewManager._viewports[0].project([bbox[0], bbox[1]])[0];
+
+        const bl = this.context.deck.viewManager._viewports[0].project([bbox[0], bbox[1]])[1];
+
+        const width = tr - tl;
 
         const height = this.context.deck.viewManager._viewports[0].project([bbox[0], bbox[1]])[1] - this.context.deck.viewManager._viewports[0].project([bbox[2], bbox[3]])[1] ;
-
-        //console.log(height);
 
         const arrow = new ArrowSketchLayer({
             opacity : 1,
             id: 'mask-arrow-layer',
-            arrow : this.props.data,
-            bounds: bbox,
-            width, height
+            data : this.props.data,
+            bounds: this.props.bounds,
+            width,
+            height,
+            mapWidthOfBoundsInPixels : tr-tl,
+            tl,
+            tr,
+            bl
         })
 
         return [ arrow ];
