@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Deck from './Deck';
 import {Controller,  MapView, OrthographicView} from '@deck.gl/core';
-
+import Signature from './../Signature'
 export default class Component extends React.PureComponent {
 
     state = {
@@ -11,7 +11,8 @@ export default class Component extends React.PureComponent {
         deckActive: false,
         viewer : null,
         hideCesium : false,
-        globeScreenshot : null
+        globeScreenshot : null,
+        sigcanvas : null
     }
 
     render() {
@@ -21,6 +22,8 @@ export default class Component extends React.PureComponent {
             <div>
 
                 <div style={{ margin : 'auto', position: 'relative', top : '0px', width : this.props.width + 'px', height: '500px' }}>
+
+                    {false && <Signature setSigCanvas={(c) => this.setState({sigcanvas : c})}/>}
 
                     <Deck
 
@@ -38,6 +41,8 @@ export default class Component extends React.PureComponent {
                             updateAnnotation={this.props.updateAnnotation}
                             card={this.props.card}
                             globeScreenshot={this.state.globeScreenshot}
+
+                            sigcanvas={this.state.sigcanvas}
                             incrementLoadedCount={this.props.incrementLoadedCount}
                             viewer={this.state.viewer} />
 

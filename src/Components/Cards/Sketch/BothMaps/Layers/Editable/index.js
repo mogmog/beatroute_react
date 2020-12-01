@@ -15,7 +15,6 @@ export default class EditableLayer extends CompositeLayer {
         let self = this;
 
         this.setState({
-            altitude : 0,
             bounds : null
         });
     }
@@ -25,10 +24,10 @@ export default class EditableLayer extends CompositeLayer {
         const {  image, out, center, title } = this.props;
 
         const layer = new EditableGeoJsonLayer({
-            id: 'mask-geojson-layer-point2',
+            id: 'mask-geojson-layer-linestring',
             data: this.props.data,
             opacity : 1,
-            mode: DrawPointMode,
+            mode: DrawLineStringMode,
             onEdit : this.props.onEdit
 
         })

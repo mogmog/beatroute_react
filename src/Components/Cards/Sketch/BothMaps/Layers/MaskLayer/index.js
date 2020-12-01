@@ -79,6 +79,8 @@ export default class MaskLayer extends CompositeLayer {
                 return new BitmapLayer(props, {
                     data: null,
                     desaturate : 1,
+                    opacity : 1.0,
+                    //tintColor :  [100, 0, 0, 100],
                     image: props.data,
                     bounds: [west, south, east, north],
 
@@ -94,9 +96,7 @@ export default class MaskLayer extends CompositeLayer {
         const inklines = new Arrow({
             id : 'mask-inklines',
             data: this.props.data,
-            bounds: this.state.bounds,
-
-
+            bounds: this.state.bounds
         })
 
         return [ tilelayer , editable, ink, inklines, papermasklayer];

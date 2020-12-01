@@ -20,8 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5df05bf9-b1a4-4469-8dd2-ef0b64caba2e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/Signature/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/Signature/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/index.js" afterDir="false" />
@@ -29,8 +32,6 @@
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Editable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Editable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Saver/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Saver/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +134,9 @@
       <workItem from="1606243365383" duration="4740000" />
       <workItem from="1606303464545" duration="8314000" />
       <workItem from="1606320780315" duration="14352000" />
-      <workItem from="1606553171442" duration="5927000" />
+      <workItem from="1606553171442" duration="19582000" />
+      <workItem from="1606759246686" duration="11733000" />
+      <workItem from="1606818210301" duration="567000" />
     </task>
     <task id="LOCAL-00001" summary="wip">
       <created>1602593335196</created>
@@ -247,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606335274140</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="not working">
+      <created>1606658870278</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1606658870278</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +296,8 @@
     <MESSAGE value="workin photo on sketch" />
     <MESSAGE value="working sketches" />
     <MESSAGE value="slightly more working layers" />
-    <option name="LAST_COMMIT_MESSAGE" value="slightly more working layers" />
+    <MESSAGE value="not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="not working" />
   </component>
   <component name="WindowStateProjectService">
     <state x="292" y="162" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605386613787">
@@ -298,11 +309,13 @@
     </state>
     <state x="435" y="315" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.967@0.23.1680.967" timestamp="1602506291844" />
     <state x="435" y="316" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.970@0.23.1680.970" timestamp="1601894192454" />
-    <state x="209" y="140" width="1344" height="782" key="DiffContextDialog" timestamp="1606323038571">
-      <screen x="0" y="23" width="1680" height="978" />
+    <state x="209" y="140" width="1344" height="778" key="DiffContextDialog" timestamp="1606768403648">
+      <screen x="0" y="23" width="1680" height="972" />
     </state>
     <state x="209" y="139" width="1192" height="691" key="DiffContextDialog/0.23.1680.967@0.23.1680.967" timestamp="1603798953114" />
+    <state x="209" y="140" width="1344" height="778" key="DiffContextDialog/0.23.1680.972@0.23.1680.972" timestamp="1606768403648" />
     <state x="209" y="140" width="899" height="695" key="DiffContextDialog/0.23.1680.973@0.23.1680.973" timestamp="1603394160946" />
+    <state x="209" y="140" width="1344" height="779" key="DiffContextDialog/0.23.1680.974@0.23.1680.974" timestamp="1606685840075" />
     <state x="209" y="140" width="1192" height="697" key="DiffContextDialog/0.23.1680.975@0.23.1680.975" timestamp="1604592637392" />
     <state x="209" y="140" width="1344" height="782" key="DiffContextDialog/0.23.1680.978@0.23.1680.978" timestamp="1606323038571" />
     <state x="209" y="140" width="1192" height="700" key="DiffContextDialog/0.23.1680.979@0.23.1680.979" timestamp="1605354624985" />
@@ -371,12 +384,12 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="807" y="252" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1603020830930" />
-    <state x="766" y="250" width="670" height="683" key="search.everywhere.popup" timestamp="1606338414308">
-      <screen x="0" y="23" width="1680" height="978" />
+    <state x="766" y="248" width="670" height="158" key="search.everywhere.popup" timestamp="1606777872345">
+      <screen x="0" y="23" width="1680" height="972" />
     </state>
     <state x="766" y="247" width="670" height="676" key="search.everywhere.popup/0.23.1680.967@0.23.1680.967" timestamp="1603657051808" />
     <state x="766" y="248" width="670" height="676" key="search.everywhere.popup/0.23.1680.970@0.23.1680.970" timestamp="1602424219723" />
-    <state x="766" y="248" width="670" height="679" key="search.everywhere.popup/0.23.1680.972@0.23.1680.972" timestamp="1604263833059" />
+    <state x="766" y="248" width="670" height="158" key="search.everywhere.popup/0.23.1680.972@0.23.1680.972" timestamp="1606777872345" />
     <state x="766" y="248" width="670" height="679" key="search.everywhere.popup/0.23.1680.973@0.23.1680.973" timestamp="1604314665360" />
     <state x="766" y="249" width="670" height="680" key="search.everywhere.popup/0.23.1680.974@0.23.1680.974" timestamp="1604408505525" />
     <state x="766" y="249" width="670" height="681" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1603129804151" />

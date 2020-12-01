@@ -21,6 +21,7 @@ import Sketch  from "./Components/Cards/Sketch";
 import SVGScroll from './Components/svg-scroll/SVGScroll';
 
 import CardAdder from './Components/Adder';
+import Signature from "./Components/Cards/Sketch/Signature";
 
 const GETCARD = gql`
                 {
@@ -121,6 +122,7 @@ const App = () => {
 
   const admin = true;
 
+  //return   <Signature/>
   return (
     <div className="App">
 

@@ -63,6 +63,8 @@ const materialLayoutData = [
     {position: [-15, 20, 0.0], angle : 5},
 ];
 
+const boundsNew = [[7.038968342537582,46.44328103264265],[7.014065973317429,47.93696136258996],[8.845893538374886,47.95086223368735],[8.870795907595065,46.457578766907]];
+
 export default class extends Component {
 
     constructor(props) {
@@ -109,13 +111,27 @@ export default class extends Component {
             new MapMaskLayer({
                 card: this.props.card,
                 data: this.state.data,
+                boundsNew  : boundsNew,
+                sigcanvas : this.props.sigcanvas,
                 onEdit : ({updatedData, editType}) => {
 
-                    this.setState({
-                        data: updatedData,
-                    });
+                    this.setState({ data: updatedData });
 
-                    editType ==='addFeature' && this.props.updateAnnotation({variables : {card_id :  this.props.card.id, annotations : updatedData}});
+                    if (editType ==='addFeature') {
+
+                        // debugger;
+
+                        const tl = (this.deckGL.viewports[0].unproject([0,600],      {topLeft : false}));
+                        const tr = (this.deckGL.viewports[0].unproject([500,600],    {topLeft : false}));
+                        const bl = (this.deckGL.viewports[0].unproject([0,0],        {topLeft : false}));
+                        const br = (this.deckGL.viewports[0].unproject([500,0],      {topLeft : false}));
+
+                        console.log( [ bl, tl, tr, br ] );
+
+                        // const tr = this.context.deck.viewManager._viewports[0].project([bbox[2], bbox[3]])[0];
+
+                        this.props.updateAnnotation({variables : {card_id :  this.props.card.id, annotations : updatedData}});
+                    }
                 },
             }),
 
