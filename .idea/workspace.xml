@@ -20,18 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5df05bf9-b1a4-4469-8dd2-ef0b64caba2e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/Signature/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/Signature/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/textures/GB - cycle page breaker.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/textures/hands-map.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/generator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Adder/AddFront/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Adder/AddFront/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Adder/AddMap/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Adder/AddMap/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Adder/AddSketch/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Adder/AddSketch/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Adder/AddTitle/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Adder/AddTitle/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Adder/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Adder/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/ArrowSketchLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/ArrowSketchLayer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Editable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Editable/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Title/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Title/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Title/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Title/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +70,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/textures" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -68,19 +79,19 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers" />
-      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/Map" />
-      <recent name="$PROJECT_DIR$/public/textures" />
-      <recent name="$PROJECT_DIR$/src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/textures" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Old" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/PhotosOnMap" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Front" />
-      <recent name="$PROJECT_DIR$/api" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/textures" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers" />
+      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/Map" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -137,6 +148,10 @@
       <workItem from="1606553171442" duration="19582000" />
       <workItem from="1606759246686" duration="11733000" />
       <workItem from="1606818210301" duration="567000" />
+      <workItem from="1606819460347" duration="51000" />
+      <workItem from="1606906564718" duration="15314000" />
+      <workItem from="1607017509032" duration="9593000" />
+      <workItem from="1607081664500" duration="628000" />
     </task>
     <task id="LOCAL-00001" summary="wip">
       <created>1602593335196</created>
@@ -257,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606658870278</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="nearly working canvas">
+      <created>1606819476339</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1606819476339</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +319,8 @@
     <MESSAGE value="working sketches" />
     <MESSAGE value="slightly more working layers" />
     <MESSAGE value="not working" />
-    <option name="LAST_COMMIT_MESSAGE" value="not working" />
+    <MESSAGE value="nearly working canvas" />
+    <option name="LAST_COMMIT_MESSAGE" value="nearly working canvas" />
   </component>
   <component name="WindowStateProjectService">
     <state x="292" y="162" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605386613787">
@@ -333,9 +356,10 @@
       <screen x="0" y="23" width="1680" height="978" />
     </state>
     <state x="684" y="465" key="VCS.ChangelistChooser/0.23.1680.978@0.23.1680.978" timestamp="1606245315746" />
-    <state x="589" y="295" key="Vcs.Push.Dialog.v2" timestamp="1606335343009">
-      <screen x="0" y="23" width="1680" height="978" />
+    <state x="589" y="293" key="Vcs.Push.Dialog.v2" timestamp="1606819477964">
+      <screen x="0" y="23" width="1680" height="972" />
     </state>
+    <state x="589" y="293" key="Vcs.Push.Dialog.v2/0.23.1680.972@0.23.1680.972" timestamp="1606819477964" />
     <state x="589" y="295" key="Vcs.Push.Dialog.v2/0.23.1680.978@0.23.1680.978" timestamp="1606335343009" />
     <state x="589" y="295" key="Vcs.Push.Dialog.v2/0.23.1680.979@0.23.1680.979" timestamp="1606069737155" />
     <state x="589" y="295" key="Vcs.Push.Dialog.v2/0.23.1680.980@0.23.1680.980" timestamp="1605381488225" />
@@ -366,14 +390,14 @@
     </state>
     <state x="805" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.972@0.23.1680.972" timestamp="1604259244685" />
     <state x="805" y="477" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.975@0.23.1680.975" timestamp="1603183099907" />
-    <state x="742" y="261" width="598" height="495" key="find.popup" timestamp="1606310785520">
-      <screen x="0" y="23" width="1680" height="978" />
+    <state x="742" y="260" width="700" height="492" key="find.popup" timestamp="1606912988062">
+      <screen x="0" y="23" width="1680" height="974" />
     </state>
     <state x="742" y="258" width="598" height="490" key="find.popup/0.23.1680.967@0.23.1680.967" timestamp="1602502762629" />
     <state x="742" y="259" width="598" height="490" key="find.popup/0.23.1680.970@0.23.1680.970" timestamp="1601911263009" />
     <state x="742" y="260" width="598" height="490" key="find.popup/0.23.1680.972@0.23.1680.972" timestamp="1603639826145" />
     <state x="742" y="260" width="721" height="491" key="find.popup/0.23.1680.973@0.23.1680.973" timestamp="1604406841403" />
-    <state x="742" y="260" width="598" height="492" key="find.popup/0.23.1680.974@0.23.1680.974" timestamp="1604411053359" />
+    <state x="742" y="260" width="700" height="492" key="find.popup/0.23.1680.974@0.23.1680.974" timestamp="1606912988062" />
     <state x="742" y="260" width="598" height="495" key="find.popup/0.23.1680.975@0.23.1680.975" timestamp="1603023714629" />
     <state x="742" y="261" width="666" height="496" key="find.popup/0.23.1680.976@0.23.1680.976" timestamp="1605003721847" />
     <state x="742" y="261" width="598" height="490" key="find.popup/0.23.1680.977@0.23.1680.977" timestamp="1603123871214" />

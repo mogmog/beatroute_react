@@ -5,25 +5,17 @@ import {WebMercatorViewport} from '@deck.gl/core';
 
 import {fitBounds} from '@math.gl/web-mercator';
 
+import {draw} from './generator'
+
 import {EditableGeoJsonLayer, DrawPolygonMode, DrawCircleByDiameterMode, DrawPointMode, DrawLineStringMode } from 'nebula.gl';
 import * as turf from "@turf/turf";
 
-let sigdata = [{
-    color: "rgb(219,187,36)",
-    points: [{
-        time: 1606768803491,
-        x: 0,
-        y: 109.828125
-    }, {
-        time: 1606768803604,
-        x: 250.02734375,
-        y: 124.1484375
-    },  {
-        time: 1606768803700,
-        x: 263.7890625,
-        y: 430.6796875
-    }]
-}];
+function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
+
+    var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+
+    return { width: Math.floor(srcWidth*ratio), height: Math.floor(srcHeight*ratio) };
+}
 
 export default class ArrowLayer extends CompositeLayer {
 
@@ -37,52 +29,65 @@ export default class ArrowLayer extends CompositeLayer {
 
         const onlyFeature = this.props.data.features[0];
 
-        var canvas = document.createElement('canvas');
-        canvas.width = 1280;
-        canvas.height = 1020;
+        const boundsSmall = turf.bbox(this.props.data);
 
-        const bounds = turf.bbox(this.props.data);
+        const boundsPolygon = turf.bboxPolygon(boundsSmall);
+
+        let a = turf.buffer(boundsPolygon, 50, {units: 'miles'});
+
+        const bounds = turf.bbox(a);
+
+        //        console.log(expandedBounds);
+
+        const bl = this.context.deck.viewManager._viewports[0].project([bounds[0], bounds[1]]);
+        const tr = this.context.deck.viewManager._viewports[0].project([bounds[2], bounds[3]]);
+
+        const boundsWidth  = tr[0] - bl[0];
+        const boundsHeight = bl[1] - tr[1]
+
+        const {width, height} = calculateAspectRatioFit(boundsWidth, boundsHeight, 4000,4000);
+        //get ratio of bounds in pixels
 
         const {longitude, latitude, zoom} = fitBounds({
-            width : 1280,
-            height : 1020,
+            padding : 0,
+            width : width,
+            height : height,
             bounds : [ [bounds[0], bounds[1]], [bounds[2], bounds[3]] ]});
 
         const viewport2 = new WebMercatorViewport({
-            width: 1280,
-            height: 1020,
+            width: width,
+            height: height,
             longitude:longitude,
             latitude: latitude,
             zoom: zoom,
+            bearing : this.context.deck.viewManager._viewports[0].bearing
         });
 
-        var signaturePad = new SignaturePad(canvas,  {
-            minWidth: 20.5,
-           // minDistance : 1,
-            throttle : 0,
-            //velocityFilterWeight : 0.5,
-            maxWidth: 48,
-            penColor: "rgb(66, 133, 244)"
-        });
+       // console.log(this.context.deck.viewManager._viewports[0].bearing);
 
-        let points = [];
+         let points = [];
 
         onlyFeature.geometry.coordinates.forEach((f, i) => {
             let screen = viewport2.project(f) ;
-            points.push({x : screen[0], y : screen[1], time : 1606768803491 + (i * 500)});
+            points.push({x : Math.floor(screen[0]), y : Math.floor(screen[1])});
         });
 
-        sigdata[0].points  = points;
+         //sigdata[0].points  = points;
+         //signaturePad.fromData(sigdata);
 
-        signaturePad.fromData(sigdata);
+        var canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+
+        draw(points, canvas, width, height);
 
         const arrow = new ArrowSketchLayer({
             opacity : 1,
             id: 'mask-arrow-layer',
             data : this.props.data,
             bounds: bounds,
-            //image  : 'https://i.imgur.com/kvgFq.jpg'//signaturePad.canvas
-            image : signaturePad.canvas
+            image : canvas,
+            width, height
         })
 
         function animate() {

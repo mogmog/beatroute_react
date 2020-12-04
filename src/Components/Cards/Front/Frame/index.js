@@ -4,6 +4,10 @@ import './index.less'
 
 export default ({width=400, height=200, children}) => {
 
+    return <div className={'overlay'}>
+        {children}
+    </div>
+
     return <div>
         <div className="svg-container">
             <svg id="svg" width={width} height={height} >
@@ -12,7 +16,7 @@ export default ({width=400, height=200, children}) => {
                     <filter x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox" id="roughPaper">
                         <feTurbulence type="fractalNoise" baseFrequency="128" numOctaves="1" result="noise">
                         </feTurbulence>
-                        <feDiffuseLighting in="noise" lighting-color="white" surfaceScale="1" result="diffLight">
+                        <feDiffuseLighting in="noise" lightingColor="white" surfaceScale="1" result="diffLight">
                             <feDistantLight azimuth="45" elevation="55">
                             </feDistantLight>
                         </feDiffuseLighting>
@@ -92,7 +96,7 @@ export default ({width=400, height=200, children}) => {
                 </defs>
                 <g id="land">
 
-                    <g filter="url(#pencilTexture5)" opacity="0.33">
+                    <g xfilter="url(#pencilTexture5)" opacity="0.33">
                         <Rect width={width} height={height} round={5} strokeWidth={1}/>
                     </g>
 

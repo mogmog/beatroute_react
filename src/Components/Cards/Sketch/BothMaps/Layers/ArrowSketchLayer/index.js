@@ -4,7 +4,7 @@ import { Model, Geometry, Texture2D } from '@luma.gl/core';
 import  rough from 'roughjs/bundled/rough.esm';
 
 const { fabric } = window;
-const width = 1280, height =  1020;
+//const width = 1280, height =  600;
 
 export default class ArrowSketchLayer extends BitmapLayer {
 
@@ -22,28 +22,7 @@ export default class ArrowSketchLayer extends BitmapLayer {
 
     loadTexture(image) {
 
-
-        //  let generator = rough.generator({}, { width: width, height: height });
-        // //
-        //  let canvas = new fabric.StaticCanvas('c');
-        // //
-        // // canvas.setHeight(height);
-        // // canvas.setWidth(width);
-        // //
-        // //
-        //  let rect = generator.rectangle(0, 0, width, height, {fill: 'none'});
-        //  let paths = generator.toPaths(rect);
-        // //
-        //  let path = new fabric.Path(paths[0].d);
-        // //
-        // // //let path = new fabric.Path(pathh.join(' '));
-        // //
-        //  path.set({ stroke: 'red', fill: false, strokeWidth: 10 });
-        // //
-        //  canvas.add(path);
-
-        //super.loadTexture(canvas.toCanvasElement());
-
+        const {width, height} = this.props;
         const {gl} = this.context;
 
         this.setState({

@@ -4,7 +4,7 @@ import AddTitle     from './AddTitle'
 import AddMap       from './AddMap'
 import AddSketch    from './AddSketch'
 
-export default ({refetch}) => {
+export default ({trip, refetch}) => {
 
     const [showButtons, setShowButtons] = useState(false);
 
@@ -18,19 +18,19 @@ export default ({refetch}) => {
 
         {showButtons && <div>
 
-            <AddFront refetch={refetch}/>
+            <AddFront trip={trip} refetch={refetch}/>
 
             <br/>
 
-            <AddTitle refetch={refetch}/>
+            <AddTitle trip={trip} refetch={refetch}/>
 
             <br/>
 
-            <AddMap refetch={refetch}/>
+            <AddMap trip={trip} refetch={refetch}/>
 
             <br/>
 
-            <AddSketch refetch={refetch}/>
+            <AddSketch trip={trip} refetch={refetch}/>
 
 
         </div> }

@@ -23,22 +23,31 @@ import SVGScroll from './Components/svg-scroll/SVGScroll';
 import CardAdder from './Components/Adder';
 import Signature from "./Components/Cards/Sketch/Signature";
 
+
 const GETCARD = gql`
-                {
-   cards(where: {trip_id: {_eq: 3}}, order_by: {id: asc}) {
-    id
-    html
-    type
-    map
-    camera
-    content
-    annotations
-    
-    assets {
-      data
-    }
-  }
-}
+               {
+                owners(where: {id: {_eq: "cyclefriendly"}}) {
+                  id
+                  
+                  trips(where: {url: {_eq: "lakes2021"}}) {
+                    id
+                    name
+                    url
+                    cards(order_by: {id: asc}) {
+                      id
+                      html
+                      type
+                      map
+                      camera
+                      content
+                      annotations
+                      assets {
+                        data
+                      }
+                    }
+                  }
+                }
+              }
 
 `
 
@@ -133,7 +142,8 @@ const App = () => {
 
             if (loading || !data) return null
 
-            const cards = data.cards;
+            const trip  = data.owners[0].trips[0];
+            const cards = data.owners[0].trips[0].cards;
             const stillLoading = loadedCount < cards.length;
 
             return <Fragment>
@@ -188,8 +198,7 @@ const App = () => {
                   })}
 
                   <div className="App-section" style={{height : '100%'}}>
-                    test
-                    <CardAdder refetch={refetch}/>
+                    <CardAdder trip={trip} refetch={refetch}/>
                   </div>
 
                   <div ref={measureRef}>My width is {width}</div>

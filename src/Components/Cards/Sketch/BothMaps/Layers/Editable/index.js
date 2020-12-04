@@ -26,7 +26,7 @@ export default class EditableLayer extends CompositeLayer {
         const layer = new EditableGeoJsonLayer({
             id: 'mask-geojson-layer-linestring',
             data: this.props.data,
-            opacity : 1,
+            opacity : 0.3,
             mode: DrawLineStringMode,
             onEdit : this.props.onEdit
 

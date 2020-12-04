@@ -23,8 +23,6 @@ export default class Component extends React.PureComponent {
 
                 <div style={{ margin : 'auto', position: 'relative', top : '0px', width : this.props.width + 'px', height: '500px' }}>
 
-                    {false && <Signature setSigCanvas={(c) => this.setState({sigcanvas : c})}/>}
-
                     <Deck
 
                         admin={this.props.admin}

@@ -53,6 +53,7 @@ const INIT_CAMERA = {
     pitch : 0,
     longitude :   0,
     latitude :  0,
+
     zoom : 6.5};
 
 const plane = new CustomGeometry({size : 1, m : 1.03, holed  : false});
@@ -112,6 +113,10 @@ export default class extends Component {
                 card: this.props.card,
                 data: this.state.data,
                 boundsNew  : boundsNew,
+
+                width  : this.props.width,
+
+
                 sigcanvas : this.props.sigcanvas,
                 onEdit : ({updatedData, editType}) => {
 
@@ -122,11 +127,11 @@ export default class extends Component {
                         // debugger;
 
                         const tl = (this.deckGL.viewports[0].unproject([0,600],      {topLeft : false}));
-                        const tr = (this.deckGL.viewports[0].unproject([500,600],    {topLeft : false}));
+                        const tr = (this.deckGL.viewports[0].unproject([this.props.width,600],    {topLeft : false}));
                         const bl = (this.deckGL.viewports[0].unproject([0,0],        {topLeft : false}));
-                        const br = (this.deckGL.viewports[0].unproject([500,0],      {topLeft : false}));
+                        const br = (this.deckGL.viewports[0].unproject([this.props.width,0],      {topLeft : false}));
 
-                        console.log( [ bl, tl, tr, br ] );
+                        //console.log( [ bl, tl, tr, br ] );
 
                         // const tr = this.context.deck.viewManager._viewports[0].project([bbox[2], bbox[3]])[0];
 
@@ -167,7 +172,7 @@ export default class extends Component {
                         views={
 
                             [
-                                new MapView({               id: 'map',          controller : {type: this.controller, scrollZoom: true, doubleClickZoom : false}}),
+                                new MapView({               id: 'map',          controller : {type: this.controller, touchRotate : false, dragRotate : false, scrollZoom: true, doubleClickZoom : false}}),
                                 //new OrthographicView({      id: 'orth',         controller : true})
                             ]
                         }

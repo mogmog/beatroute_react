@@ -21,10 +21,10 @@ export default class MaskLayer extends CompositeLayer {
     shouldUpdateState({ changeFlags }) {
 
         //lock the mask to the bounds of the 500x600 container
-        const tl = (this.context.deck.viewManager._viewports[0].unproject([0,600],      {topLeft : false}));
-        const tr = (this.context.deck.viewManager._viewports[0].unproject([500,600],    {topLeft : false}));
+        const tl = (this.context.deck.viewManager._viewports[0].unproject([0,500],      {topLeft : false}));
+        const tr = (this.context.deck.viewManager._viewports[0].unproject([this.props.width,500],    {topLeft : false}));
         const bl = (this.context.deck.viewManager._viewports[0].unproject([0,0],        {topLeft : false}));
-        const br = (this.context.deck.viewManager._viewports[0].unproject([500,0],      {topLeft : false}));
+        const br = (this.context.deck.viewManager._viewports[0].unproject([this.props.width,0],      {topLeft : false}));
 
         this.setState({
             bounds : [ bl, tl, tr, br ],
@@ -46,7 +46,7 @@ export default class MaskLayer extends CompositeLayer {
         const papermasklayer = new BitmapLayer({
             id: 'mask-bitmap-layer',
             bounds: this.state.bounds,
-            image: './textures/paper-inverted.png',
+            image: './textures/hands-map-mask.png',
             parameters: {
                 depthTest: true,
                 depthMask: true,
@@ -55,6 +55,12 @@ export default class MaskLayer extends CompositeLayer {
                 blendFunc: [GL.ONE, GL.ONE_MINUS_SRC_COLOR]
             }
 
+        });
+
+        const handslayer = new BitmapLayer({
+            id: 'mask-bitmap-layer',
+            bounds: this.state.bounds,
+            image: './textures/hands-map.png',
         });
 
         const editable = new EditableLayer({
@@ -99,7 +105,7 @@ export default class MaskLayer extends CompositeLayer {
             bounds: this.state.bounds
         })
 
-        return [ tilelayer , editable, ink, inklines, papermasklayer];
+        return [ tilelayer , editable, ink, inklines, papermasklayer, handslayer];
     }
 }
 

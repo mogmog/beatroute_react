@@ -5,8 +5,8 @@ import gql from "graphql-tag";
 
 const ADD = gql`
 
-mutation MyMutation {
-  insert_cards(objects: {trip_id: 3, type: "Title"}) {
+mutation MyMutation($trip_id : Int) {
+  insert_cards(objects: {trip_id: $trip_id, type: "Title"}) {
     returning {
       id
     }
@@ -14,14 +14,15 @@ mutation MyMutation {
 }
 `;
 
-export default ({refetch}) => {
+export default ({trip, refetch}) => {
 
     return <div>
 
         <Mutation
             onError={() => alert('Could not add title card')}
-            onCompleted={refetch}
+            onCompleted={() => refetch()}
             mutation={ADD}
+            variables={{trip_id : trip.id}}
         >
 
             {(add, {loading, error}) => {

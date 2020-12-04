@@ -5,8 +5,8 @@ import gql from "graphql-tag";
 
 const ADD = gql`
 
-mutation MyMutation($content : jsonb) {
-  insert_cards(objects: {trip_id: 3, type: "PhotosOnMap", content : $content}) {
+mutation MyMutation($content : jsonb, $trip_id : Int) {
+  insert_cards(objects: {trip_id: $trip_id, type: "PhotosOnMap", content : $content}) {
     returning {
       id
     }
@@ -16,15 +16,15 @@ mutation MyMutation($content : jsonb) {
 
 const content = {"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[0,0],[4,0],[4,4],[0,4],[0,0]]]},"properties":{"type":"map"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[-1.845703125,2.0210651187669897]},"properties":{"type":"photo"}}]};
 
-export default ({refetch}) => {
+export default ({trip, refetch}) => {
 
     return <div>
 
         <Mutation
             onError={() => alert('Could not add title card')}
-            onCompleted={refetch}
+            onCompleted={() => refetch()}
             mutation={ADD}
-            variables={{content : content}}
+            variables={{content : content, trip_id : trip.id}}
         >
 
             {(add, {loading, error}) => {
