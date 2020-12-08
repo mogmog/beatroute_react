@@ -148,7 +148,7 @@ export default class extends Component {
                 data : materialLayoutData,
                 mesh: plane,
                 getPosition: d => d.position,
-                texture : '/textures/blank_polaroid.png',
+                texture : '/textures/polaroid1.png',
                 material : {
                     ambient: 0.45,
                     diffuse: 0.8,
@@ -173,7 +173,7 @@ export default class extends Component {
 
                             [
                                 new MapView({               id: 'map',          controller : {type: this.controller, touchRotate : false, dragRotate : false, scrollZoom: true, doubleClickZoom : false}}),
-                                //new OrthographicView({      id: 'orth',         controller : true})
+                                new OrthographicView({      id: 'orth',         controller : true})
                             ]
                         }
 

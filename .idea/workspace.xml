@@ -20,30 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5df05bf9-b1a4-4469-8dd2-ef0b64caba2e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/textures/GB - cycle page breaker.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/textures/hands-map.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/generator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/textures/polaroid1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/textures/polaroid2.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Adder/AddFront/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Adder/AddFront/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Adder/AddMap/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Adder/AddMap/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Adder/AddSketch/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Adder/AddSketch/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Adder/AddTitle/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Adder/AddTitle/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Adder/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Adder/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/Frame/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/ArrowSketchLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/ArrowSketchLayer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Editable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Editable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Title/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Title/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Title/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Title/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,19 +61,19 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/textures" />
-      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers" />
-      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Old" />
-      <recent name="$PROJECT_DIR$/src/Components/Cards/PhotosOnMap" />
-      <recent name="$PROJECT_DIR$/src/Components/Cards/Front" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/textures" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/Map" />
       <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/textures" />
+      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers" />
+      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Old" />
+      <recent name="$PROJECT_DIR$/src/Components/Cards/PhotosOnMap" />
+      <recent name="$PROJECT_DIR$/src/Components/Cards/Front" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -152,6 +134,8 @@
       <workItem from="1606906564718" duration="15314000" />
       <workItem from="1607017509032" duration="9593000" />
       <workItem from="1607081664500" duration="628000" />
+      <workItem from="1607108063300" duration="854000" />
+      <workItem from="1607448307392" duration="3086000" />
     </task>
     <task id="LOCAL-00001" summary="wip">
       <created>1602593335196</created>
@@ -408,12 +392,12 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="807" y="252" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1603020830930" />
-    <state x="766" y="248" width="670" height="158" key="search.everywhere.popup" timestamp="1606777872345">
+    <state x="766" y="248" width="670" height="158" key="search.everywhere.popup" timestamp="1607452971833">
       <screen x="0" y="23" width="1680" height="972" />
     </state>
     <state x="766" y="247" width="670" height="676" key="search.everywhere.popup/0.23.1680.967@0.23.1680.967" timestamp="1603657051808" />
     <state x="766" y="248" width="670" height="676" key="search.everywhere.popup/0.23.1680.970@0.23.1680.970" timestamp="1602424219723" />
-    <state x="766" y="248" width="670" height="158" key="search.everywhere.popup/0.23.1680.972@0.23.1680.972" timestamp="1606777872345" />
+    <state x="766" y="248" width="670" height="158" key="search.everywhere.popup/0.23.1680.972@0.23.1680.972" timestamp="1607452971833" />
     <state x="766" y="248" width="670" height="679" key="search.everywhere.popup/0.23.1680.973@0.23.1680.973" timestamp="1604314665360" />
     <state x="766" y="249" width="670" height="680" key="search.everywhere.popup/0.23.1680.974@0.23.1680.974" timestamp="1604408505525" />
     <state x="766" y="249" width="670" height="681" key="search.everywhere.popup/0.23.1680.975@0.23.1680.975" timestamp="1603129804151" />

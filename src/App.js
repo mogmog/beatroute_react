@@ -38,6 +38,8 @@ const GETCARD = gql`
                       html
                       type
                       map
+                      title
+                      text
                       camera
                       content
                       annotations

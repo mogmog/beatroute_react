@@ -1,31 +1,85 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState, useEffect, Fragment} from 'react'
 import './index.less'
 import Frame from "../Front/Frame";
-import Front from "../Front";
-import PhotosOnMap from "../PhotosOnMap";
-import Sketch from "../Sketch";
-import SVGScroll from "../../svg-scroll/SVGScroll";
-import CardAdder from "../../Adder";
-import Measure from "react-measure";
 import TextareaAutosize from 'react-textarea-autosize';
+import {Mutation} from "react-apollo";
+import gql from "graphql-tag";
 
-// export default () => <Frame width={document.body.clientWidth}>
-export default ({i}) => {
+const SAVE_TITLE = gql`
+
+mutation( $card_id : Int,  $title : String){
+                update_cards(where: {id: {_eq: $card_id}}, _set: {title: $title}) {
+                    returning {
+                                id
+                              }
+                    }
+                }
+`;
+
+const SAVE_TEXT = gql`
+
+mutation( $card_id : Int,  $text : String){
+                update_cards(where: {id: {_eq: $card_id}}, _set: {text: $text}) {
+                    returning {
+                                id
+                              }
+                    }
+                }
+`;
+
+
+export default ({card, i}) => {
 
     const [seconds, setSeconds] = useState(170);
 
     return <div className={'Title'}>
 
-        <Frame width={350}  height={seconds} >
+         <Frame width={350}  height={seconds} >
 
-            <h1>test</h1>
+                     <Mutation onError={() => alert('Could not save title')} mutation={SAVE_TITLE} >
 
-            <TextareaAutosize onHeightChange={(height)=> {
-                setSeconds(height < 48 ? 170 : height + 150);
-            } }>
+                         {(updateTitle, {loading, error}) => {
 
-                Type your text here </TextareaAutosize>
-        </Frame>
+                             return <h1 onBlur={(e) => updateTitle({
+                                 variables: {
+                                     title: e.currentTarget.textContent,
+                                     card_id: card.id
+                                 }
+                             })}
+                                 contentEditable suppressContentEditableWarning={true}>
+                                 {card.title}
+                             </h1>
+
+                         } }
+
+                     </Mutation>
+
+
+                     <Mutation onError={() => alert('Could not save text')} mutation={SAVE_TEXT} >
+
+                         {(updateTitle, {loading, error}) => {
+
+                             return <h5 onBlur={(e) => updateTitle({
+                                 variables: {
+                                     text: e.currentTarget.textContent,
+                                     card_id: card.id
+                                 }
+                             })}
+                                        contentEditable suppressContentEditableWarning={true}>
+                                {card.text}
+                             </h5>
+
+                         } }
+
+                     </Mutation>
+
+
+                        {/*<TextareaAutosize onHeightChange={(height)=> {*/}
+                        {/*    setSeconds(height < 48 ? 170 : height + 150);*/}
+                        {/*} }>*/}
+
+                        {/*    Type your text here </TextareaAutosize>*/}
+                    </Frame>
 
     </div>
 
