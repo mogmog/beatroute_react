@@ -8,10 +8,10 @@ const path = require("path");
 module.exports = {
 
   plugins: [
-    {
-      plugin: require("craco-cesium")(),
-
-    },
+    // {
+    //   plugin: require("craco-cesium")(),
+    //
+    // },
 
     {
       plugin: CracoAntDesignPlugin,

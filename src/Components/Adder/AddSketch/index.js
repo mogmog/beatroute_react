@@ -5,13 +5,21 @@ import gql from "graphql-tag";
 
 const ADD = gql`
 
-mutation MyMutation($content : jsonb, $camera : jsonb, $trip_id : Int) {
-  insert_cards(objects: {trip_id: $trip_id, type: "Sketch", content : $content, camera : $camera}) {
+mutation ($content : jsonb, $camera : jsonb, $trip_id : Int) {
+
+  insert_cards(objects: [
+                {trip_id: $trip_id, type: "Title", content : $content, camera : $camera},
+                {trip_id: $trip_id, type: "Sketch", content : $content, camera : $camera},
+                {trip_id: $trip_id, type: "Polaroid", content : $content, camera : $camera}
+                ]) {
     returning {
       id
     }
   }
 }
+
+
+
 `;
 
 const camera = {"zoom":3.0129167754311057,"pitch":0,"width":500,"height":600,"bearing":0,"maxZoom":20,"minZoom":0,"altitude":1.5,"latitude":8.256043799900645,"maxBearing":0,"minBearing":0,"longitude":2.6226391365730866};
@@ -31,7 +39,7 @@ export default ({trip, refetch}) => {
             {(add, {loading, error}) => {
 
                 return <wired-button elevation="2" onClick={ add }>
-                            Add Sketch to {trip.name}
+                            Add Sketch and photos {trip.name}
                         </wired-button>
 
             }}

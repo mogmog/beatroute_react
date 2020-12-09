@@ -21,22 +21,6 @@ import Buttons from './Buttons'
 import './index.less'
 import {CustomGeometry} from "../../Map/CustomGeometry";
 
-const myFeatureCollection = {
-    type: 'FeatureCollection',
-    features: [
-        /* insert features here */
-    ],
-};
-
-const arrowFeatureCollection = {
-    type: 'FeatureCollection',
-    features: [
-        /* insert features here */
-    ],
-};
-
-const selectedFeatureIndexes = [];
-
 const ambientLight = new AmbientLight({
     color: [255, 255, 255],
     intensity: 1.4
@@ -64,8 +48,6 @@ const materialLayoutData = [
     {position: [-15, 20, 0.0], angle : 5},
 ];
 
-const boundsNew = [[7.038968342537582,46.44328103264265],[7.014065973317429,47.93696136258996],[8.845893538374886,47.95086223368735],[8.870795907595065,46.457578766907]];
-
 export default class extends Component {
 
     constructor(props) {
@@ -73,7 +55,7 @@ export default class extends Component {
 
         this.search = _.debounce(e => e(), 300);
         this.state = {
-            data: props.card.annotations || myFeatureCollection,
+            data: props.card.annotations,
             firstLoad : true,
             screenshot : null,
             editMap     : false,
@@ -109,37 +91,6 @@ export default class extends Component {
 
         let layers = [
 
-            new MapMaskLayer({
-                card: this.props.card,
-                data: this.state.data,
-                boundsNew  : boundsNew,
-
-                width  : this.props.width,
-
-
-                sigcanvas : this.props.sigcanvas,
-                onEdit : ({updatedData, editType}) => {
-
-                    this.setState({ data: updatedData });
-
-                    if (editType ==='addFeature') {
-
-                        // debugger;
-
-                        const tl = (this.deckGL.viewports[0].unproject([0,600],      {topLeft : false}));
-                        const tr = (this.deckGL.viewports[0].unproject([this.props.width,600],    {topLeft : false}));
-                        const bl = (this.deckGL.viewports[0].unproject([0,0],        {topLeft : false}));
-                        const br = (this.deckGL.viewports[0].unproject([this.props.width,0],      {topLeft : false}));
-
-                        //console.log( [ bl, tl, tr, br ] );
-
-                        // const tr = this.context.deck.viewManager._viewports[0].project([bbox[2], bbox[3]])[0];
-
-                        this.props.updateAnnotation({variables : {card_id :  this.props.card.id, annotations : updatedData}});
-                    }
-                },
-            }),
-
             new SimpleMeshLayer({
                 id: 'photo',
                 getOrientation: d => [0, d.angle,0],
@@ -161,9 +112,7 @@ export default class extends Component {
         return (
             <div>
 
-                {this.props.admin && <Buttons drawMode={this.state.drawMode} setDrawMode={(dm) => this.setState({ drawMode : dm })} addInk={this.state.addInk} deckActive={this.props.deckActive} cesiumActive={this.props.cesiumActive} revert={this.revert} fit={this.fit2} setDeckActive={this.props.setDeckActive} setCesiumActive={this.props.setCesiumActive} card={this.props.card} setFirstLoad={() => this.setState({firstLoad : true})} setAddInk={() => this.setState({addInk : !this.state.addInk})} fit={this.fit2}/> }
-
-                <div className="Deck" style={{width : this.props.width + 'px', height : '600px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
+                <div className="Deck" style={{ height : '600px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
 
                     {(this.state.firstLoad) && <DeckGL
 
@@ -172,16 +121,11 @@ export default class extends Component {
                         views={
 
                             [
-                                new MapView({               id: 'map',          controller : {type: this.controller, touchRotate : false, dragRotate : false, scrollZoom: true, doubleClickZoom : false}}),
-                                //new OrthographicView({      id: 'orth',         controller : true})
+                                new OrthographicView({      id: 'orth',         controller : true})
                             ]
                         }
 
                         layerFilter={ ({layer, viewport}) => {
-
-                            if (viewport.id === 'map' && layer.id.indexOf('mask') > -1) {
-                                return true;
-                            }
 
                             if (viewport.id === 'orth' && layer.id.indexOf('photo') > -1) {
                                 return true;
@@ -195,7 +139,7 @@ export default class extends Component {
 
                         ref={deck => {
                             this.deckGL = deck;
-                            this.props.setDeckRef(deck)
+                            //this.props.setDeckRef(deck)
                         }}
                         xonAfterRender={ () => {
 
@@ -212,17 +156,10 @@ export default class extends Component {
                         }}
                         effects={ [ new LightingEffect({ cameraLight, ambientLight }) ]}
                         onViewStateChange={({viewId, viewState}) => {
-                           if (viewId === 'map') this.setState({viewState: {
-                               map : viewState,
-                               orth : this.state.viewState.orth
-
-                           }});
 
                            if (viewId === 'orth') {
                                this.setState({viewState: {
                                    orth : viewState ,
-                                   map : this.state.viewState.map
-
                                }});
                            }
                         }

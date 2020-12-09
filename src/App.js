@@ -16,8 +16,9 @@ import gql from "graphql-tag";
 
 import Front        from "./Components/Cards/Front";
 import Title        from "./Components/Cards/Title";
-import PhotosOnMap  from "./Components/Cards/PhotosOnMap";
-import Sketch  from "./Components/Cards/Sketch";
+//import PhotosOnMap  from "./Components/Cards/PhotosOnMap";
+import Sketch     from "./Components/Cards/Sketch";
+import Polaroids  from "./Components/Cards/Polaroids";
 import SVGScroll from './Components/svg-scroll/SVGScroll';
 
 import CardAdder from './Components/Adder';
@@ -176,19 +177,27 @@ const App = () => {
                       </div>
                     }
 
-                    if (card.type === 'PhotosOnMap') {
-
-                      return  <div className="App-section" key={i} ref={addToRefs}>
-                                {admin && <code>{card.id}</code>}
-                                <PhotosOnMap width={width} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
-                              </div>
-                    }
+                    // if (card.type === 'PhotosOnMap') {
+                    //
+                    //   return  <div className="App-section" key={i} ref={addToRefs}>
+                    //             {admin && <code>{card.id}</code>}
+                    //             <PhotosOnMap width={width} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
+                    //           </div>
+                    // }
 
                     if (card.type === 'Sketch') {
 
                       return  <div className="App-section" key={i} ref={addToRefs}>
                         {admin && <code>{card.id}</code>}
                         <Sketch width={width < 500 ? width : 500} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
+                      </div>
+                    }
+
+                    if (card.type === 'Polaroid') {
+
+                      return  <div className="App-section" key={i} ref={addToRefs}>
+                        {admin && <code>{card.id}</code>}
+                        <Polaroids width={width < 500 ? width : 500} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
                       </div>
                     }
 
