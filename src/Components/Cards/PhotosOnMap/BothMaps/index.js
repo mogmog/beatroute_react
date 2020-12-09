@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Deck from './Deck';
-import Cesium from './Cesium'
+//import Cesium from './Cesium'
 //import { useCesium } from "resium";
 
 export default class Component extends React.PureComponent {
@@ -26,15 +26,15 @@ export default class Component extends React.PureComponent {
 
                 <div style={{ margin : 'auto', position: 'relative', top : '0px', width : this.props.width + 'px', height: '500px' }}>
 
-                    {true && <Cesium cesiumActive={this.state.cesiumActive}
-                            deckActive={this.state.deckActive}
-                            yOffset={this.state.yOffset}
-                            setHideCesium={() => this.setState({hideCesium : !this.state.hideCesium})}
-                            hideCesium={this.state.hideCesium}
-                            deck={this.state.deck}
-                            card={this.props.card}
-                            updateMap={this.props.updateMap}
-                            setGlobeScreenshot={(ss) => this.setState({globeScreenshot : ss})} /> }
+                    {/*{true && <Cesium cesiumActive={this.state.cesiumActive}*/}
+                    {/*        deckActive={this.state.deckActive}*/}
+                    {/*        yOffset={this.state.yOffset}*/}
+                    {/*        setHideCesium={() => this.setState({hideCesium : !this.state.hideCesium})}*/}
+                    {/*        hideCesium={this.state.hideCesium}*/}
+                    {/*        deck={this.state.deck}*/}
+                    {/*        card={this.props.card}*/}
+                    {/*        updateMap={this.props.updateMap}*/}
+                    {/*        setGlobeScreenshot={(ss) => this.setState({globeScreenshot : ss})} /> }*/}
 
                     <Deck
                             width={this.props.width}

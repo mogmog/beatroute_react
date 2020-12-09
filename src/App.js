@@ -13,16 +13,14 @@ import { ApolloProvider } from "react-apollo";
 import { Query } from "react-apollo";
 
 import gql from "graphql-tag";
-
 import Front        from "./Components/Cards/Front";
 import Title        from "./Components/Cards/Title";
-//import PhotosOnMap  from "./Components/Cards/PhotosOnMap";
+// //import PhotosOnMap  from "./Components/Cards/PhotosOnMap";
 import Sketch     from "./Components/Cards/Sketch";
 import Polaroids  from "./Components/Cards/Polaroids";
 import SVGScroll from './Components/svg-scroll/SVGScroll';
-
+//
 import CardAdder from './Components/Adder';
-import Signature from "./Components/Cards/Sketch/Signature";
 
 
 const GETCARD = gql`
@@ -134,8 +132,9 @@ const App = () => {
 
   const admin = true;
 
+ // return  <div>test</div>
   //return   <Signature/>
-  return (
+ return (
     <div className="App">
 
       <ApolloProvider client={client}>
