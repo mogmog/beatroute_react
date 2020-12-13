@@ -138,24 +138,24 @@ export default class extends Component {
                         this.props.updateAnnotation({variables : {card_id :  this.props.card.id, annotations : updatedData}});
                     }
                 },
-            }),
-
-            new SimpleMeshLayer({
-                id: 'photo',
-                getOrientation: d => [0, d.angle,0],
-                getScale: [110,110,1],
-                opacity: 1,
-                data : materialLayoutData,
-                mesh: plane,
-                getPosition: d => d.position,
-                texture : '/textures/polaroid1.png',
-                material : {
-                    ambient: 0.45,
-                    diffuse: 0.8,
-                    shininess: 0.2,
-                    specularColor: [255, 255, 255]
-                }
             })
+
+            // new SimpleMeshLayer({
+            //     id: 'photo',
+            //     getOrientation: d => [0, d.angle,0],
+            //     getScale: [110,110,1],
+            //     opacity: 1,
+            //     data : materialLayoutData,
+            //     mesh: plane,
+            //     getPosition: d => d.position,
+            //     texture : '/textures/polaroid1.png',
+            //     material : {
+            //         ambient: 0.45,
+            //         diffuse: 0.8,
+            //         shininess: 0.2,
+            //         specularColor: [255, 255, 255]
+            //     }
+            // })
         ];
 
         return (

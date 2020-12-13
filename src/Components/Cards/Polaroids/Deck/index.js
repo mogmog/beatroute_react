@@ -9,6 +9,7 @@ import _ from "lodash";
 
 import './index.less'
 import {CustomGeometry} from "./CustomGeometry";
+import GL from "@luma.gl/constants";
 
 const ambientLight = new AmbientLight({
     color: [255, 255, 255],
@@ -32,9 +33,8 @@ const INIT_CAMERA = {
 const plane = new CustomGeometry({size : 1, m : 1.03, holed  : false});
 
 const materialLayoutData = [
-    {position: [-10, -10, 0.0], angle : 10},
-    {position: [-20, -40, 0.0], angle : 15},
-    {position: [-15, 20, 0.0], angle : 5},
+    {position: [-10, -10, 0.0], angle : 5},
+    {position: [-10, 50, 0.0], angle : -5},
 ];
 
 export default class extends React.Component {
@@ -78,19 +78,49 @@ export default class extends React.Component {
             new SimpleMeshLayer({
                 id: 'photo',
                 getOrientation: d => [0, d.angle,0],
-                getScale: [110,110,1],
+                getTranslation : [15,15,0],
+                getScale: [78,78,1],
+                opacity: 1,
+                data : materialLayoutData,
+                mesh: plane,
+                getPosition: d => d.position,
+                texture : '/textures/bird.png',
+                material : {
+                    ambient: 0.45,
+                    diffuse: 0.8,
+                    shininess: 0.1,
+                    specularColor: [255, 255, 255]
+                }
+            }),
+
+            new SimpleMeshLayer({
+                id: 'polaroid',
+                getOrientation: d => [0, d.angle,0],
+                getScale: [109,109,1],
                 opacity: 1,
                 data : materialLayoutData,
                 mesh: plane,
                 getPosition: d => d.position,
                 texture : '/textures/polaroid1.png',
                 material : {
-                    ambient: 0.45,
-                    diffuse: 0.8,
-                    shininess: 0.2,
+                    ambient: 1,
+                    diffuse: 0.5,
+                    shininess: 0.5,
                     specularColor: [255, 255, 255]
+                },
+                parameters: {
+                    depthTest: true,
+                    depthMask: true,
+                    blend: true,
+                    blendEquation: GL.FUNC_ADD,
+                    blendFunc: [GL.ONE, GL.ONE_MINUS_SRC_COLOR]
                 }
-            })
+            }),
+
+
+
+
+
         ];
 
         return (
