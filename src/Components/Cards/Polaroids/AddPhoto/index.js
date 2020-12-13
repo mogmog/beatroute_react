@@ -1,6 +1,6 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import { CloudinaryContext, Image } from "cloudinary-react";
-import { fetchPhotos, openUploadWidget } from "./../../../../../../../util/cloudinary";
+import { fetchPhotos, openUploadWidget } from "../../../../util/cloudinary";
 import gql from "graphql-tag";
 import {Mutation} from "react-apollo";
 

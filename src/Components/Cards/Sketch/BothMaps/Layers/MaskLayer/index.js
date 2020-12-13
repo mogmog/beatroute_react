@@ -21,8 +21,8 @@ export default class MaskLayer extends CompositeLayer {
     shouldUpdateState({ changeFlags }) {
 
         //lock the mask to the bounds of the 500x600 container
-        const tl = (this.context.deck.viewManager._viewports[0].unproject([0,600],      {topLeft : false}));
-        const tr = (this.context.deck.viewManager._viewports[0].unproject([this.props.width,600],    {topLeft : false}));
+        const tl = (this.context.deck.viewManager._viewports[0].unproject([0,300],      {topLeft : false}));
+        const tr = (this.context.deck.viewManager._viewports[0].unproject([this.props.width,300],    {topLeft : false}));
         const bl = (this.context.deck.viewManager._viewports[0].unproject([0,0],        {topLeft : false}));
         const br = (this.context.deck.viewManager._viewports[0].unproject([this.props.width,0],      {topLeft : false}));
 

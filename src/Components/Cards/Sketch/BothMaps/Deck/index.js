@@ -126,8 +126,8 @@ export default class extends Component {
 
                         // debugger;
 
-                        const tl = (this.deckGL.viewports[0].unproject([0,600],      {topLeft : false}));
-                        const tr = (this.deckGL.viewports[0].unproject([this.props.width,600],    {topLeft : false}));
+                        const tl = (this.deckGL.viewports[0].unproject([0,300],      {topLeft : false}));
+                        const tr = (this.deckGL.viewports[0].unproject([this.props.width,300],    {topLeft : false}));
                         const bl = (this.deckGL.viewports[0].unproject([0,0],        {topLeft : false}));
                         const br = (this.deckGL.viewports[0].unproject([this.props.width,0],      {topLeft : false}));
 
@@ -163,7 +163,7 @@ export default class extends Component {
 
                 {this.props.admin && <Buttons drawMode={this.state.drawMode} setDrawMode={(dm) => this.setState({ drawMode : dm })} addInk={this.state.addInk} deckActive={this.props.deckActive} cesiumActive={this.props.cesiumActive} revert={this.revert} fit={this.fit2} setDeckActive={this.props.setDeckActive} setCesiumActive={this.props.setCesiumActive} card={this.props.card} setFirstLoad={() => this.setState({firstLoad : true})} setAddInk={() => this.setState({addInk : !this.state.addInk})} fit={this.fit2}/> }
 
-                <div className="Deck" style={{width : this.props.width + 'px', height : '600px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
+                <div className="Deck" style={{width : this.props.width + 'px', height : '300px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
 
                     {(this.state.firstLoad) && <DeckGL
 
