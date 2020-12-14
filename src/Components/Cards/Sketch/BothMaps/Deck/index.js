@@ -17,9 +17,7 @@ import {COORDINATE_SYSTEM} from '@deck.gl/core';
 import {Component} from 'react';
 import _ from "lodash";
 import Buttons from './Buttons'
-
 import './index.less'
-import {CustomGeometry} from "../../Map/CustomGeometry";
 
 const myFeatureCollection = {
     type: 'FeatureCollection',
@@ -27,15 +25,6 @@ const myFeatureCollection = {
         /* insert features here */
     ],
 };
-
-const arrowFeatureCollection = {
-    type: 'FeatureCollection',
-    features: [
-        /* insert features here */
-    ],
-};
-
-const selectedFeatureIndexes = [];
 
 const ambientLight = new AmbientLight({
     color: [255, 255, 255],
@@ -55,14 +44,6 @@ const INIT_CAMERA = {
     latitude :  0,
 
     zoom : 6.5};
-
-const plane = new CustomGeometry({size : 1, m : 1.03, holed  : false});
-
-const materialLayoutData = [
-    {position: [-10, -10, 0.0], angle : 10},
-    {position: [-20, -40, 0.0], angle : 15},
-    {position: [-15, 20, 0.0], angle : 5},
-];
 
 const boundsNew = [[7.038968342537582,46.44328103264265],[7.014065973317429,47.93696136258996],[8.845893538374886,47.95086223368735],[8.870795907595065,46.457578766907]];
 
@@ -112,12 +93,8 @@ export default class extends Component {
             new MapMaskLayer({
                 card: this.props.card,
                 data: this.state.data,
-                boundsNew  : boundsNew,
-
                 width  : this.props.width,
 
-
-                sigcanvas : this.props.sigcanvas,
                 onEdit : ({updatedData, editType}) => {
 
                     this.setState({ data: updatedData });
@@ -163,7 +140,7 @@ export default class extends Component {
 
                 {this.props.admin && <Buttons drawMode={this.state.drawMode} setDrawMode={(dm) => this.setState({ drawMode : dm })} addInk={this.state.addInk} deckActive={this.props.deckActive} cesiumActive={this.props.cesiumActive} revert={this.revert} fit={this.fit2} setDeckActive={this.props.setDeckActive} setCesiumActive={this.props.setCesiumActive} card={this.props.card} setFirstLoad={() => this.setState({firstLoad : true})} setAddInk={() => this.setState({addInk : !this.state.addInk})} fit={this.fit2}/> }
 
-                <div className="Deck" style={{width : this.props.width + 'px', height : '300px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
+                <div className="Deck" style={{width : this.props.width + 'px', height : this.props.width + 'px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
 
                     {(this.state.firstLoad) && <DeckGL
 

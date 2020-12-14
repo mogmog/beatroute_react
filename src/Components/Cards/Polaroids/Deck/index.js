@@ -1,14 +1,16 @@
 import React, {Fragment, useState} from 'react';
 import DeckGL from '@deck.gl/react';
-import {SimpleMeshLayer} from '@deck.gl/mesh-layers';
+
 import {MapController, LinearInterpolator, FlyToInterpolator} from '@deck.gl/core';
 import { LightingEffect, AmbientLight, _CameraLight} from '@deck.gl/core';
 import {Controller,  OrthographicController, MapView, OrthographicView} from '@deck.gl/core';
 import {Component} from 'react';
+import PP from './../Deck/Layers/PolaroidAndPhoto'
+
 import _ from "lodash";
 
 import './index.less'
-import {CustomGeometry} from "./CustomGeometry";
+import {CustomGeometry} from "./Layers/PolaroidAndPhoto/CustomGeometry";
 import GL from "@luma.gl/constants";
 
 const ambientLight = new AmbientLight({
@@ -20,22 +22,6 @@ const cameraLight = new _CameraLight({
     color: [255, 255, 255],
     intensity: 0.35
 });
-
-const INIT_CAMERA = {
-    minPitch : 0,
-    maxPitch : 0,
-    pitch : 0,
-    longitude :   0,
-    latitude :  0,
-
-    zoom : 6.5};
-
-const plane = new CustomGeometry({size : 1, m : 1.03, holed  : false});
-
-const materialLayoutData = [
-    {position: [-10, -10, 0.0], angle : 5},
-    {position: [-10, 50, 0.0], angle : -5},
-];
 
 export default class extends React.Component {
 
@@ -74,59 +60,30 @@ export default class extends React.Component {
     render() {
 
         let layers = [
-
-            new SimpleMeshLayer({
-                id: 'photo',
-                getOrientation: d => [0, d.angle,0],
-                getTranslation : [15,15,0],
-                getScale: [78,78,1],
-                opacity: 1,
-                data : materialLayoutData,
-                mesh: plane,
-                getPosition: d => d.position,
-                texture : '/textures/bird.png',
-                material : {
-                    ambient: 0.45,
-                    diffuse: 0.8,
-                    shininess: 0.1,
-                    specularColor: [255, 255, 255]
-                }
-            }),
-
-            new SimpleMeshLayer({
-                id: 'polaroid',
-                getOrientation: d => [0, d.angle,0],
-                getScale: [109,109,1],
-                opacity: 1,
-                data : materialLayoutData,
-                mesh: plane,
-                getPosition: d => d.position,
-                texture : '/textures/polaroid1.png',
-                material : {
-                    ambient: 1,
-                    diffuse: 0.5,
-                    shininess: 0.5,
-                    specularColor: [255, 255, 255]
-                },
-                parameters: {
-                    depthTest: true,
-                    depthMask: true,
-                    blend: true,
-                    blendEquation: GL.FUNC_ADD,
-                    blendFunc: [GL.ONE, GL.ONE_MINUS_SRC_COLOR]
-                }
-            }),
-
-
-
-
-
+                new PP({
+                    id : this.props.card.id + '1',
+                    data : [
+                        {position: [-10, -10, 0.0], angle : 5},
+                    ]
+                }),
+                new PP({
+                    id : this.props.card.id +  '2',
+                    data : [
+                        {position: [0, 90, 0.0], angle : -5},
+                    ]
+                }),
+            new PP({
+                id : this.props.card.id + '3',
+                data : [
+                    {position: [0, 180, 0.0], angle : 5},
+                ]
+            })
         ];
 
         return (
             <div>
 
-                <div className="Deck" style={{ height : '600px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
+                <div className="Deck" style={{ height : '1200px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
 
                     {(this.state.firstLoad) && <DeckGL
 

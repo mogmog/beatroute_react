@@ -20,9 +20,10 @@ export default class MaskLayer extends CompositeLayer {
 
     shouldUpdateState({ changeFlags }) {
 
+        const height = this.props.width;
         //lock the mask to the bounds of the 500x600 container
-        const tl = (this.context.deck.viewManager._viewports[0].unproject([0,300],      {topLeft : false}));
-        const tr = (this.context.deck.viewManager._viewports[0].unproject([this.props.width,300],    {topLeft : false}));
+        const tl = (this.context.deck.viewManager._viewports[0].unproject([0, height],      {topLeft : false}));
+        const tr = (this.context.deck.viewManager._viewports[0].unproject([this.props.width, height],    {topLeft : false}));
         const bl = (this.context.deck.viewManager._viewports[0].unproject([0,0],        {topLeft : false}));
         const br = (this.context.deck.viewManager._viewports[0].unproject([this.props.width,0],      {topLeft : false}));
 
@@ -46,7 +47,7 @@ export default class MaskLayer extends CompositeLayer {
         const papermasklayer = new BitmapLayer({
             id: 'mask-bitmap-layer',
             bounds: this.state.bounds,
-            image: './textures/hands-map-mask.png',
+            image: './textures/hand-map-mask-04.png',
             parameters: {
                 depthTest: true,
                 depthMask: true,
@@ -60,7 +61,7 @@ export default class MaskLayer extends CompositeLayer {
         const handslayer = new BitmapLayer({
             id: 'mask-bitmap-layer',
             bounds: this.state.bounds,
-            image: './textures/hands-map.png',
+            image: './textures/hand-map-04.png',
         });
 
         const editable = new EditableLayer({

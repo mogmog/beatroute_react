@@ -16,7 +16,7 @@ export default ({ width, admin, card }) => {
                             <AddPhoto card={card}/>
 
                             <Deck
-                                deckActive={true}
+                                deckActive={false}
                                 admin={admin}
                                 width={width}
                                 updateCard={updateCard}
