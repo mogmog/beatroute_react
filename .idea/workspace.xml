@@ -25,14 +25,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5df05bf9-b1a4-4469-8dd2-ef0b64caba2e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/textures/hand-map-03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Polaroids/Deck/Layers/PolaroidAndPhoto/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/textures/hands-map-05.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Polaroids/Deck/CustomGeometry.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Polaroids/Deck/Layers/PolaroidAndPhoto/CustomGeometry.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Polaroids/Deck/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Polaroids/Deck/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Polaroids/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Polaroids/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/textures/New Project (2) (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/textures/hand-map-mask-04.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/textures/hand-map-mask-04.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Title/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Title/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Title/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Title/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,9 +77,9 @@
       <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/textures" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Polaroids/Deck/Layers/PolaroidAndPhoto" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Polaroids" />
-      <recent name="$PROJECT_DIR$/public/textures" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Old" />
     </key>
@@ -146,7 +147,9 @@
       <workItem from="1607532040995" duration="4271000" />
       <workItem from="1607541739949" duration="98000" />
       <workItem from="1607542085237" duration="3524000" />
-      <workItem from="1607856080767" duration="12841000" />
+      <workItem from="1607856080767" duration="14210000" />
+      <workItem from="1607956873654" duration="560000" />
+      <workItem from="1608468457917" duration="1964000" />
     </task>
     <task id="LOCAL-00001" summary="wip">
       <created>1602593335196</created>
@@ -316,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607889012599</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="wip photos">
+      <created>1607953685428</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1607953685429</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,11 +418,11 @@
     </state>
     <state x="590" y="157" width="883" height="739" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.1680.975@0.23.1680.975" timestamp="1604592637393" />
     <state x="590" y="158" width="883" height="743" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.1680.979@0.23.1680.979" timestamp="1605202324765" />
-    <state x="348" y="45" width="1075" height="716" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607857839277">
-      <screen x="0" y="23" width="1680" height="972" />
+    <state x="348" y="45" width="1075" height="714" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1608471084365">
+      <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state x="348" y="45" width="1075" height="712" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.967@0.23.1680.967" timestamp="1603653291372" />
-    <state x="348" y="45" width="1075" height="714" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.970@0.23.1680.970" timestamp="1603702335621" />
+    <state x="348" y="45" width="1075" height="714" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.970@0.23.1680.970" timestamp="1608471084365" />
     <state x="348" y="45" width="1075" height="716" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.972@0.23.1680.972" timestamp="1607857839277" />
     <state x="348" y="45" width="1075" height="717" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.973@0.23.1680.973" timestamp="1604252427721" />
     <state x="348" y="45" width="1075" height="717" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.974@0.23.1680.974" timestamp="1603450987260" />

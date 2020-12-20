@@ -61,7 +61,7 @@ export default class MaskLayer extends CompositeLayer {
         const handslayer = new BitmapLayer({
             id: 'mask-bitmap-layer',
             bounds: this.state.bounds,
-            image: './textures/hand-map-04.png',
+            image: './textures/hands-map-05.png',
         });
 
         const editable = new EditableLayer({

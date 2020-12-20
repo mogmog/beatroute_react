@@ -59,15 +59,17 @@ export default ({card, i}) => {
 
                          {(updateTitle, {loading, error}) => {
 
-                             return <h5 onBlur={(e) => updateTitle({
-                                 variables: {
-                                     text: e.currentTarget.textContent,
-                                     card_id: card.id
-                                 }
-                             })}
-                                        contentEditable suppressContentEditableWarning={true}>
-                                {card.text}
-                             </h5>
+                             return <TextareaAutosize
+                                 onChange={(e) => {
+
+                                     updateTitle({
+                                         variables: {
+                                             text: e.currentTarget.value,
+                                             card_id: card.id
+                                         }
+                                     })
+                                 }}
+                                 defaultValue={card.text}></TextareaAutosize>
 
                          } }
 
