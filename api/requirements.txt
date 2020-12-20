@@ -1,4 +1,0 @@
-Flask==1.1.2
-pyppeteer==0.2.2
-asyncio==3.4.3
-aiohttp==3.6.2
