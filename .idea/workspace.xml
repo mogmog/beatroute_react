@@ -24,7 +24,23 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5df05bf9-b1a4-4469-8dd2-ef0b64caba2e" name="Default Changelist" comment="" />
+    <list default="true" id="5df05bf9-b1a4-4469-8dd2-ef0b64caba2e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/Buttons/ClearAnnotations/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/CanvasLayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/Buttons/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/Buttons/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Arrow/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/ArrowSketchLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/ArrowSketchLayer/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Editable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Editable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/MaskLayer/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Saver/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Saver/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +66,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/textures" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/Buttons/ClearAnnotations" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -59,19 +75,19 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/textures" />
-      <recent name="$PROJECT_DIR$/src/Components/Cards/Polaroids/Deck" />
-      <recent name="$PROJECT_DIR$/src/Components/Cards" />
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/textures" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Polaroids/Deck/Layers/PolaroidAndPhoto" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Polaroids" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers" />
       <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Layers/Old" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/Buttons/ClearAnnotations" />
+      <recent name="$PROJECT_DIR$/public/textures" />
+      <recent name="$PROJECT_DIR$/src/Components/Cards/Polaroids/Deck" />
+      <recent name="$PROJECT_DIR$/src/Components/Cards" />
+      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -140,7 +156,8 @@
       <workItem from="1607856080767" duration="14210000" />
       <workItem from="1607956873654" duration="560000" />
       <workItem from="1608468457917" duration="4234000" />
-      <workItem from="1608476723879" duration="1440000" />
+      <workItem from="1608476723879" duration="9168000" />
+      <workItem from="1608645032698" duration="13651000" />
     </task>
     <task id="LOCAL-00001" summary="wip">
       <created>1602593335196</created>
@@ -405,9 +422,11 @@
     <state x="209" y="140" width="1192" height="697" key="DiffContextDialog/0.23.1680.975@0.23.1680.975" timestamp="1604592637392" />
     <state x="209" y="140" width="1344" height="782" key="DiffContextDialog/0.23.1680.978@0.23.1680.978" timestamp="1606323038571" />
     <state x="209" y="140" width="1192" height="700" key="DiffContextDialog/0.23.1680.979@0.23.1680.979" timestamp="1605354624985" />
-    <state x="626" y="227" key="RollbackChangesDialog" timestamp="1606322996431">
-      <screen x="0" y="23" width="1680" height="978" />
+    <state x="626" y="224" key="RollbackChangesDialog" timestamp="1608664345073">
+      <screen x="0" y="23" width="1680" height="967" />
     </state>
+    <state x="626" y="224" key="RollbackChangesDialog/0.23.1680.967@0.23.1680.967" timestamp="1608664345073" />
+    <state x="626" y="225" key="RollbackChangesDialog/0.23.1680.970@0.23.1680.970" timestamp="1608647162509" />
     <state x="626" y="227" key="RollbackChangesDialog/0.23.1680.978@0.23.1680.978" timestamp="1606322996431" />
     <state x="626" y="227" key="RollbackChangesDialog/0.23.1680.979@0.23.1680.979" timestamp="1605360431383" />
     <state x="232" y="74" key="SettingsEditor" timestamp="1605477621288">
@@ -455,11 +474,11 @@
     </state>
     <state x="805" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.972@0.23.1680.972" timestamp="1604259244685" />
     <state x="805" y="477" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.975@0.23.1680.975" timestamp="1603183099907" />
-    <state x="742" y="259" width="598" height="490" key="find.popup" timestamp="1608473260819">
+    <state x="742" y="259" width="598" height="490" key="find.popup" timestamp="1608655078565">
       <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state x="742" y="258" width="703" height="490" key="find.popup/0.23.1680.967@0.23.1680.967" timestamp="1607532567259" />
-    <state x="742" y="259" width="598" height="490" key="find.popup/0.23.1680.970@0.23.1680.970" timestamp="1608473260819" />
+    <state x="742" y="259" width="598" height="490" key="find.popup/0.23.1680.970@0.23.1680.970" timestamp="1608655078565" />
     <state x="742" y="260" width="598" height="490" key="find.popup/0.23.1680.972@0.23.1680.972" timestamp="1603639826145" />
     <state x="742" y="260" width="721" height="491" key="find.popup/0.23.1680.973@0.23.1680.973" timestamp="1607543184648" />
     <state x="742" y="260" width="700" height="492" key="find.popup/0.23.1680.974@0.23.1680.974" timestamp="1606912988062" />
@@ -473,11 +492,11 @@
       <screen x="0" y="23" width="1680" height="975" />
     </state>
     <state x="807" y="252" key="run.anything.popup/0.23.1680.975@0.23.1680.975" timestamp="1603020830930" />
-    <state x="766" y="248" width="670" height="676" key="search.everywhere.popup" timestamp="1608476736467">
-      <screen x="0" y="23" width="1680" height="970" />
+    <state x="766" y="247" width="670" height="676" key="search.everywhere.popup" timestamp="1608668607574">
+      <screen x="0" y="23" width="1680" height="967" />
     </state>
-    <state x="766" y="247" width="670" height="676" key="search.everywhere.popup/0.23.1680.967@0.23.1680.967" timestamp="1607535630603" />
-    <state x="766" y="248" width="670" height="676" key="search.everywhere.popup/0.23.1680.970@0.23.1680.970" timestamp="1608476736467" />
+    <state x="766" y="247" width="670" height="676" key="search.everywhere.popup/0.23.1680.967@0.23.1680.967" timestamp="1608668607574" />
+    <state x="766" y="248" width="670" height="676" key="search.everywhere.popup/0.23.1680.970@0.23.1680.970" timestamp="1608652004101" />
     <state x="766" y="248" width="670" height="158" key="search.everywhere.popup/0.23.1680.972@0.23.1680.972" timestamp="1607536427369" />
     <state x="766" y="248" width="670" height="679" key="search.everywhere.popup/0.23.1680.973@0.23.1680.973" timestamp="1604314665360" />
     <state x="766" y="249" width="670" height="680" key="search.everywhere.popup/0.23.1680.974@0.23.1680.974" timestamp="1604408505525" />

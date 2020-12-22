@@ -103,10 +103,11 @@ export default class MaskLayer extends CompositeLayer {
         const inklines = new Arrow({
             id : 'mask-inklines',
             data: this.props.data,
-            bounds: this.state.bounds
+            bounds: this.state.bounds,
+            canvas : this.props.canvas
         })
 
-        return [ tilelayer , editable, ink, inklines, papermasklayer, handslayer];
+        return [  tilelayer, editable, inklines, papermasklayer, handslayer];
     }
 }
 

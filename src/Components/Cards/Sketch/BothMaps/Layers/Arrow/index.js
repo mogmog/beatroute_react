@@ -1,26 +1,21 @@
 import { CompositeLayer } from '@deck.gl/core';
-import ArrowSketchLayer from "../ArrowSketchLayer";
-import SignaturePad from 'signature_pad';
 import {WebMercatorViewport} from '@deck.gl/core';
-
+import {BitmapLayer } from "@deck.gl/layers";
 import {fitBounds} from '@math.gl/web-mercator';
 
 import {draw} from './generator'
-
-import {EditableGeoJsonLayer, DrawPolygonMode, DrawCircleByDiameterMode, DrawPointMode, DrawLineStringMode } from 'nebula.gl';
 import * as turf from "@turf/turf";
 
 function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
-
     var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
-
     return { width: Math.floor(srcWidth*ratio), height: Math.floor(srcHeight*ratio) };
 }
 
 export default class ArrowLayer extends CompositeLayer {
 
     initializeState() {
-        let self = this;
+        var canvas = document.createElement('canvas');
+        this.setState({canvas : canvas});
     }
 
     renderLayers() {
@@ -30,14 +25,9 @@ export default class ArrowLayer extends CompositeLayer {
         const onlyFeature = this.props.data.features[0];
 
         const boundsSmall = turf.bbox(this.props.data);
+        const boundsBigger = turf.bboxPolygon(boundsSmall);
 
-        const boundsPolygon = turf.bboxPolygon(boundsSmall);
-
-        let a = turf.buffer(boundsPolygon, 50, {units: 'miles'});
-
-        const bounds = turf.bbox(a);
-
-        //        console.log(expandedBounds);
+        const bounds = turf.bbox(turf.buffer(boundsBigger, 50, {units: 'miles'}));
 
         const bl = this.context.deck.viewManager._viewports[0].project([bounds[0], bounds[1]]);
         const tr = this.context.deck.viewManager._viewports[0].project([bounds[2], bounds[3]]);
@@ -54,7 +44,7 @@ export default class ArrowLayer extends CompositeLayer {
             height : height,
             bounds : [ [bounds[0], bounds[1]], [bounds[2], bounds[3]] ]});
 
-        const viewport2 = new WebMercatorViewport({
+        const viewport = new WebMercatorViewport({
             width: width,
             height: height,
             longitude:longitude,
@@ -63,25 +53,22 @@ export default class ArrowLayer extends CompositeLayer {
             bearing : this.context.deck.viewManager._viewports[0].bearing
         });
 
-       // console.log(this.context.deck.viewManager._viewports[0].bearing);
-
          let points = [];
 
         onlyFeature.geometry.coordinates.forEach((f, i) => {
-            let screen = viewport2.project(f) ;
+            let screen = viewport.project(f) ;
             points.push({x : Math.floor(screen[0]), y : Math.floor(screen[1])});
         });
+        console.log(points);
 
-         //sigdata[0].points  = points;
-         //signaturePad.fromData(sigdata);
+        let {canvas} = this.state;
 
-        var canvas = document.createElement('canvas');
         canvas.width = width;
         canvas.height = height;
 
         draw(points, canvas, width, height);
 
-        const arrow = new ArrowSketchLayer({
+        const arrow = new BitmapLayer({
             opacity : 1,
             id: 'mask-arrow-layer',
             data : this.props.data,
@@ -89,13 +76,6 @@ export default class ArrowLayer extends CompositeLayer {
             image : canvas,
             width, height
         })
-
-        function animate() {
-            arrow.setNeedsRedraw(true);
-            requestAnimationFrame(animate);
-        };
-
-        //animate();
 
         return [ arrow ];
     }

@@ -188,8 +188,8 @@ const App = () => {
                     if (card.type === 'Sketch') {
 
                       return  <div className="App-section" key={i} ref={addToRefs}>
-                        {admin && <code>{card.id}</code>}
-                        <Sketch width={width < 500 ? width : 500} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
+                        {false && admin && <code>{JSON.stringify(card.annotations)}</code>}
+                        <Sketch width={width < 500 ? width : 500} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card} refetch={refetch}/>
                       </div>
                     }
 

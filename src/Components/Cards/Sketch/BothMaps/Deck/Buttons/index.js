@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
-import AddPhoto from './AddPhoto'
+import ClearAnnotations from './ClearAnnotations'
 
-export default  ({ setDrawMode, drawMode, setAddInk, addInk, card, fit, revert, deckActive , cesiumActive, setFirstLoad, setCesiumActive, setDeckActive}) => {
+export default  ({ refetch, setDrawMode, drawMode, clearAnnotations, setAddInk, addInk, card, fit, revert, deckActive , cesiumActive, setFirstLoad, setCesiumActive, setDeckActive}) => {
     return (<Fragment>
 
         {!cesiumActive && <wired-button elevation="2" disabled={deckActive}  onClick={()=> {
@@ -23,7 +23,7 @@ export default  ({ setDrawMode, drawMode, setAddInk, addInk, card, fit, revert, 
         setCesiumActive(false);
         setDeckActive(true);
     }}>
-       Adjust stack
+      Move map
     </wired-button> }
 
     {deckActive && <wired-button elevation="2" disabled={cesiumActive} onClick={()=> {
@@ -32,13 +32,8 @@ export default  ({ setDrawMode, drawMode, setAddInk, addInk, card, fit, revert, 
         Save
     </wired-button> }
 
-    <wired-button elevation="2" disabled={cesiumActive} onClick={()=> {
-        setDrawMode('Arrow');
-    }}>
-     Add Arrow
-    </wired-button>
 
-    <AddPhoto card={card}/>
+    <ClearAnnotations card={card} refetch={refetch}/>
 
     </Fragment>
     )

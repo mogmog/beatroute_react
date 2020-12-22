@@ -39,7 +39,7 @@ mutation( $card_id : Int,  $annotations : jsonb){
                 }
 `;
 
-export default ({children}) => {
+export default ({refetch, children}) => {
 
     return <div>
 
@@ -61,6 +61,7 @@ export default ({children}) => {
                                     <Mutation
                                         onError={() => alert('Could not save camera')}
                                         mutation={SAVE_ANNOTATION}
+                                        onCompleted={() => refetch()}
                                     >
 
                                         {(updateAnnotation, {loading, error}) => {

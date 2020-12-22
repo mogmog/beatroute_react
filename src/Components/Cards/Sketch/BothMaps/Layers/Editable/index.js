@@ -21,11 +21,13 @@ export default class EditableLayer extends CompositeLayer {
 
     renderLayers() {
         const { altitude , cameraBearing} = this.state;
-        const {  image, out, center, title } = this.props;
+        const {  data } = this.props;
+
+       // console.log(data);
 
         const layer = new EditableGeoJsonLayer({
             id: 'mask-geojson-layer-linestring',
-            data: this.props.data,
+            data: data,
             opacity : 0.3,
             mode: DrawLineStringMode,
             onEdit : this.props.onEdit

@@ -21,12 +21,13 @@ export default class Component extends React.PureComponent {
 
             <div>
 
-                <div style={{ margin : 'auto', position: 'relative', top : '0px', width : this.props.width + 'px', height: '300px' }}>
+                <div style={{ margin : 'auto', position: 'relative', top : '0px', width : this.props.width + 'px', height: this.props.height + 'px' }}>
 
                     <Deck
 
-                        admin={this.props.admin}
+                            admin={this.props.admin}
                             width={this.props.width}
+                            height={this.props.height}
                             cesiumActive={this.state.cesiumActive}
                             deckActive={this.state.deckActive}
                             setDeckActive={(v)   => this.setState({deckActive : v})}
@@ -39,7 +40,7 @@ export default class Component extends React.PureComponent {
                             updateAnnotation={this.props.updateAnnotation}
                             card={this.props.card}
                             globeScreenshot={this.state.globeScreenshot}
-
+                            refetch={this.props.refetch}
                             sigcanvas={this.state.sigcanvas}
                             incrementLoadedCount={this.props.incrementLoadedCount}
                             viewer={this.state.viewer} />

@@ -1,10 +1,10 @@
 import {BitmapLayer } from "@deck.gl/layers";
-import { Texture2D, lumaStats } from '@luma.gl/core';
+import { Texture2D } from '@luma.gl/core';
 
-export default class ArrowSketchLayer extends BitmapLayer {
+export default class CanvasLayer extends BitmapLayer {
 
     draw(opts) {
-        const { } = this.props;
+
         const {image, bitmapTexture} = this.state;
 
         if (true && image) {

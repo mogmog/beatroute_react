@@ -21,7 +21,7 @@
     "craco-less": "^1.7.0",
     "d3": "^5.15.0",
     "d3-ease": "^2.0.0",
-    "deck.gl": "^8.2.8",
+    "deck.gl": "^8.4.0-alpha.4",
     "graphql": "^14.2.1",
     "graphql-tag": "^2.11.0",
     "gsap": "./gsap-bonus.tgz",
