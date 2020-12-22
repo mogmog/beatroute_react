@@ -20,9 +20,9 @@ export default class ArrowLayer extends CompositeLayer {
 
     renderLayers() {
 
-        if (this.props.data.features.length ===0) return []; //for when nothing has been drawn
+        //if (this.props.data.features.length ===0) return []; //for when nothing has been drawn
 
-        const onlyFeature = this.props.data.features[0];
+        const onlyFeature = this.props.data;
 
         const boundsSmall = turf.bbox(this.props.data);
         const boundsBigger = turf.bboxPolygon(boundsSmall);
@@ -35,7 +35,7 @@ export default class ArrowLayer extends CompositeLayer {
         const boundsWidth  = tr[0] - bl[0];
         const boundsHeight = bl[1] - tr[1]
 
-        const {width, height} = calculateAspectRatioFit(boundsWidth, boundsHeight, 4000,4000);
+        const {width, height} = calculateAspectRatioFit(boundsWidth, boundsHeight, 1000,1000);
         //get ratio of bounds in pixels
 
         const {longitude, latitude, zoom} = fitBounds({
@@ -59,7 +59,8 @@ export default class ArrowLayer extends CompositeLayer {
             let screen = viewport.project(f) ;
             points.push({x : Math.floor(screen[0]), y : Math.floor(screen[1])});
         });
-        console.log(points);
+
+        // console.log(points);
 
         let {canvas} = this.state;
 
