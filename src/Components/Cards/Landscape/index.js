@@ -28,7 +28,7 @@ export default () => {
             console.log( 'Location focused' );
         };
 
-    })
+    }, [])
 
     return <div className="map-mode-container">
                 <div>
