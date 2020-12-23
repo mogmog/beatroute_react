@@ -24,7 +24,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5df05bf9-b1a4-4469-8dd2-ef0b64caba2e" name="Default Changelist" comment="" />
+    <list default="true" id="5df05bf9-b1a4-4469-8dd2-ef0b64caba2e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +145,7 @@
       <workItem from="1607956873654" duration="560000" />
       <workItem from="1608468457917" duration="4234000" />
       <workItem from="1608476723879" duration="9168000" />
-      <workItem from="1608645032698" duration="28144000" />
+      <workItem from="1608645032698" duration="29208000" />
     </task>
     <task id="LOCAL-00001" summary="wip">
       <created>1602593335196</created>

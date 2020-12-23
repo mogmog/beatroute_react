@@ -226,7 +226,7 @@ export default class extends Component {
 
                         layers={layers}/> }
 
-                    {true && !this.state.firstLoad  && !this.state.deckActive && <div>cache<img onClick={() => {
+                    {false && !this.state.firstLoad  && !this.state.deckActive && <div>cache<img onClick={() => {
 
                         this.setState({editMap : true, editingMap : true}, ()=> {
                             this.setState({ screenshot : null})

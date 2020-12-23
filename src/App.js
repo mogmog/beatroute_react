@@ -177,7 +177,7 @@ const App = () => {
                       </div>
                     }
 
-                    if (card.type === 'Landscape') {
+                    if (true && card.type === 'Landscape') {
 
                       return  <div className="App-section" key={i} ref={addToRefs}>
                                 {admin && <code>{card.id} landscape</code>}
