@@ -11230,6 +11230,11 @@ probe.gl@^3.2.1:
     "@babel/runtime" "^7.0.0"
     "@probe.gl/stats" "3.3.0"
 
+procedural-gl@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/procedural-gl/-/procedural-gl-1.0.6.tgz#c75ae279f7fcbc253f4aa73d7b5a3958d3a6575a"
+  integrity sha512-QvUMJw/E4eODuYTitriu4WFmrZMXum9lV5Btwt/u5g/5ze2O0jBJN796GIwOjOxIyhrP7hNR+CY1J0KQ/SwQNg==
+
 process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"

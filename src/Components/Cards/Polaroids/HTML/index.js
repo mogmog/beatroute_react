@@ -10,6 +10,7 @@ export default function Index() {
 
     };
 
+
     return (
         <div className="mask-mode-container">
 

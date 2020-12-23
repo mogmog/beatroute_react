@@ -1,0 +1,40 @@
+.map-mode-container {
+  width: 500px;
+  margin: auto;
+
+
+  .frame {
+    width: 100%;
+    background-image: url('/textures/polaroid_frame.png');
+    background-size: contain;
+  }
+
+  .mask-mode {
+    width: 100%;
+    height:100%;
+    display: inline-block;
+    position: relative;
+    mask-mode: alpha;
+    mask-repeat: no-repeat;
+    mask-type: luminance;
+    mask-clip: border-box;
+    mask-size: 100% 100%;
+    mask-image: url('/textures/polaroid_mask.png');
+
+    .Procedural {
+      width: 100%;
+      height: 300px;
+    }
+  }
+
+
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .mask-mode-container {
+    width: 100%;
+  }
+}

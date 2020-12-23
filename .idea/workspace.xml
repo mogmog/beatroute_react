@@ -25,13 +25,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5df05bf9-b1a4-4469-8dd2-ef0b64caba2e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/textures/polaroid_frame.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/textures/polaroid_mask.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Polaroids/HTML/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Polaroids/HTML/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/textures/mapmask.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Landscape/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Landscape/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Front/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Front/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Adder/AddSketch/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Adder/AddSketch/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Polaroids/HTML/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Polaroids/HTML/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Procedural/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Procedural/index.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +154,7 @@
       <workItem from="1607956873654" duration="560000" />
       <workItem from="1608468457917" duration="4234000" />
       <workItem from="1608476723879" duration="9168000" />
-      <workItem from="1608645032698" duration="17393000" />
+      <workItem from="1608645032698" duration="23434000" />
     </task>
     <task id="LOCAL-00001" summary="wip">
       <created>1602593335196</created>
@@ -361,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608674902644</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="html photos">
+      <created>1608739149915</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1608739149915</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,7 +419,8 @@
     <MESSAGE value="dfgdg" />
     <MESSAGE value="wip" />
     <MESSAGE value="multiple features for arrows" />
-    <option name="LAST_COMMIT_MESSAGE" value="multiple features for arrows" />
+    <MESSAGE value="html photos" />
+    <option name="LAST_COMMIT_MESSAGE" value="html photos" />
   </component>
   <component name="WindowStateProjectService">
     <state x="292" y="162" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605386613787">
@@ -429,11 +442,11 @@
     <state x="209" y="140" width="1192" height="697" key="DiffContextDialog/0.23.1680.975@0.23.1680.975" timestamp="1604592637392" />
     <state x="209" y="140" width="1344" height="782" key="DiffContextDialog/0.23.1680.978@0.23.1680.978" timestamp="1606323038571" />
     <state x="209" y="140" width="1192" height="700" key="DiffContextDialog/0.23.1680.979@0.23.1680.979" timestamp="1605354624985" />
-    <state x="626" y="224" key="RollbackChangesDialog" timestamp="1608664345073">
-      <screen x="0" y="23" width="1680" height="967" />
+    <state x="626" y="225" key="RollbackChangesDialog" timestamp="1608750170488">
+      <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state x="626" y="224" key="RollbackChangesDialog/0.23.1680.967@0.23.1680.967" timestamp="1608664345073" />
-    <state x="626" y="225" key="RollbackChangesDialog/0.23.1680.970@0.23.1680.970" timestamp="1608647162509" />
+    <state x="626" y="225" key="RollbackChangesDialog/0.23.1680.970@0.23.1680.970" timestamp="1608750170488" />
     <state x="626" y="227" key="RollbackChangesDialog/0.23.1680.978@0.23.1680.978" timestamp="1606322996431" />
     <state x="626" y="227" key="RollbackChangesDialog/0.23.1680.979@0.23.1680.979" timestamp="1605360431383" />
     <state x="232" y="74" key="SettingsEditor" timestamp="1605477621288">
@@ -459,11 +472,11 @@
     </state>
     <state x="590" y="157" width="883" height="739" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.1680.975@0.23.1680.975" timestamp="1604592637393" />
     <state x="590" y="158" width="883" height="743" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.1680.979@0.23.1680.979" timestamp="1605202324765" />
-    <state x="348" y="45" width="1075" height="714" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1608471084365">
+    <state x="348" y="45" width="1075" height="714" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1608750645124">
       <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state x="348" y="45" width="1075" height="712" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.967@0.23.1680.967" timestamp="1603653291372" />
-    <state x="348" y="45" width="1075" height="714" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.970@0.23.1680.970" timestamp="1608471084365" />
+    <state x="348" y="45" width="1075" height="714" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.970@0.23.1680.970" timestamp="1608750645124" />
     <state x="348" y="45" width="1075" height="716" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.972@0.23.1680.972" timestamp="1607857839277" />
     <state x="348" y="45" width="1075" height="717" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.973@0.23.1680.973" timestamp="1604252427721" />
     <state x="348" y="45" width="1075" height="717" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.974@0.23.1680.974" timestamp="1603450987260" />

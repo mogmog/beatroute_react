@@ -15,7 +15,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import Front        from "./Components/Cards/Front";
 import Title        from "./Components/Cards/Title";
-// //import PhotosOnMap  from "./Components/Cards/PhotosOnMap";
+import Landscape  from "./Components/Cards/Landscape";
 import Sketch     from "./Components/Cards/Sketch";
 import Polaroids  from "./Components/Cards/Polaroids/HTML";
 import SVGScroll from './Components/svg-scroll/SVGScroll';
@@ -177,13 +177,13 @@ const App = () => {
                       </div>
                     }
 
-                    // if (card.type === 'PhotosOnMap') {
-                    //
-                    //   return  <div className="App-section" key={i} ref={addToRefs}>
-                    //             {admin && <code>{card.id}</code>}
-                    //             <PhotosOnMap width={width} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
-                    //           </div>
-                    // }
+                    if (card.type === 'Landscape') {
+
+                      return  <div className="App-section" key={i} ref={addToRefs}>
+                                {admin && <code>{card.id} landscape</code>}
+                                <Landscape width={width} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
+                              </div>
+                    }
 
                     if (card.type === 'Sketch') {
 

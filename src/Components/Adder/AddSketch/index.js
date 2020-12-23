@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import {message, notification} from "antd";
 import {Mutation} from "react-apollo";
 import gql from "graphql-tag";
 
@@ -10,7 +9,8 @@ mutation ($content : jsonb, $camera : jsonb, $polaroid_camera : jsonb, $trip_id 
   insert_cards(objects: [
                 {trip_id: $trip_id, type: "Title", content : $content, camera : $camera},
                 {trip_id: $trip_id, type: "Sketch", content : $content, camera : $camera},
-                {trip_id: $trip_id, type: "Polaroid", content : $content, camera : $polaroid_camera}
+                {trip_id: $trip_id, type: "Polaroid", content : $content, camera : $polaroid_camera},
+                {trip_id: $trip_id, type: "Landscape", content : $content, camera : $polaroid_camera}
                 ]) {
     returning {
       id
