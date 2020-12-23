@@ -17,7 +17,7 @@ import Front        from "./Components/Cards/Front";
 import Title        from "./Components/Cards/Title";
 // //import PhotosOnMap  from "./Components/Cards/PhotosOnMap";
 import Sketch     from "./Components/Cards/Sketch";
-import Polaroids  from "./Components/Cards/Polaroids";
+import Polaroids  from "./Components/Cards/Polaroids/HTML";
 import SVGScroll from './Components/svg-scroll/SVGScroll';
 //
 import CardAdder from './Components/Adder';
