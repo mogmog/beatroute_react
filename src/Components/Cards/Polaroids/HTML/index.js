@@ -14,7 +14,7 @@ export default function Index() {
     return (
         <div className="mask-mode-container">
 
-            {Array(3).fill(1).map((_, i) => (
+            {Array(2).fill(1).map((_, i) => (
                 <div key={i}  className='frame' style={{ transform: `rotate(${getRandomDeg(i)}deg)`}}>
                     <div className="mask-mode" >
                        <div >

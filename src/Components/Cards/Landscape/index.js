@@ -32,6 +32,7 @@ export default () => {
 
     return <div className="map-mode-container">
                 <div>
+                    {/*<img className='looking' src={'/textures/looking.jpg'}/>*/}
                     <div className="mask-mode" >
                         <div >
                             <div ref={containerRef} className={'Procedural'}/>
@@ -39,14 +40,5 @@ export default () => {
                     </div>
                 </div>
             </div>
-
-    return <div className='map-container'>
-
-            <div className="mask" >
-                <img src={process.env.PUBLIC_URL + '/textures/bird.png'} alt="" />
-                {/*<div ref={containerRef} className={'Procedural'}/>*/}
-            </div>
-
-    </div>
 
 }
