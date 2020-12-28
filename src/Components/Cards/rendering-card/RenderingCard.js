@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Landscape from './../../Landscape'
-import * as portals from "react-reverse-portal";
+
+
+import './styles.less';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Index(props) {
+function RenderingCard(props) {
     const [inViewport, setInViewport] = useState(false);
     const ref = useRef();
 
@@ -18,14 +19,12 @@ function Index(props) {
             start: 'top center',
             onEnter: () => {
                 setInViewport(true);
-                console.log('onEnter');
             },
             onEnterBack: () => {
                 setInViewport(true);
             },
             onLeave: () => {
                 setInViewport(false);
-                console.log('Leave');
             },
             onLeaveBack: () => {
                 setInViewport(false);
@@ -35,12 +34,16 @@ function Index(props) {
     }, []);
 
     return (
-        <div style={{height : '400px'}}>
-            <div>test</div>
-                {true && <portals.OutPortal node={props.portalNode} />}
-            <div>test2</div>
+        <div className="rendering-card" >
+            <div className="rendering-card-content" ref={ref}>
+                {inViewport ? 'IN VIEWPORT' : null}
+            </div>
         </div>
     );
 }
 
-export default Index;
+// RenderingCard.propTypes = {
+//     component: PropTypes.func.isRequired,
+// };
+
+export default RenderingCard;

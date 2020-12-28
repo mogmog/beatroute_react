@@ -21,6 +21,7 @@ import {Component} from 'react';
 import _ from "lodash";
 import Buttons from './Buttons'
 import './index.less'
+import * as d3 from "d3";
 
 const myFeatureCollection = {
     type: 'FeatureCollection',
@@ -74,6 +75,8 @@ export default class extends Component {
 
         this.search = _.debounce(e => e(), 300);
 
+        this.defaultViewstate = {map : props.card.camera || INIT_CAMERA, orth : {"orbitAxis":"Z","rotationX":0,"rotationOrbit":0,"target":[0,0,0],"zoom":1.5998110489966852}};
+
         this.state = {
             data: props.card.annotations || myFeatureCollection,
             firstLoad : true,
@@ -83,8 +86,9 @@ export default class extends Component {
             addInk : false,
             drawMode : null,
             useController : false,
-            viewState   :  {map : props.card.camera || INIT_CAMERA, orth : {"orbitAxis":"Z","rotationX":0,"rotationOrbit":0,"target":[0,0,0],"zoom":1.5998110489966852}}
+            viewState   :  this.defaultViewstate
         }
+
         let that = this;
 
         class Controller extends MapController {
@@ -97,7 +101,7 @@ export default class extends Component {
 
                 super.handleEvent(event);
 
-                if (event.type === 'panend' || event.type === 'wheel' ) {
+                if (!that.props.addLandscapeMode && (event.type === 'panend' || event.type === 'wheel' )) {
                     that.search(() => props.updateCard({variables : {card_id : that.props.card.id, camera : this.controllerState._viewportProps}}));
                 }
             }
@@ -105,6 +109,29 @@ export default class extends Component {
 
         that.controller = Controller;
 
+    }
+
+    saveLandscapeBound = (v) => {
+        const height = 500;
+        console.log(this.deckGL.deck);
+        const tl = ( this.deckGL.deck.viewManager._viewports[0].unproject([0, height],      {topLeft : false}));
+        const tr = ( this.deckGL.deck.viewManager._viewports[0].unproject([this.props.width, height],    {topLeft : false}));
+        const bl = ( this.deckGL.deck.viewManager._viewports[0].unproject([0,0],        {topLeft : false}));
+        const br = ( this.deckGL.deck.viewManager._viewports[0].unproject([this.props.width,0],      {topLeft : false}));
+
+        var bounds = {
+            ne: { latitude: tr[1], longitude: tr[0] },
+            sw: { latitude: bl[1], longitude: bl[0] }
+        };
+
+        this.props.updateLandscape({variables : {card_id : this.props.card.id, landscapecamera : bounds}});
+        console.log("br");
+        console.log(br);
+
+    }
+
+    revertView = () => {
+        this.setState({viewState : this.defaultViewstate});
     }
 
     render() {
@@ -149,7 +176,7 @@ export default class extends Component {
         return (
             <div>
 
-                {this.props.admin && <Buttons refetch={this.props.refetch} drawMode={this.state.drawMode} setDrawMode={(dm) => this.setState({ drawMode : dm })} addInk={this.state.addInk} deckActive={this.props.deckActive} cesiumActive={this.props.cesiumActive} revert={this.revert} fit={this.fit2} setDeckActive={this.props.setDeckActive} setCesiumActive={this.props.setCesiumActive} card={this.props.card} setFirstLoad={() => this.setState({firstLoad : true})} setAddInk={() => this.setState({addInk : !this.state.addInk})} fit={this.fit2}/> }
+                {this.props.admin && <Buttons saveLandscapeBound={this.saveLandscapeBound} viewState={this.state.viewState} revertView={this.revertView} addLandscapeMode={this.props.addLandscapeMode} refetch={this.props.refetch} drawMode={this.state.drawMode} setDrawMode={(dm) => this.setState({ drawMode : dm })} addInk={this.state.addInk} deckActive={this.props.deckActive} cesiumActive={this.props.cesiumActive} revert={this.revert} fit={this.fit2} setDeckActive={this.props.setDeckActive} setCesiumActive={this.props.setCesiumActive} card={this.props.card} setFirstLoad={() => this.setState({firstLoad : true})} setAddInk={() => this.setState({addInk : !this.state.addInk})} fit={this.fit2} setAddLandScapeMode={this.props.setAddLandScapeMode}/> }
 
                 <div className="Deck" style={{width : this.props.width + 'px', height : this.props.width + 'px', pointerEvents : this.props.deckActive ? 'all' : 'none'}}>
 

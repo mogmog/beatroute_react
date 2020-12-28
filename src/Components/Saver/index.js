@@ -39,6 +39,18 @@ mutation( $card_id : Int,  $annotations : jsonb){
                 }
 `;
 
+const SAVE_LANDSCAPE = gql`
+
+mutation( $card_id : Int,  $landscapecamera : jsonb){
+                update_cards(where: {id: {_eq: $card_id}}, _set: {landscapecamera: $landscapecamera}) {
+                    returning {
+                                camera
+                                id
+                              }
+                    }
+                }
+`;
+
 export default ({refetch, children}) => {
 
     return <div>
@@ -61,13 +73,24 @@ export default ({refetch, children}) => {
                                     <Mutation
                                         onError={() => alert('Could not save camera')}
                                         mutation={SAVE_ANNOTATION}
-                                        onCompleted={() => refetch()}
                                     >
 
                                         {(updateAnnotation, {loading, error}) => {
 
                                             return <Fragment>
-                                                {children(updateCamera, updateMap, updateAnnotation, loading, error)}
+                                                        <Mutation
+                                                            onError={() => alert('Could not save landscaape')}
+                                                            mutation={SAVE_LANDSCAPE}
+                                                            onCompleted={() => refetch()}
+                                                        >
+
+                                                            {(updateLandscape, {loading, error}) => {
+
+                                                                return <Fragment>
+                                                                    {children(updateCamera, updateMap, updateAnnotation, updateLandscape, loading, error)}
+                                                                </Fragment>
+                                                            }}
+                                                        </Mutation>
                                             </Fragment>
                                         }}
                                     </Mutation>

@@ -13,12 +13,18 @@ import { ApolloProvider } from "react-apollo";
 import { Query } from "react-apollo";
 
 import gql from "graphql-tag";
+
+import * as portals from 'react-reverse-portal';
+
+import Landscape  from "./Components/Landscape";
+
 import Front        from "./Components/Cards/Front";
 import Title        from "./Components/Cards/Title";
-import Landscape  from "./Components/Cards/Landscape";
 import Sketch     from "./Components/Cards/Sketch";
 import Polaroids  from "./Components/Cards/Polaroids/HTML";
 import SVGScroll from './Components/svg-scroll/SVGScroll';
+
+import RenderingCard from "./Components/Cards/rendering-card/RenderingCard";
 //
 import CardAdder from './Components/Adder';
 
@@ -42,6 +48,7 @@ const GETCARD = gql`
                       camera
                       content
                       annotations
+                      landscapecamera
                       assets {
                         data
                       }
@@ -85,7 +92,11 @@ const httpLink = new HttpLink({ uri: 'https://beatroute2019.herokuapp.com/v1/gra
 
 const client = new ApolloClient({ link: (httpLink), cache: new InMemoryCache() });
 
+const landscape = () => <Landscape/>
+
 const App = () => {
+
+  const portalNode = React.useMemo(() => portals.createHtmlPortalNode(), []);
 
   const componentRef = useRef()
 
@@ -126,15 +137,12 @@ const App = () => {
 
   const addToRefs = el => {
     if (el && !revealRefs.current.includes(el)) {
-        revealRefs.current.push(el);
+        //revealRefs.current.push(el);
     }
   };
 
   const admin = true;
 
- // return  <div>test</div>
-  //return   <Signature/>
-  //test3
  return (
     <div className="App">
 
@@ -157,6 +165,10 @@ const App = () => {
 
                 <main className="App-main">
 
+                  <portals.InPortal node={portalNode}>
+                 <div style={{backgroundColor : 'red', height : '200px'}}>TEST</div>
+                  </portals.InPortal>
+
                   {/*<div className="App-section" style={{height : '100%'}}>*/}
                   {/*  {stillLoading && <code>loading  please wait</code> }*/}
                   {/*</div>*/}
@@ -177,19 +189,12 @@ const App = () => {
                       </div>
                     }
 
-                    if (true && card.type === 'Landscape') {
+
+                    if (true && card.type === 'Sketch') {
 
                       return  <div className="App-section" key={i} ref={addToRefs}>
-                                {admin && <code>{card.id} landscape</code>}
-                                <Landscape width={width} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
-                              </div>
-                    }
-
-                    if (card.type === 'Sketch') {
-
-                      return  <div className="App-section" key={i} ref={addToRefs}>
-                        {false && admin && <code>{JSON.stringify(card.annotations)}</code>}
-                        <Sketch width={width < 500 ? width : 500} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card} refetch={refetch}/>
+                        { admin && <code>{JSON.stringify(card.annotations)}</code>}
+                        <Sketch portalNode={portalNode} width={width < 500 ? width : 500} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card} refetch={refetch}/>
                       </div>
                     }
 
