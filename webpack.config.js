@@ -1,80 +1,102 @@
-const path = require('path');
+"use strict";
 
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require("path");
 
-module.exports = [{
-    mode: 'development',
-    context: __dirname,
+const webpack = require("webpack");
+const HtmlPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
+const cesiumSource = "node_modules/cesium/Source";
+const cesiumWorkers = "../Build/Cesium/Workers";
 
-    entry: {
-        app: './src/index.js'
-    },
-    output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
-    },
-    devtool: 'eval',
-    node: {
-        // Resolve node module use of fs
-        fs: "empty",
-        Buffer: false,
-        http: "empty",
-        https: "empty",
-        zlib: "empty"
-    },
-    resolve: {
-        mainFields: ['module', 'main']
-    },
-    module: {
-        rules: [
-
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                }
-            },
-            {
-                test: /\.html$/,
-                use: [
+module.exports = (_env, args) => {
+    const prod = args.mode === "production";
+    return {
+        context: __dirname,
+        devServer: {
+            hot: true,
+            port: 3000,
+            open: true,
+        },
+        devtool: !prod ? void 0 : "eval-source-map",
+        entry: ["./src/index2"],
+        mode: prod ? "production" : "development",
+        module: {
+            rules: [
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: "babel-loader",
+                        options: {
+                            plugins: prod ? [] : ["react-refresh/babel"],
+                        }
+                    },
+                },
+                {
+                    test: /\.css$/,
+                    use: ["style-loader", "css-loader"],
+                },
+                {
+                    test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
+                    use: ["url-loader"],
+                },
+                ...[
+                    prod
+                        ? {
+                            // Strip cesium pragmas
+                            test: /\.js$/,
+                            enforce: "pre",
+                            include: path.resolve(__dirname, cesiumSource),
+                            use: [
+                                {
+                                    loader: "strip-pragma-loader",
+                                    options: {
+                                        pragmas: {
+                                            debug: false,
+                                        },
+                                    },
+                                },
+                            ],
+                        }
+                        : {},
+                ],
+            ],
+        },
+        output: {
+            path: path.join(__dirname, "build"),
+        },
+        plugins: [
+            new webpack.DefinePlugin({
+                CESIUM_BASE_URL: JSON.stringify("/"),
+            }),
+            new CopyPlugin({
+                patterns: [
                     {
-                        loader: "html-loader"
-                    }
-                ]
+                        from: path.join(cesiumSource, cesiumWorkers),
+                        to: "Workers",
+                    },
+                    {
+                        from: path.join(cesiumSource, "Assets"),
+                        to: "Assets",
+                    },
+                    {
+                        from: path.join(cesiumSource, "Widgets"),
+                        to: "Widgets",
+                    },
+                ],
+            }),
+            new HtmlPlugin({
+                template: "index.html",
+            }),
+            ...(prod ? [] : [new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()]),
+        ],
+        resolve: {
+            alias: {
+                cesium$: "cesium/Cesium",
+                cesium: "cesium/Source",
             },
-            {
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader']
-        }, {
-            test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
-            use: ['url-loader']
-        }]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: 'src/index.html'
-        }),
-        // // Copy Cesium Assets, Widgets, and Workers to a static directory
-        // new CopyWebpackPlugin({
-        //     patterns: [
-        //         { from: 'node_modules/cesium/Build/Cesium/Workers', to: 'Workers' },
-        //         { from: 'node_modules/cesium/Build/Cesium/ThirdParty', to: 'ThirdParty' },
-        //         { from: 'node_modules/cesium/Build/Cesium/Assets', to: 'Assets' },
-        //         { from: 'node_modules/cesium/Build/Cesium/Widgets', to: 'Widgets' }
-        //     ],
-        // }),
-        // new webpack.DefinePlugin({
-        //     // Define relative base path in cesium for loading assets
-        //     CESIUM_BASE_URL: JSON.stringify('')
-        // })
-    ],
-
-    // development server options
-    devServer: {
-        contentBase: path.join(__dirname, "dist")
-    }
-}];
+        },
+    };
+};

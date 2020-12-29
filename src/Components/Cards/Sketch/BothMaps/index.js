@@ -50,7 +50,7 @@ export default class Component extends React.PureComponent {
 
                 </div>
 
-                <RenderingCard/>
+                <RenderingCard card={this.props.card} portalNode={this.props.portalNode}/>
                 {/*{true && <Landscape portalNode={this.props.portalNode} width={this.props.width} admin={this.props.admin} card={this.props.card}/> }*/}
 
             </div>

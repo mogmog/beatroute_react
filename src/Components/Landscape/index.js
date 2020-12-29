@@ -21,7 +21,7 @@ import './index.less'
 //
 // export default Alert;//new Singleton(Alert)
 
-export default ({card, inViewport}) => {
+export default (props) => {
 
     const containerRef = useRef(null);
 
@@ -39,30 +39,40 @@ export default ({card, inViewport}) => {
             }
         } );
 
-        Procedural.displayLocation( {
-            latitude:27.986065, longitude:86.92262
-        } );
+
+    }, []);
+
+    useEffect(() => {
+
+        var target = { latitude: 43.21, longitude: 6.133 };
+        Procedural.displayLocation( target );
+
+        Procedural.onUserInteraction = function () {
+          console.log(props);
+        }
 
         Procedural.onLocationFocused = function () {
             console.log( 'Location focused' );
         };
 
-    }, [])
+    }, [props.card])
 
     return <div>
 
         <img className={'balloon'} src={'/textures/balloon.png'}/>
 
-        <div className="map-mode-container">
-                <div>
-                    {/*<img className='looking' src={'/textures/looking.jpg'}/>*/}
-                    <div className="mask-mode" >
-                        <div >
-                            <div ref={containerRef} className={'Procedural'}/>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div ref={containerRef} className={'Procedural'}/>
+
+        {/*<div className="map-mode-container">*/}
+        {/*        <div>*/}
+        {/*            /!*<img className='looking' src={'/textures/looking.jpg'}/>*!/*/}
+        {/*            <div className="mask-mode" >*/}
+        {/*                <div >*/}
+        {/*                    <div ref={containerRef} className={'Procedural'}/>*/}
+        {/*                </div>*/}
+        {/*            </div>*/}
+        {/*        </div>*/}
+        {/*    </div>*/}
     </div>
 
 }

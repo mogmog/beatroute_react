@@ -17,6 +17,7 @@ import gql from "graphql-tag";
 import * as portals from 'react-reverse-portal';
 
 import Landscape  from "./Components/Landscape";
+import CesiumLandscape  from "./Components/Landscape/Cesium";
 
 import Front        from "./Components/Cards/Front";
 import Title        from "./Components/Cards/Title";
@@ -92,8 +93,6 @@ const httpLink = new HttpLink({ uri: 'https://beatroute2019.herokuapp.com/v1/gra
 
 const client = new ApolloClient({ link: (httpLink), cache: new InMemoryCache() });
 
-const landscape = () => <Landscape/>
-
 const App = () => {
 
   const portalNode = React.useMemo(() => portals.createHtmlPortalNode(), []);
@@ -159,67 +158,70 @@ const App = () => {
 
             return <Fragment>
 
+              <portals.InPortal node={portalNode}>
+                {/*<Landscape/>*/}
+
+                <CesiumLandscape refetch={refetch}/>
+
+              </portals.InPortal>
+
               <Measure bounds>
 
                 {({ measureRef, contentRect: { bounds: { width }} }) => (
 
-                <main className="App-main">
+                  <main className="App-main">
 
-                  <portals.InPortal node={portalNode}>
-                 <div style={{backgroundColor : 'red', height : '200px'}}>TEST</div>
-                  </portals.InPortal>
+                    {/*<div className="App-section" style={{height : '100%'}}>*/}
+                    {/*  {stillLoading && <code>loading  please wait</code> }*/}
+                    {/*</div>*/}
 
-                  {/*<div className="App-section" style={{height : '100%'}}>*/}
-                  {/*  {stillLoading && <code>loading  please wait</code> }*/}
-                  {/*</div>*/}
+                    {cards.map((card, i) => {
 
-                  {cards.map((card, i) => {
+                      if (card.type === 'Front') {
+                        return <div className="App-section" key={i} ref={addToRefs}>
+                                {admin && <code>{card.id}</code>}
+                                 <Front key={i + '' + card.id} card={card} index={i}/>
+                               </div>
+                      }
 
-                    if (card.type === 'Front') {
-                      return <div className="App-section" key={i} ref={addToRefs}>
-                              {admin && <code>{card.id}</code>}
-                               <Front key={i + '' + card.id} card={card} index={i}/>
-                             </div>
-                    }
-
-                    if (card.type === 'Title') {
-                      return <div className="App-section" key={i} ref={addToRefs}>
-                        {admin && <code>{card.id}</code>}
-                        <Title key={i + '' + card.id} card={card} i={i}/>
-                      </div>
-                    }
+                      if (card.type === 'Title') {
+                        return <div className="App-section" key={i} ref={addToRefs}>
+                          {admin && <code>{card.id}</code>}
+                          <Title key={i + '' + card.id} card={card} i={i}/>
+                        </div>
+                      }
 
 
-                    if (true && card.type === 'Sketch') {
+                      if (true && card.type === 'Sketch') {
 
-                      return  <div className="App-section" key={i} ref={addToRefs}>
-                        { admin && <code>{JSON.stringify(card.annotations)}</code>}
-                        <Sketch portalNode={portalNode} width={width < 500 ? width : 500} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card} refetch={refetch}/>
-                      </div>
-                    }
+                        return  <div className="App-section" key={i} ref={addToRefs}>
+                          { admin && <code>{JSON.stringify(card.annotations)}</code>}
+                          <Sketch portalNode={portalNode} width={width < 500 ? width : 500} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card} refetch={refetch}/>
+                        </div>
+                      }
 
-                    if (card.type === 'Polaroid') {
+                      if (card.type === 'Polaroid') {
 
-                      return  <div className="App-section" key={i} ref={addToRefs}>
-                        {admin && <code>{card.id}</code>}
-                        <Polaroids width={width < 500 ? width : 500} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
-                      </div>
-                    }
+                        return  <div className="App-section" key={i} ref={addToRefs}>
+                          {admin && <code>{card.id}</code>}
+                          <Polaroids width={width < 500 ? width : 500} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card}/>
+                        </div>
+                      }
 
-                    if (true && card.type === 'Scroll') {
-                      return <SVGScroll />
-                    }
+                      if (true && card.type === 'Scroll') {
+                        return <SVGScroll />
+                      }
 
-                    return null;
-                  })}
+                      return null;
+                    })}
 
-                  <div className="App-section" style={{height : '100%'}}>
-                    <CardAdder trip={trip} refetch={refetch}/>
-                  </div>
+                    <div className="App-section" style={{height : '100%'}}>
+                      <CardAdder trip={trip} refetch={refetch}/>
+                    </div>
 
-                  <div ref={measureRef}>My width is {width}</div>
+                    <div ref={measureRef}>My width is {width}</div>
 
-                </main>
+                  </main>
 
                   )}
               </Measure>

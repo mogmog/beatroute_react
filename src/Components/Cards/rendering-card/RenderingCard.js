@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-
+import * as portals from "react-reverse-portal";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -16,7 +16,8 @@ function RenderingCard(props) {
     useEffect(() => {
         ScrollTrigger.create({
             trigger: ref.current,
-            start: 'top center',
+            start: 'top bottom',
+            end: 'bottom top',
             onEnter: () => {
                 setInViewport(true);
             },
@@ -33,10 +34,12 @@ function RenderingCard(props) {
           });
     }, []);
 
+    //console.log(props);
+
     return (
         <div className="rendering-card" >
             <div className="rendering-card-content" ref={ref}>
-                {inViewport ? 'IN VIEWPORT' : null}
+                {inViewport ? <portals.OutPortal node={props.portalNode} card={props.card}  /> : null}
             </div>
         </div>
     );
