@@ -14,31 +14,33 @@ function RenderingCard(props) {
     const ref = useRef();
 
     useEffect(() => {
-        ScrollTrigger.create({
-            trigger: ref.current,
-            start: 'top bottom',
-            end: 'bottom top',
-            onEnter: () => {
-                setInViewport(true);
-            },
-            onEnterBack: () => {
-                setInViewport(true);
-            },
-            onLeave: () => {
-                setInViewport(false);
-            },
-            onLeaveBack: () => {
-                setInViewport(false);
-            },
-            scrub: 1
-          });
+        setTimeout(() => {
+            ScrollTrigger.create({
+                trigger: ref.current,
+                start: () => 'top bottom',
+                end: () => 'bottom top',
+                // end: '50% top',
+                markers: true,
+                onEnter: () => {
+                    setInViewport(true);
+                },
+                onEnterBack: () => {
+                    setInViewport(true);
+                },
+                onLeave: () => {
+                    setInViewport(false);
+                },
+                onLeaveBack: () => {
+                    setInViewport(false);
+                },
+                scrub: 1
+              });
+        }, 5000);
     }, []);
 
-    //console.log(props);
-
     return (
-        <div className="rendering-card" >
-            <div className="rendering-card-content" ref={ref}>
+        <div className="rendering-card" ref={ref}>
+            <div className="rendering-card-content">
                 {inViewport ? <portals.OutPortal node={props.portalNode} card={props.card}  /> : null}
             </div>
         </div>
