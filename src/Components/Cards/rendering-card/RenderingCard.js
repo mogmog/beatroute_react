@@ -19,8 +19,6 @@ function RenderingCard(props) {
                 trigger: ref.current,
                 start: () => 'top bottom',
                 end: () => 'bottom top',
-                // end: '50% top',
-                markers: true,
                 onEnter: () => {
                     setInViewport(true);
                 },
@@ -47,8 +45,9 @@ function RenderingCard(props) {
     );
 }
 
-// RenderingCard.propTypes = {
-//     component: PropTypes.func.isRequired,
-// };
+RenderingCard.propTypes = {
+    portalNode: PropTypes.node.isRequired,
+    card: PropTypes.any,
+};
 
 export default RenderingCard;
