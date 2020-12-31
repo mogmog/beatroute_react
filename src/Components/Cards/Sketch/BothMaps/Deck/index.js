@@ -1,27 +1,15 @@
 import React, {Fragment, useState} from 'react';
 import DeckGL from '@deck.gl/react';
-
-import {SimpleMeshLayer} from '@deck.gl/mesh-layers';
 import {MapController, LinearInterpolator, FlyToInterpolator} from '@deck.gl/core';
-//import SketchLine from '../Layers/CanvasLayer/SketchLine'
 import { LightingEffect, AmbientLight, _CameraLight} from '@deck.gl/core';
 
 import {Controller,  MapView, OrthographicView} from '@deck.gl/core';
 import MapMaskLayer from '../Layers/MaskLayer'
 
-import EditableLayer from './../Layers/Editable'
-import {BitmapLayer} from '@deck.gl/layers';
-import {TileLayer} from '@deck.gl/geo-layers';
-
-import {EditableGeoJsonLayer, DrawPolygonMode, DrawCircleByDiameterMode,  DrawPointMode, DrawLineStringMode} from 'nebula.gl';
-import {COORDINATE_SYSTEM} from '@deck.gl/core';
-
-import CanvasLayer from "./CanvasLayer";
 import {Component} from 'react';
 import _ from "lodash";
 import Buttons from './Buttons'
 import './index.less'
-import * as d3 from "d3";
 
 const myFeatureCollection = {
     type: 'FeatureCollection',

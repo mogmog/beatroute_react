@@ -83,7 +83,7 @@ class CesiumComponent extends Component {
         return (
             <Viewer
                 terrainProvider={terrainProvider}
-                style={{  zIndex : 0, opacity : 1,  zoom : 1.0, width : '100%', height : '400px'}}
+                style={{  pointerEvents : 'none', zIndex : 0, opacity : 1,  zoom : 1.0, width : '100%', height : '400px'}}
                 ref={e => {
                     this.viewer = e ? e.cesiumElement : undefined;
                 }}

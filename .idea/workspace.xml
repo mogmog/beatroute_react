@@ -25,18 +25,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5df05bf9-b1a4-4469-8dd2-ef0b64caba2e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Components/Landscape/Cesium/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/craco.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/craco.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppOld.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Sketch/BothMaps/Deck/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/rendering-card/RenderingCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/rendering-card/RenderingCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Cards/rendering-card/styles.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/rendering-card/styles.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Landscape/Cesium/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Landscape/Cesium/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Landscape/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Landscape/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Landscape/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Landscape/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +46,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="experimnt" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
@@ -478,11 +485,11 @@
     </state>
     <state x="435" y="315" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.967@0.23.1680.967" timestamp="1602506291844" />
     <state x="435" y="316" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.970@0.23.1680.970" timestamp="1601894192454" />
-    <state x="336" y="217" width="1344" height="776" key="DiffContextDialog" timestamp="1609191993783">
+    <state x="336" y="217" width="1344" height="776" key="DiffContextDialog" timestamp="1609416316561">
       <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state x="209" y="139" width="1192" height="691" key="DiffContextDialog/0.23.1680.967@0.23.1680.967" timestamp="1603798953114" />
-    <state x="336" y="217" width="1344" height="776" key="DiffContextDialog/0.23.1680.970@0.23.1680.970" timestamp="1609191993783" />
+    <state x="336" y="217" width="1344" height="776" key="DiffContextDialog/0.23.1680.970@0.23.1680.970" timestamp="1609416316561" />
     <state x="209" y="140" width="1344" height="778" key="DiffContextDialog/0.23.1680.972@0.23.1680.972" timestamp="1606768403648" />
     <state x="209" y="140" width="899" height="695" key="DiffContextDialog/0.23.1680.973@0.23.1680.973" timestamp="1603394160946" />
     <state x="209" y="140" width="1344" height="779" key="DiffContextDialog/0.23.1680.974@0.23.1680.974" timestamp="1607542820835" />
@@ -541,12 +548,12 @@
     </state>
     <state x="805" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.972@0.23.1680.972" timestamp="1604259244685" />
     <state x="805" y="477" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.975@0.23.1680.975" timestamp="1603183099907" />
-    <state x="742" y="259" width="703" height="490" key="find.popup" timestamp="1609191503732">
-      <screen x="0" y="23" width="1680" height="970" />
+    <state x="742" y="260" width="659" height="490" key="find.popup" timestamp="1609432438864">
+      <screen x="0" y="23" width="1680" height="972" />
     </state>
     <state x="742" y="258" width="703" height="490" key="find.popup/0.23.1680.967@0.23.1680.967" timestamp="1607532567259" />
     <state x="742" y="259" width="703" height="490" key="find.popup/0.23.1680.970@0.23.1680.970" timestamp="1609191503732" />
-    <state x="742" y="260" width="598" height="490" key="find.popup/0.23.1680.972@0.23.1680.972" timestamp="1603639826145" />
+    <state x="742" y="260" width="659" height="490" key="find.popup/0.23.1680.972@0.23.1680.972" timestamp="1609432438864" />
     <state x="742" y="260" width="721" height="491" key="find.popup/0.23.1680.973@0.23.1680.973" timestamp="1607543184648" />
     <state x="742" y="260" width="700" height="492" key="find.popup/0.23.1680.974@0.23.1680.974" timestamp="1606912988062" />
     <state x="742" y="260" width="598" height="495" key="find.popup/0.23.1680.975@0.23.1680.975" timestamp="1603023714629" />

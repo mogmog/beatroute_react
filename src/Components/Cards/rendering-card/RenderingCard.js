@@ -33,7 +33,7 @@ function RenderingCard(props) {
                 },
                 scrub: 1
               });
-        }, 5000);
+        }, 1000);
     }, []);
 
     return (

@@ -1,5 +1,5 @@
 {
-  "name": "cke-craco",
+  "name": "beatroute",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,11 +15,9 @@
     "apollo-link-ws": "^1.0.20",
     "autosize": "^4.0.2",
     "canvg": "^3.0.7",
-    "cesium": "^1.76.0",
     "cloudinary-core": "^2.8.2",
     "cloudinary-react": "^1.5.0",
     "craco-antd": "^1.10.0",
-    "craco-cesium": "^1.2.0",
     "craco-less": "^1.7.0",
     "d3": "^5.15.0",
     "d3-ease": "^2.0.0",
@@ -45,7 +43,7 @@
     "react-spring": "^8.0.27",
     "react-textarea-autosize": "^8.3.0",
     "react-wired-elements": "^0.1.6",
-    "resium": "^1.11.0",
+
     "roughjs": "^4.3.1",
     "sharp": "^0.26.3",
     "signature_pad": "^3.0.0-beta.4",

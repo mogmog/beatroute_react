@@ -1,32 +1,32 @@
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const WebpackBar = require("webpackbar");
-const cssRegex = /\.css$/;
-const cssModuleRegex = /\.module\.css$/;
 const CracoAntDesignPlugin = require("craco-antd");
 const path = require("path");
 
+const projectsRoot = __dirname + "/"
+
+// Don't open the browser during development (prevent new browser tab on every restart)
+process.env.BROWSER = "none";
+
 module.exports = {
-
+  webpack: {
+    plugins: [
+      new WebpackBar({ profile: true }),
+      ...(process.env.NODE_ENV === "development"
+          ? [new BundleAnalyzerPlugin({ openAnalyzer: false })]
+          : [])
+    ]
+  },
   plugins: [
-
-    {
-      plugin: require("craco-cesium")(),
-
-    },
-
     {
       plugin: CracoAntDesignPlugin,
       options: {
+
         customizeThemeLessPath: path.join(
-            __dirname,
+            projectsRoot,
             "src/customTheme.less"
         )
       }
     }
-  ],
-
-  webpack: {
-    headers: {
-    }
-  }
+  ]
 };

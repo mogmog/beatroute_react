@@ -17,7 +17,7 @@ import gql from "graphql-tag";
 import * as portals from 'react-reverse-portal';
 
 import Landscape  from "./Components/Landscape";
-import CesiumLandscape  from "./Components/Landscape/Cesium";
+//import CesiumLandscape  from "./Components/Landscape/Cesium";
 
 import Front        from "./Components/Cards/Front";
 import Title        from "./Components/Cards/Title";
@@ -159,9 +159,9 @@ const App = () => {
             return <Fragment>
 
               <portals.InPortal node={portalNode}>
-                {/*<Landscape/>*/}
+                <Landscape/>
 
-                <CesiumLandscape refetch={refetch}/>
+                {/*<CesiumLandscape refetch={refetch}/>*/}
 
               </portals.InPortal>
 
@@ -195,7 +195,7 @@ const App = () => {
                       if (true && card.type === 'Sketch') {
 
                         return  <div className="App-section" key={i} ref={addToRefs}>
-                          { admin && <code>{JSON.stringify(card.annotations)}</code>}
+                          { admin && <code>{JSON.stringify(card.id)}</code>}
                           <Sketch portalNode={portalNode} width={width < 500 ? width : 500} admin={admin} stillLoading={stillLoading} incrementLoadedCount={() => setLoadedCount(loadedCount + 1)} key={i + '' + card.id} index={i} card={card} refetch={refetch}/>
                         </div>
                       }

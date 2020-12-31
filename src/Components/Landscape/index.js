@@ -1,25 +1,6 @@
 import React, {Component, useRef, useEffect} from 'react'
 import Procedural from 'procedural-gl'
-import Singleton from 'react-singleton'
 import './index.less'
-
-// class Alert extends Component {
-//
-//     state = {
-//         counter : 1
-//     }
-//     componentDidMount() {
-//         window.setInterval(()=> {
-//             this.setState({counter : this.state.counter + 1})
-//         }, 100)
-//     }
-//
-//     render() {
-//         return <div style={{backgroundColor : 'red', height: '400px'}}> alert {this.state.counter}</div>
-//     }
-// }
-//
-// export default Alert;//new Singleton(Alert)
 
 export default (props) => {
 
@@ -35,6 +16,7 @@ export default (props) => {
                 },
                 imagery: {
                     urlFormat: 'https://api.maptiler.com/tiles/satellite/{z}/{x}/{y}.jpg?key=cZQg2QaktSnI18BSAxZX',
+                    attribution: '<a href="https://www.maptiler.com/copyright/">Maptiler</a> <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 }
             }
         } );
@@ -61,18 +43,15 @@ export default (props) => {
 
         <img className={'balloon'} src={'/textures/balloon.png'}/>
 
-        <div ref={containerRef} className={'Procedural'}/>
-
-        {/*<div className="map-mode-container">*/}
-        {/*        <div>*/}
-        {/*            /!*<img className='looking' src={'/textures/looking.jpg'}/>*!/*/}
-        {/*            <div className="mask-mode" >*/}
-        {/*                <div >*/}
-        {/*                    <div ref={containerRef} className={'Procedural'}/>*/}
-        {/*                </div>*/}
-        {/*            </div>*/}
-        {/*        </div>*/}
-        {/*    </div>*/}
+        <div className="map-mode-container">
+                <div>
+                    <div className="mask-mode" >
+                        <div >
+                            <div ref={containerRef} className={'Procedural'}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
 
 }
