@@ -62,18 +62,20 @@ class CesiumComponent extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.card !== this.props.card && this.props.card.landscapecamera) {
-            this.viewer.camera.flyTo({
-                destination: new Cesium.Cartesian3(
-                    this.props.card.landscapecamera.position.x,
-                    this.props.card.landscapecamera.position.y,
-                    this.props.card.landscapecamera.position.z,
-                ),
-                orientation: {
-                    direction   : new Cesium.Cartesian3(this.props.card.landscapecamera.direction.x,    this.props.card.landscapecamera.direction.y,    this.props.card.landscapecamera.direction.z),
-                    up          : new Cesium.Cartesian3(this.props.card.landscapecamera.up.x,           this.props.card.landscapecamera.up.y,           this.props.card.landscapecamera.up.z)
-                },
-                duration: 0
-            });
+            if (this.props.card.landscapecamera.position) {
+                this.viewer.camera.flyTo({
+                    destination: new Cesium.Cartesian3(
+                        this.props.card.landscapecamera.position.x,
+                        this.props.card.landscapecamera.position.y,
+                        this.props.card.landscapecamera.position.z,
+                    ),
+                    orientation: {
+                        direction   : new Cesium.Cartesian3(this.props.card.landscapecamera.direction.x,    this.props.card.landscapecamera.direction.y,    this.props.card.landscapecamera.direction.z),
+                        up          : new Cesium.Cartesian3(this.props.card.landscapecamera.up.x,           this.props.card.landscapecamera.up.y,           this.props.card.landscapecamera.up.z)
+                    },
+                    duration: 0
+                });
+            }
         }
     }
 
