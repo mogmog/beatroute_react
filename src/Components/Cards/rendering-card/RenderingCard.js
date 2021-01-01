@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import * as portals from "react-reverse-portal";
 import { gsap } from 'gsap';
@@ -13,28 +13,31 @@ function RenderingCard(props) {
     const [inViewport, setInViewport] = useState(false);
     const ref = useRef();
 
-    useEffect(() => {
-        setTimeout(() => {
-            ScrollTrigger.create({
-                trigger: ref.current,
-                start: () => 'top bottom',
-                end: () => 'bottom top',
-                onEnter: () => {
-                    setInViewport(true);
-                },
-                onEnterBack: () => {
-                    setInViewport(true);
-                },
-                onLeave: () => {
-                    setInViewport(false);
-                },
-                onLeaveBack: () => {
-                    setInViewport(false);
-                },
-                scrub: 1
-              });
-        }, 1000);
-    }, []);
+    useLayoutEffect(() => {
+       const scroller =  ScrollTrigger.create({
+            trigger: ref.current,
+            start: () => 'top bottom',
+            end: () => 'bottom top',
+            markers: true,
+            onEnter: () => {
+                setInViewport(true);
+            },
+            onEnterBack: () => {
+                setInViewport(true);
+            },
+            onLeave: () => {
+                setInViewport(false);
+            },
+            onLeaveBack: () => {
+                setInViewport(false);
+            },
+            scrub: 1
+          });
+
+        return () => {
+            scroller.kill();
+        }
+    });
 
     return (
         <div className="rendering-card" ref={ref}>
