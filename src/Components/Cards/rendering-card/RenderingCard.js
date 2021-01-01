@@ -18,7 +18,6 @@ function RenderingCard(props) {
             trigger: ref.current,
             start: () => 'top bottom',
             end: () => 'bottom top',
-            markers: true,
             onEnter: () => {
                 setInViewport(true);
             },
